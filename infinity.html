@@ -401,7 +401,7 @@ console.log('ID:', localStorage.getItem('id'));*/
           </div>
         </div>
         <div class="popup-reward-button">
-          <button class="cta-button">OOOOOK - LET'S ROCK IT!</button>
+          <button class="cta-button" onclick="openForm()">OOOOOK - LET'S ROCK IT!</button>
         </div>
       </div>
     </div>
@@ -412,6 +412,7 @@ console.log('ID:', localStorage.getItem('id'));*/
 	 document.getElementById("popupForm").classList.remove("popupFormDisable");
       document.getElementById("popupForm").classList.add("popupFormActive");
       document.body.style.overflow = "hidden";
+		  document.getElementById("popupReward").classList.add("close-form-container");
     } 
 
     function closeForm() {
