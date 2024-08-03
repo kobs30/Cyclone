@@ -1,0 +1,20 @@
+.root {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background-color: #000;
+  z-index: 99; }
+
+.logo {
+  width: 207px;
+  height: 56px; }
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1216px;
+  margin: 0 auto;
+  height: 80px; }

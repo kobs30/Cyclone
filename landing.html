@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Infinity Drop</title>
+  <link rel="stylesheet" href="./css/index.css" />
+  <link rel="stylesheet" href="./css/landing.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet" />
+</head>
+
+<body>
+  <div>
+    <div class="container">
+      <header>
+        <div class="header-col">
+          <a href="index.html" class="header__homepage-link">
+            <img src="./images/cyclone-logo.png" alt="Cyclone Logo" class="logo" />
+          </a>
+        </div>
+        <div class="header-col">
+          <img src="./images/Vector.png" alt="Header Icon" class="icon" />
+        </div>
+        <div class="header-col mobile">
+          <button class="wallet">
+            <span>
+              <img src="./images/icon.png" class="wallet-icon" /> WALLET
+            </span>
+          </button>
+        </div>
+      </header>
+
+      <div class="content">
+        <h1 class="gradient-text">Infinity Drop</h1>
+        <button class="cta-button" onclick="openForm()">I'M ON IT</button>
+
+        <!-- <div class="button-container">
+            <button class="button registration-button">REGISTRATION</button>
+            <button class="button connect-wallet-button">CONNECT WALLET</button>
+          </div> -->
+      </div>
+      <div class="gradient-background"></div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="icon-section">
+      <div class="icon-item">
+        <div class="icon-circle">
+          <div class="back-circle">
+            <img src="./images/discord.png" alt="Discord" />
+          </div>
+        </div>
+        <div class="icon-text">
+          <p class="icon-title">Join</p>
+          <p class="icon-subtitle">Community</p>
+        </div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-circle" onclick="openReward()" id="openReward">
+          <div class="back-circle">
+            <img src="./images/whats.png" alt="Question" />
+          </div>
+          <!-- <div class="tooltip">
+            <p>
+              We will divide the Our Validator licenses into 10,000 unique NFTs, ownership of which means that you will
+              receive a percentage of the of the Network Circulation - constantly for your entire life!
+              The more actions you take in the network and in society during the Testnet, the more chance you have to
+              win NFT, and the more
+              you will reap infinity!
+
+            </p>
+          </div> -->
+        </div>
+        <div class="icon-text">
+          <p class="icon-title">Reward</p>
+          <p class="icon-subtitle">What Drop? </p>
+        </div>
+      </div>
+      <div class="icon-item">
+        <div class="icon-circle">
+          <div class="back-circle">
+            <img src="./images/rules.png" alt="Rules" />
+          </div>
+        </div>
+        <div class="icon-text">
+          <p class="icon-title">Rules</p>
+          <p class="icon-subtitle">Learn More.</p>
+        </div>
+      </div>
+    </div>
+    <div class="main-site">
+      <a href="#" class="main-site-link">
+        <span>MAIN SITE
+          <img src="./images/arrow-right.png" alt="arrow right" class="arrow-right" />
+        </span>
+      </a>
+    </div>
+  </div>
+
+  <div class="form-popup" id="popupForm">
+    <form action="/submit" class="form-container" id="infinityForm">
+      <a class="close" onclick="closeForm()" id="closeFormPopup">&times;</a>
+
+      <h2>Infinity Drop</h2>
+      <p>
+        This initiative, which will feature an unlimited airdrop, aims to
+        reward the most dedicated, talented, and active participants of our
+        test network. To join this program, please make sure you have reviewed
+        its <span class="gradient-text">unique features and rules </span> and
+        fill out this form.
+      </p>
+      <label for="name"><b>Your:</b></label>
+      <input type="text" placeholder="Name or Nickname" name="name" required />
+
+      <label for="participant-role">I join as:</label>
+      <span class="label-info">Please choose your main participant role</span>
+      <select id="participant-role" class="gradient-select">
+        <option value="enthusiast">Enthusiast / DropHunter</option>
+        <option value="validator">Creator / Developer</option>
+        <option value="developer">Social Active Person</option>
+      </select>
+
+      <label for="twitter" class="for-twitter">
+        <span class="red"> * </span>
+
+        <b>Connect your X (formerly Twitter) account:</b></label>
+      <span class="label-info">Please verify your account by clicking the button below.</span>
+      <button type="button" class="connect-button">Connect X</button>
+
+      <div class="required-section">
+        <p class="form-title">REQUIRED</p>
+        <label class="checkbox-container">
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Must follow
+            <span class="gradient-text">@Cyclone_Chain</span></span>
+        </label>
+        <label class="checkbox-container">
+          <input type="checkbox" checked />
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Repost <span class="gradient-text">Infinity Drop Post</span>
+          </span>
+        </label>
+        <label class="checkbox-container">
+          <input type="checkbox" />
+          <span class="checkmark"></span>
+          <span class="checkbox-label">Join <span class="gradient-text">Discord</span></span>
+        </label>
+      </div>
+
+      <label for="wallet" class="label-paste">
+        <span class="red"> * </span>
+        <b>Paste your Cyclone Wallet address:</b></label>
+      <span class="label-info">Our Chain Non-custodial Wallet (Bitcoin Cryptography)</span>
+      <input type="text" placeholder="Cyclone Wallet Address" name="wallet" required />
+      <!-- <p class="error-message">This doesn't look like Cyclone's address!</p> -->
+      <p class="f-text">
+        By submitting this form, you agree to the
+        <a href="#" class="gradient-text">Infinity Drop Rules</a>.
+      </p>
+
+      <button type="submit" class="btn">Confirm and Join</button>
+    </form>
+  </div>
+
+
+  <div class="popup-success" id="successPopup">
+    <div class="popup-success-content">
+      <span class="close-btn" id="closeSuccessPopup">&times;</span>
+      <h3>Welcome - You're in!</h3>
+      <p class="gradient-text">Infinite Drop</p>
+      <p>The event will start in the coming months. <br>Stay tuned so you don't miss the beginning.</p>
+      <div class="success-image">
+        <img src="./images/success.png" alt="success">
+      </div>
+      <div class="popup-footer">
+        <div class="icon-circle">
+          <div class="back-circle">
+            <a href="https://www.linkedin.com/company/cyclone-blockchain" target="_blank" class="footer__social-link">
+              <img src="./images/discord.png" alt="Rules" />
+            </a>
+          </div>
+        </div>
+        <div class="icon-circle">
+          <div class="back-circle">
+            <a href="https://www.linkedin.com/company/cyclone-blockchain" target="_blank" class="footer__social-link">
+              <img src="./images/X_logo_2023 1.png" alt="Rules" />
+            </a>
+          </div>
+        </div>
+        <div class="icon-circle">
+          <div class="back-circle">
+            <a href="https://www.linkedin.com/company/cyclone-blockchain" target="_blank" class="footer__social-link">
+              <img src="./images/in-icon.png" alt="Rules" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <div id="popupReward" class="popup-reward">
+    <div class="popup-reward-content">
+      <span class="close-reward">&times;</span>
+      <h3>REWARD</h2>
+        <p>OF INFINITE DROP EVENT</p>
+        <div class="blocks">
+
+          <div class="compass">
+            <img src="./images/Compass_Rose_Site.png" alt="Compass Rose">
+          </div>
+          <div class="popup-reward-description">
+            <h4>Compass Rose</h4>
+            <p>We will divide the Our Validator licenses into 10,000 unique NFTs, ownership of which means that you will
+              receive a percentage of the of the Network Circulation - constantly for your entire life!</p>
+            <p>The more actions you take in the network and in society during the Testnet, the more chance you have to
+              win
+              NFT, and the more you will reap infinity!</p>
+          </div>
+        </div>
+        <button class="cta-button">OOOOOK - LET'S ROCK IT!</button>
+    </div>
+
+
+  </div>
+
+
+  <script>
+    function openForm() {
+      document.getElementById("popupForm").style.display = "block";
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeForm() {
+      document.getElementById("popupForm").style.display = "none";
+      document.body.style.overflow = "auto";
+    }
+
+    document.getElementById('openReward').addEventListener('click', function () {
+      document.getElementById('popupReward').style.display = 'flex';
+      document.body.style.overflow = "hidden";
+
+    });
+
+    document.querySelector('.close-reward').addEventListener('click', function () {
+      document.getElementById('popupReward').style.display = 'none';
+      document.body.style.overflow = "auto";
+
+    });
+
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const formPopup = document.getElementById('popupForm');
+      const successPopup = document.getElementById('successPopup');
+      const closeFormPopup = document.getElementById('closeFormPopup');
+      const closeSuccessPopup = document.getElementById('closeSuccessPopup');
+      const infinityForm = document.getElementById('infinityForm');
+
+
+      // Close the success popup
+      closeSuccessPopup.onclick = () => {
+        successPopup.style.display = 'none';
+      }
+
+      // Form submission handler
+      infinityForm.onsubmit = (e) => {
+        e.preventDefault();
+        formPopup.style.display = 'none';
+        successPopup.style.display = 'block';
+      }
+    });
+
+
+  </script>
+</body>
+
+</html>

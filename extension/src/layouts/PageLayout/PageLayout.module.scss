@@ -1,0 +1,38 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &.header-bordered {
+    .header {
+      box-shadow: inset 0 0 0 0.5px rgba(255 255 255 / 0.2);
+      border-radius: 4px;
+    }
+  }
+}
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px;
+  margin: 0 2px;
+}
+
+.header-icon-wrapper {
+  color: var(--cc-color-text);
+  display: flex;
+  position: absolute;
+  left: 14px;
+  cursor: pointer;
+}
+
+.header-icon {
+  width: 18px;
+  height: 18px;
+}
+
+.header-title {
+  font-weight: 700;
+}

@@ -1,0 +1,101 @@
+.root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 18px;
+  border-radius: 28px;
+  width: 280px;
+  padding: 13px 14px 31px 14px;
+  background-color: var(--cc-color-gray-900);
+  transition: box-shadow 300ms;
+  user-select: none; }
+  .root.active {
+    cursor: pointer; }
+    .root.active::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%, -50%, 0);
+      width: 541px;
+      height: 541px;
+      opacity: 0;
+      transition: opacity 300ms;
+      background: linear-gradient(61.57deg, #ED1FFF 16.62%, #7867FC 26.3%, #46B5D4 33.82%, #24FCDC 43.93%, #52FA54 64.94%, #F5923C 75.49%);
+      -webkit-filter: blur(96px);
+      border-radius: 50%;
+      z-index: -1; }
+    .root.active:hover .rect,
+    .root.active:hover .play-button {
+      opacity: 1; }
+    .root.active:hover::before {
+      opacity: 0.4; }
+    .root.active:hover .state {
+      opacity: 0; }
+    .root.active .state {
+      font-weight: 700;
+      color: var(--cc-color-primary); }
+
+.rect {
+  opacity: 0;
+  transition: opacity 300ms;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0; }
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  row-gap: 19px; }
+
+.coin {
+  width: 24px;
+  height: 24px; }
+
+.title {
+  text-transform: uppercase;
+  font-family: var(--cc-font-audiowide), sans-serif;
+  font-size: 18px;
+  line-height: 24px;
+  margin-bottom: 7px; }
+
+.description {
+  color: var(--cc-color-gray-500);
+  line-height: 24px; }
+
+.state {
+  font-family: var(--cc-font-audiowide), sans-serif;
+  position: absolute;
+  left: 0;
+  color: var(--cc-color-gray-500);
+  text-transform: uppercase;
+  line-height: 40px;
+  transition: opacity 300ms; }
+
+.play-button {
+  left: 0;
+  position: absolute;
+  opacity: 0;
+  transition: opacity 300ms; }
+
+.picture {
+  width: 250px;
+  height: 250px;
+  object-fit: cover; }
+
+.picture-wrapper {
+  background-color: var(--cc-color-background);
+  overflow: hidden;
+  border-radius: 16px;
+  width: 250px;
+  height: 250px; }
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  position: relative;
+  height: 40px; }

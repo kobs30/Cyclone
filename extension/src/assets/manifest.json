@@ -1,0 +1,25 @@
+{
+  "version": "0.0.0",
+  "manifest_version": 3,
+  "name": "Cyclone Wallet",
+  "description": "CYCL Wallet: Your Gateway to a Next Gen Web3 User Experience. \nNon-custodial Wallet of Cyclone Blockchain (Bitcoin Cryptography).",
+  "permissions": [
+    "storage"
+  ],
+  "icons": {
+    "16": "assets/images/cyclone-logo-icon.png",
+    "48": "assets/images/cyclone-logo-icon.png",
+    "128": "assets/images/cyclone-logo-icon.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "assets/images/cyclone-logo-icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [{
+    "matches": ["http://localhost:5173/*"],
+    "js": ["content-script.js"]
+  }]
+}

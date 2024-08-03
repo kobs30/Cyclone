@@ -1,0 +1,22 @@
+{
+  "version": "1.0.2",
+  "manifest_version": 3,
+  "name": "Cyclone Wallet",
+  "description": "! IT'S A TESTNET VERSION !\nNon-custodial Wallet of Cyclone Blockchain (Bitcoin Cryptography).\n\nTired of the complexities of Web3?\nCYCL Wallet is seamlessly streamlines your interaction with Web3 assets.\n\nKey Features:\nPay fees with any token: No more limitations! Utilize any token available on the Cyclone network to settle fees.\nFixed fees: Plan your expenses without surprises. Fees on Cyclone are always low and predictable.\nInstant conversion: No need to wait! Swap tokens directly within the wallet with a single click.\nBitcoin Cryptography: Securely store your cryptocurrencies and NFTs without the need for third-party applications.\nTransaction signing: Developers, rejoice! Create contract interaction scripts right from the wallet.\n\nCYCL Wallet Extension is:\nConvenient: Pay, swap, and store Cyclone network cryptocurrencies - all in one place.\nLiberating: Use your tokens the way you want, without restrictions.\nEmbrace the future of Web3 with CYCL Wallet today!\n\nCYCL Wallet: The future of Web3 is here.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": ["https://cyclonechain.com/"],
+  "icons": {
+    "16": "assets/images/cyclone-logo-icon.png",
+    "48": "assets/images/cyclone-logo-icon.png",
+    "128": "assets/images/cyclone-logo-icon.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": "assets/images/cyclone-logo-icon.png"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

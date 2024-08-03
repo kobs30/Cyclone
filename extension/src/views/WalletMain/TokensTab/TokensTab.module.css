@@ -1,0 +1,14 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 344px; }
+
+.input {
+  padding: 0 8px; }
+
+.tokens {
+  overflow-y: auto; }
+  .tokens::-webkit-scrollbar {
+    width: 0;
+    scrollbar-width: none; }

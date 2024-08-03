@@ -1,0 +1,4 @@
+build/
+src/assets/
+.eslintrc.js
+vite.config.mts

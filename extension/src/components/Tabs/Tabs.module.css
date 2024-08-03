@@ -1,0 +1,60 @@
+.root {
+  display: flex;
+  flex-direction: column; }
+  .root :global(.rc-tabs-content-holder) {
+    flex: 1; }
+  .root :global(.rc-tabs-nav-operations),
+  .root :global(.rc-tabs-nav-more) {
+    display: none; }
+  .root :global(.rc-tabs-nav) {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin: 0 8px; }
+  .root :global(.rc-tabs-nav-wrap) {
+    position: relative;
+    display: flex;
+    flex: 1;
+    align-self: stretch;
+    overflow: hidden;
+    white-space: nowrap;
+    transform: translate(0); }
+  .root :global(.rc-tabs-nav-list) {
+    position: relative;
+    display: flex;
+    flex: 1; }
+  .root :global(.rc-tabs-tab-btn) {
+    outline: none; }
+  .root :global(.rc-tabs-tab) {
+    display: flex;
+    justify-content: center;
+    flex: 1;
+    padding: 4px;
+    font-size: 10px;
+    line-height: 16px;
+    font-weight: 500;
+    user-select: none;
+    color: var(--fui-color-text-secondary);
+    transition: color 200ms;
+    cursor: pointer; }
+    .root :global(.rc-tabs-tab):global(.rc-tabs-tab-active) {
+      background-color: #141414;
+      border-radius: 4px 4px 0 0; }
+    .root :global(.rc-tabs-tab):global(.rc-tabs-tab-disabled) {
+      cursor: default; }
+      .root :global(.rc-tabs-tab):global(.rc-tabs-tab-disabled) :global(.rc-tabs-tab-btn) {
+        opacity: 0.2; }
+  .root :global(.rc-tabs-tabpane) {
+    display: none;
+    outline: none; }
+    .root :global(.rc-tabs-tabpane):global(.rc-tabs-tabpane-active) {
+      display: block; }
+  .root :global(.rc-tabs-nav-operations) {
+    display: flex;
+    align-self: stretch; }
+    .root :global(.rc-tabs-nav-operations):global(.rc-tabs-nav-operations-hidden) {
+      position: absolute;
+      visibility: hidden;
+      pointer-events: none; }
+  .root :global(.rc-tabs-ink-bar) {
+    display: none; }

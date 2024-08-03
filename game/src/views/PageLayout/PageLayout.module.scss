@@ -1,0 +1,21 @@
+.root {
+	padding-top: 56px;
+
+	&::after {
+		content: '';
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		height: 308px;
+		background: linear-gradient(360deg, #000000 28.01%, rgba(0, 0, 0, 0) 100%);
+		pointer-events: none;
+	}
+}
+
+.content {
+	padding-top: 77px;
+	width: 100%;
+	max-width: 1216px;
+	margin: 0 auto;
+}

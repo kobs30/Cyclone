@@ -1,0 +1,29 @@
+/* CC - Cyclone abbr */
+:root {
+	--cc-color-gray-200: #eaecf0;
+	--cc-color-gray-300: #d0d5dd;
+	--cc-color-gray-400: #98a2b3;
+	--cc-color-gray-500: #667085;
+	--cc-color-gray-600: #475467;
+	--cc-color-gray-700: #344054;
+	--cc-color-gray-800: #1d2939;
+	--cc-color-gray-900: #101828;
+
+	--cc-color-violet: #420091;
+	--cc-color-yellow: #FFEB2C;
+	--cc-color-primary: #00ffa3;
+	--cc-color-background: #000;
+	--cc-color-text: #fff;
+	--cc-color-text-inverse: #000;
+
+	--cc-color-gradient-a: #ED1FFF;
+	--cc-color-gradient-b: #7867FC;
+	--cc-color-gradient-c: #46B5D4;
+	--cc-color-gradient-d: #24FCDC;
+	--cc-color-gradient-e: #52FA54;
+	--cc-color-gradient-f: #F5923C;
+
+	--cc-font-inter: 'Inter', sans-serif;
+	--cc-font-atmospheric: 'A Atmospheric', sans-serif;
+	--cc-font-audiowide: 'Audiowide', sans-serif;
+}

@@ -1,0 +1,18 @@
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 32px;
+  grid-template-rows: auto;
+  position: relative; }
+
+.your {
+  margin-top: 21px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%; }
+
+.your-welcome {
+  line-height: 48px;
+  font-family: var(--cc-font-atmospheric), sans-serif;
+  color: var(--cc-color-primary); }

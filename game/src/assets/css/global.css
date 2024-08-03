@@ -1,0 +1,23 @@
+@import "theme.css";
+@import "font-face.css";
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+
+}
+
+body {
+	font-size: 14px;
+	font-family: var(--cc-font-inter), sans-serif;
+	color: var(--cc-color-text);
+	background-color: var(--cc-color-background);
+}
+
+a {
+	text-decoration: none;
+}
