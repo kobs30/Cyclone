@@ -32,64 +32,27 @@
 </script> 
 
 <!--	 Script get token and id --> 
-<script>	 
-		//let params = new URLSearchParams(document.location.search);
-		let params = new URLSearchParams("http://site.com?token=1798805276176326656-OopZ0K9glnaLEdOj34ID4xwDQmTj6i&id=1798805276176326656");
-		let paramString=params.toString();
-		let token=paramString.slice(paramString.indexOf("token"), paramString.indexOf("id")-1);
-		let id = paramString.slice(paramString.indexOf("id"), paramString.length);
-			function setCookie(token, id, days) {
+<script>
+	function setCookie(name, value, days) {
 			let expires = "";
 			if (days) {
-			const date = new Date();
-			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-			expires = "; expires=" + date.toUTCString();
+				const date = new Date();
+				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+				expires = "; expires=" + date.toUTCString();
+			}
+			console.log(document.cookie =name + "=" +  value + expires);
+			 
 		}
-			console.log( document.cookie = token + ";"+id + expires);
-   
-}
-		setCookie(token, id, 7);
-</script> 
-<!--	 Script cookies --> 
-<!--<script>
-		// Функция для установки куки
-function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
-
-// Получаем параметры из URL
-const urlParams = new URLSearchParams(window.location.search);
-const token = urlParams.get('token');
-const id = urlParams.get('id');
-
-// Сохраняем параметры в куки
-setCookie('token', token, 7); // Кука будет действительна 7 дней
-setCookie('id', id, 7); // Кука будет действительна 7 дней
-
-// Проверяем сохраненные значения
-console.log('Token:', document.cookie.split('; ').find(row => row.startsWith('token=')).split('=')[1]);
-console.log('ID:', document.cookie.split('; ').find(row => row.startsWith('id=')).split('=')[1]);
-	
-/*	// Получаем параметры из URL
-const urlParams = new URLSearchParams(window.location.search);
+			//const urlParams = new URL(window.location.href);
+			const urlParams = new URL('http://site.com?token=1798805276176326656-OopZ0K9glnaLEdOj34ID4xwDQmTj6i&id=1798805276176326656');
+			const token=urlParams.searchParams.get('token');
+			const id = urlParams.searchParams.get('id');
 		
-const token = urlParams.get('token');
-const id = urlParams.get('id');
-console.log(token);
-// Сохраняем параметры в localStorage
-localStorage.setItem('token', token);
-localStorage.setItem('id', id);
+			setCookie("token", token, 7);  
+			setCookie('id', id, 7); 
+</script>
+ 
 
-// Проверяем сохраненные значения
-console.log('Token:', localStorage.getItem('token'));
-console.log('ID:', localStorage.getItem('id'));*/
-	</script>-->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
