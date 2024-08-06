@@ -38,14 +38,14 @@
 		let paramString=params.toString();
 		let token=paramString.slice(paramString.indexOf("token"), paramString.indexOf("id")-1);
 		let id = paramString.slice(paramString.indexOf("id"), paramString.length);
-		function setCookie(token, id, days) {
-		let expires = "";
-    	if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-		console.log( document.cookie = token + ";"+id + expires);
+			function setCookie(token, id, days) {
+			let expires = "";
+			if (days) {
+			const date = new Date();
+			date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+			expires = "; expires=" + date.toUTCString();
+		}
+			console.log( document.cookie = token + ";"+id + expires);
    
 }
 		setCookie(token, id, 7);
