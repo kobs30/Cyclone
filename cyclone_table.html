@@ -35,7 +35,8 @@
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
     rel="stylesheet" />
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
-<script type="module" crossorigin src="./js/index.js"></script>
+<script type="module" crossorigin src="./js/index.js"></script> 
+<script src="js/cyclone_table.js" defer></script>
 <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
 <link rel="modulepreload" crossorigin href="./assets/shared-DyXCX77j.js">
 <link href="css/index.css" rel="stylesheet" type="text/css">
@@ -193,7 +194,15 @@
           <h5 class="bottom_10">Support OFFICAL posts</h5>
           <p>Engage with our X posts and earn Social points.</p>
           <div class="top-content-comments">
-            <p>Self-Regulating Cryptocurrencies. Future of Finance. For those who crave.Self-Regulating Cryptocurrencies. Future of Finance. For those who crave.Self-Regulating Cryptocurrencies. Future of Finance. For those who crave..</p>
+            <div class="comments-container">
+              <div class="arrow_left" onclick="arrowLeft()"></div>
+              <div class="content_center">
+                <p class="active">Self-Regulating Cryptocurrencies. Future of Finance. For those who crave.Self-Regulating Cryptocurrencies. Future of Finance. For those who crave.Self-Regulating Cryptocurrencies. Future of Finance. For those who crave..</p>
+                <p>Self-Regulating Cryptocurrencies. Future of Finance. For those who crave.Self-Regulating Cryptocurrencies. Future of Finance.</p>
+                <p>For those who crave.Self-Regulating Cryptocurrencies. Future of Finance. For those who crave..</p>
+              </div>
+              <div class="arrow_right" onclick="arrowRight()"></div>
+            </div>
           </div>
           <div class="container-statistic"> <a href="#" class="statistic-like">10p <span class="statistic-tooltip">Like: 10 points</span> </a> <a href="#" class="statistic-comment">20p <span class="statistic-tooltip">Comments: 20 points</span> </a> <a href="#" class="statistic-repost">30p <span class="statistic-tooltip">Repost: 30 points</span> </a> <a href="#" class="statistic-message">40p <span class="statistic-tooltip">Message: 40 points</span> </a> </div>
         </div>
@@ -265,7 +274,76 @@
             <label for="tab-1" class="tabs__tab">Enthusiast</label>
             <div class="tabs__content">
               <div class="container_right-table">
-                <div class="table">
+                <div class="table ">
+                  <div class="row">
+                    <div class="cell">Rank</div>
+                    <div class="cell">Wallet Address </div>
+                    <div class="cell">Points</div>
+                  </div>
+                  <a href="#" class="row">
+                  <div class="cell">1</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">2</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">3</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">4</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">5</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">6</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">7</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">8</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">9</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">10</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+                  </a>
+                  <div class="row last">
+                    <div class="cell"><a href="#" class="paginator_button">
+                      <p>Previous</p>
+                      </a></div>
+                    <div class="cell align_center">Page 1 of 10</div>
+                    <div class="cell align_right"><a href="#" class="paginator_button">
+                      <p>Next</p>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="radio" name="tabs" id="tab-2" class="tabs__radio"/>
+            <label for="tab-2" class="tabs__tab">Developer</label>
+            <div class="tabs__content">
+              <div class="container_right-table">
+                <div class="toggle">
+                  <label class="switch">
+                    <input type="checkbox" checked>
+                    <span class="slider round"></span> </label>
+                  <p>Only my contracts</p>
+                </div>
+                <div class="table top-16">
                   <div class="row">
                     <div class="cell">Rank</div>
                     <div class="cell">Smartcontract name</div>
@@ -312,7 +390,7 @@
                   <div class="cell">141ZZ....JHHPGs</div>
                   <div class="cell">139736</div>
                   </a>
-                  <div class="row">
+                  <div class="row last">
                     <div class="cell"><a href="#" class="paginator_button">
                       <p>Previous</p>
                       </a></div>
@@ -324,27 +402,56 @@
                 </div>
               </div>
             </div>
-            <input type="radio" name="tabs" id="tab-2" class="tabs__radio"/>
-            <label for="tab-2" class="tabs__tab">Developer</label>
-            <div class="tabs__content">
-              <p class="text-body1"> Our mechanism constantly monitors our blockchain to calculate whether and to what extent the coin
-                emission should be inflationary or deflationary. Machine learning in real time ensures the optimal
-                number of our coins - no more and no less than the live network economy requires. This makes Cyclone
-                resilient against all types of economic shifts, internal & external. </p>
-            </div>
             <input type="radio" name="tabs" id="tab-3" class="tabs__radio"/>
             <label for="tab-3" class="tabs__tab">Social</label>
             <div class="tabs__content">
-              <p class="text-body1"> #CYCL coin is an entirely new type of cryptocurrency "Balanced". DEM ensures ultra-stability of our
-                currency, making it economically similar to the dollar and world first Universal intercurrency unit.
-                Exceptional stability and a healthy economy for all lead to a positive long-term trend in demand for the
-                network coin. We are the Digital Harbor for any Web3 projects! </p>
-            </div>
-            <div class="toggle">
-              <label class="switch">
-                <input type="checkbox" checked>
-                <span class="slider round"></span> </label>
-              <p>Only my contracts</p>
+                           <div class="container_right-table">
+                <div class="table ">
+                  <div class="row">
+                    <div class="cell">Rank</div>
+                    <div class="cell">Wallet Address </div>
+                    <div class="cell">Joined peoples </div>
+					  <div class="cell">Points </div>
+                  </div>
+                  <a href="#" class="row">
+                  <div class="cell">1</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+					  <div class="cell">9736139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">2</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+					<div class="cell">9736139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">3</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+					<div class="cell">9736139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">4</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+					<div class="cell">9736139736</div>
+                  </a> <a href="#" class="row">
+                  <div class="cell">5</div>
+                  <div class="cell">141ZZ....JHHPGs</div>
+                  <div class="cell">139736</div>
+					<div class="cell">9736139736</div>
+                  </a>  
+                  <div class="row last">
+                    <div class="cell">
+					  <a href="#" class="paginator_button">
+                      <p>Previous</p>
+                      </a>
+					</div>
+                    <div class="cell align_center"><p>Page 1 of 10</p></div>
+                    <div class="cell align_right"><a href="#" class="paginator_button">
+                      <p>Next</p>
+                      </a></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
