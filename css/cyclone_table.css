@@ -349,7 +349,7 @@ h5 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(61.57deg, var(--cc-color-gradient-a) 16.62%, var(--cc-color-gradient-b) 26.3%, var(--cc-color-gradient-c) 33.82%, var(--cc-color-gradient-d) 43.93%, var(--cc-color-gradient-e) 64.94%, var(--cc-color-gradient-f) 75.49%);
+	background-color: var(--cc-color-gray-500);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -365,7 +365,7 @@ h5 {
   transition: .4s;
 }
 input:checked + .slider {
-  background-color: #2196F3;
+  background: linear-gradient(61.57deg, var(--cc-color-gradient-a) 16.62%, var(--cc-color-gradient-b) 26.3%, var(--cc-color-gradient-c) 33.82%, var(--cc-color-gradient-d) 43.93%, var(--cc-color-gradient-e) 64.94%, var(--cc-color-gradient-f) 75.49%);
 }
 input:focus + .slider {
   box-shadow: 0 0 1px #2196F3;
@@ -590,6 +590,7 @@ a.row:hover {
   font-size: 14px;
   line-height: 16px;
   color: #aaa;
+	white-space: nowrap
 }
 .main-site p {
   display: inline-block;

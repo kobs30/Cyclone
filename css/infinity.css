@@ -199,6 +199,7 @@ main{
     font-size: 14px;
     line-height: 16px;
     color: #aaa;
+	white-space: nowrap
 }
 
 .main-site p{
