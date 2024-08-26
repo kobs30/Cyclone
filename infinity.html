@@ -61,7 +61,6 @@
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
     rel="stylesheet" />
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
-<!--<script type="module" crossorigin src="./js/index.js"></script>-->
 <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
 <link rel="modulepreload" crossorigin href="./assets/shared-DyXCX77j.js">
 <link href="css/index.css" rel="stylesheet" type="text/css">
@@ -323,44 +322,7 @@
     </div>
   </form>
 </div>
-
-<!-- <div class="popup-success" id="successPopup">
-    <div class="popup-success-content">
-      <span class="close-btn" id="closeSuccessPopup">&times;</span>
-      <h3>Welcome - You're in!</h3>
-      <p class="gradient-text">Infinite Drop</p>
-      <p>The event will start in the coming months. <br>Stay tuned so you don't miss the beginning.</p>
-      <div class="success-image">
-        <img src="./images/success.png" alt="success">
-      </div>
-      <div class="popup-footer">
-        <div class="icon-circle">
-          <div class="back-circle">
-            <a href="https://www.linkedin.com/company/cyclone-blockchain" target="_blank" class="footer__social-link">
-              <img src="./images/discord.png" alt="Rules" />
-            </a>
-          </div>
-        </div>
-        <div class="icon-circle">
-          <div class="back-circle">
-            <a href="https://www.linkedin.com/company/cyclone-blockchain" target="_blank" class="footer__social-link">
-              <img src="./images/X_logo_2023 1.png" alt="Rules" />
-            </a>
-          </div>
-        </div>
-
-        <div class="icon-circle">
-          <div class="back-circle">
-            <a href="https://www.linkedin.com/company/cyclone-blockchain" target="_blank" class="footer__social-link">
-              <img src="./images/in-icon.png" alt="Rules" />
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>-->
-
+	
 <div id="popupReward" class="popup-reward" >
   <div class="popup-reward-content">
     <div class="dialog__border radius_40">
@@ -428,36 +390,6 @@
 		document.getElementById("popupReward").classList.remove("open-form-container");
 		  document.getElementById("popupReward").classList.add("close-form-container");
 	}
- 
-
-/*   document.querySelector('.close-reward').addEventListener('click', function () {
-      document.getElementById('popupReward').style.display = 'none';
-      document.body.style.overflow = "auto";
-
-    });*/
-
-
-  
-    document.addEventListener('DOMContentLoaded', () => {
-      const formPopup = document.getElementById('popupForm');
-      const successPopup = document.getElementById('successPopup');
-      const closeFormPopup = document.getElementById('closeFormPopup');
-      const closeSuccessPopup = document.getElementById('closeSuccessPopup');
-      const infinityForm = document.getElementById('infinityForm');
-
-
-      // Close the success popup
-  /*    closeSuccessPopup.onclick = () => {
-        successPopup.style.display = 'none';
-      }*/
-
-      // Form submission handler
-      infinityForm.onsubmit = (e) => {
-        e.preventDefault();
-        formPopup.style.display = 'none';
-        successPopup.style.display = 'block';
-      } 
-    });
 
  
   </script>
