@@ -650,37 +650,6 @@
 		  document.getElementById("popupReward").classList.add("close-form-container");
 	}
  
-
-   document.querySelector('.close-reward').addEventListener('click', function () {
-      document.getElementById('popupReward').style.display = 'none';
-      document.body.style.overflow = "auto";
-
-    });
-
-
-  
-    document.addEventListener('DOMContentLoaded', () => {
-      const formPopup = document.getElementById('popupForm');
-      const successPopup = document.getElementById('successPopup');
-      const closeFormPopup = document.getElementById('closeFormPopup');
-      const closeSuccessPopup = document.getElementById('closeSuccessPopup');
-      const infinityForm = document.getElementById('infinityForm');
-
-
-      // Close the success popup
-      closeSuccessPopup.onclick = () => {
-        successPopup.style.display = 'none';
-      }
-
-      // Form submission handler
-      infinityForm.onsubmit = (e) => {
-        e.preventDefault();
-        formPopup.style.display = 'none';
-        successPopup.style.display = 'block';
-      } 
-    });
-
- 
   </script>
 <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -9999px; left: -9999px; width: 0; height: 0">
   <symbol id="medal" width="22" height="32" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg">
