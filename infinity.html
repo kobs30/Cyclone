@@ -15,7 +15,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 <script>
+  var fe = "http://localhost:8080/infinity.html";
+  var be = "http://localhost:8081";
+
 	;(function (h, o, t, j, a, r) {
 		h.hj =
 			h.hj ||
@@ -33,6 +38,22 @@
 
 <!--	 Script get token and id --> 
 <script>
+  const urlParams = new URL(window.location.href);
+  const token=urlParams.searchParams.get('token');
+  const popen=urlParams.searchParams.get('p');
+
+  if(token!=null){
+    setCookie("token", token, 7);  
+    window.location.replace(fe+"?p=1");
+  }	
+
+  $(document).ready(function(){
+    $(".xlogin").attr("href", be+"/login?redirect_url="+fe)
+    if (popen) {
+      
+    }
+  });
+
 	function setCookie(name, value, days) {
 			let expires = "";
 			if (days) {
@@ -41,18 +62,7 @@
 				expires = "; expires=" + date.toUTCString();
 			}
 			document.cookie = name + "=" +  value + expires;
-			window.location.replace("https://cyclonechain.com/");
-			 
-		}
-			const urlParams = new URL(window.location.href);
-			//const urlParams = new URL('http://site.com?token=1798805276176326656-OopZ0K9glnaLEdOj34ID4xwDQmTj6i&id=1798805276176326656');
-			const token=urlParams.searchParams.get('token');
-			const id = urlParams.searchParams.get('id');
-	
-			if(token!=null & id!=null){
-	                        setCookie("token", token, 7);  
-				setCookie('id', id, 7); 
-			}			
+		};
 </script>
  
 
