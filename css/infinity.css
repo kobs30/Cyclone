@@ -817,7 +817,7 @@ cursor: pointer;
 	}	
 }
 
-@media screen and (max-width: 480 px) {
+@media screen and (max-width: 480px) {
 		.popup-footer{
 		width: auto;
 	}
