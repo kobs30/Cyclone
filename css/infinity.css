@@ -818,6 +818,18 @@ cursor: pointer;
 }
 
 @media screen and (max-width: 451px) {
+		.popup-footer{
+		width: auto;
+	}
+	.icon-section_sucsess {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+		gap:20px;
+	}
+	.success-image {
+		margin: 0 auto;
+	}
 	main{
 /*		height: 640px;*/
 		padding-top: 250px;
