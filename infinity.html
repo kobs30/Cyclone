@@ -15,7 +15,12 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 <script>
+  var fe = "http://localhost:8080/infinity.html";
+  var be = "http://localhost:8081";
+
 	;(function (h, o, t, j, a, r) {
 		h.hj =
 			h.hj ||
@@ -33,29 +38,117 @@
 
 <!--	 Script get token and id --> 
 <script>
+  const urlParams = new URL(window.location.href);
+  const token=urlParams.searchParams.get('token');
+  const nick=urlParams.searchParams.get('nick_name');
+  const popen=urlParams.searchParams.get('p');
+  const refer=urlParams.searchParams.get('referral');
+
+  if(token!=null){
+    setCookie("token", token, 7);  
+    setCookie("nick_name", nick, 7);  
+    window.location.replace(fe+"?p=1");
+  }	
+
+  $(document).ready(function(){
+    $('#is_follow_p').click(function(e){
+      $("#is_follow").prop('checked', true);
+    });
+
+    $('#repost_p').click(function(e){
+      $("#repost").prop('checked', true);
+    });
+
+    $('#discord_p').click(function(e){
+      $("#discord").prop('checked', true);
+    });
+
+    _nick = getCookie("nick_name")
+    if (_nick) {
+      $("#xlogin").html("Hello "+_nick+"!");
+
+      $.ajax({
+        type: "POST",
+        url: be,
+        data: JSON.stringify({
+          "method": "check",
+        }),
+        success: function(data)
+        {
+          console.log(data)
+        }
+      });
+
+    } else {
+      $("#xlogin_button").attr("href", be+"/login?redirect_url="+fe)
+    }
+
+    $('#infinityForm').submit(function(e) {
+      _token = getCookie("token")
+      if (!_token) {
+        window.alert("You are not authoried in twitter.")
+      }
+
+      var form = $(this);
+      e.preventDefault();
+
+      var formData = {
+        "method": "create",
+        "data": {
+          "document": {
+            "token": _token,
+            "nick_name": $("#nick_name").val(),
+            "role": $("#role").val(),
+            "referral": refer,
+            "wallet": $("#wallet").val(),
+          }
+        }
+      };
+
+      $.ajax({
+        type: "POST",
+        url: be,
+        data: JSON.stringify(formData),
+        success: function(data)
+        {
+          console.log(data)
+        }
+      });
+    });
+    
+    if (popen) {
+      openForm();
+    }
+
+    
+  });
+
 	function setCookie(name, value, days) {
-			let expires = "";
-			if (days) {
-				const date = new Date();
-				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-				expires = "; expires=" + date.toUTCString();
-			}
-			document.cookie = name + "=" +  value + expires;
-			window.location.replace("https://cyclonechain.com/");
-			 
-		}
-			const urlParams = new URL(window.location.href);
-			//const urlParams = new URL('http://site.com?token=1798805276176326656-OopZ0K9glnaLEdOj34ID4xwDQmTj6i&id=1798805276176326656');
-			const token=urlParams.searchParams.get('token');
-			const id = urlParams.searchParams.get('id');
-	
-			if(token!=null & id!=null){
-	                        setCookie("token", token, 7);  
-				setCookie('id', id, 7); 
-			}			
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" +  value + expires;
+  };
+
+  function getCookie(name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(name + "=");
+        if (c_start != -1) {
+            c_start = c_start + name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+  }
 </script>
  
-
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
@@ -271,7 +364,7 @@
   </div>
 </div>
 <div class="form-popup" id="popupForm">
-  <form action="/submit" class="form-container" id="infinityForm">
+  <form action="" class="form-container" id="infinityForm">
     <div class="form-top">
       <div>&nbsp;</div>
       <h2>Infinity Drop </h2>
@@ -285,36 +378,40 @@
       test network. To join this program, please make sure you have reviewed
       its <a href="https://docs.cyclonechain.com/ecosystem/testnet" target="_blank" class="gradient-text">unique features and rules </a> and
       fill out this form. </p>
-    <label for="name"><b>Your:</b></label>
-    <input type="text" placeholder="Name or Nickname" name="name" required />
-    <label for="participant-role">I join as:</label>
+    <label for="nick_name"><b>Your:</b></label>
+    <input id="nick_name" type="text" placeholder="Name or Nickname" name="nick_name" required />
+    <input id="referral" type="hidden" name="referral" />
+    <label for="role">I join as:</label>
     <span class="label-info">Please choose your main participant role</span>
-    <select id="participant-role" class="gradient-select">
+    <select id="role" class="gradient-select" name="role">
       <option value="enthusiast">Enthusiast / DropHunter</option>
       <option value="validator">Creator / Developer</option>
       <option value="developer">Social Active Person</option>
     </select>
-    <label for="twitter" class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
-    <span class="label-info">Please verify your account by clicking the button below.</span> <a href="http://185.229.119.188:8080/login?redirect_url=http://site.com" class="connect-button">
-    <svg width="24" height="24" style="margin: 0 10px">
-      <use xlink:href="#xlogo" />
-    </svg>
-    Connect</a>
+    <div id="xlogin">
+      <label class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
+      <span class="label-info">Please verify your account by clicking the button below.</span> 
+      <a id="xlogin_button" href="" class="connect-button">
+      <svg width="24" height="24" style="margin: 0 10px">
+        <use xlink:href="#xlogo" />
+      </svg>
+      Connect</a>
+    </div>
     <div class="required-section">
       <p class="form-title">REQUIRED</p>
-      <label class="checkbox-container">
-        <input type="checkbox" />
+      <label id="is_follow_p" class="checkbox-container" >
+        <input id="is_follow" type="checkbox" name="is_follow" disabled/>
         <span class="checkmark"></span> <span class="checkbox-label">Must follow <span class="gradient-text">@Cyclone_Chain</span></span> </label>
-      <label class="checkbox-container">
-        <input type="checkbox" checked />
+      <label id="repost_p" class="checkbox-container">
+        <input id="repost" type="checkbox" name="repost" disabled/>
         <span class="checkmark"></span> <span class="checkbox-label">Repost <span class="gradient-text">Infinity Drop Post</span> </span> </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
+      <label id="discord_p" class="checkbox-container">
+        <input id="discord" type="checkbox" name="discord" disabled/>
         <span class="checkmark"></span> <span class="checkbox-label">Join <span class="gradient-text">Discord</span></span> </label>
     </div>
     <label for="wallet" class="label-paste"> <span class="red"> * </span> <b>Paste your Cyclone Wallet address:</b></label>
     <span class="label-info">Our Chain Non-custodial Wallet (Bitcoin Cryptography)</span>
-      <input type="text" placeholder="Cyclone Wallet Address" name="wallet" autocomplete="off" autocapitalize="off" spellcheck="false"  required minlength="33"  />
+      <input id="wallet"  type="text" placeholder="Cyclone Wallet Address" name="wallet" autocomplete="off" autocapitalize="off" spellcheck="false"  required minlength="33"  />
     <!-- <p class="error-message">This doesn't look like Cyclone's address!</p> -->
     <p class="f-text"> By submitting this form, you agree to the <a href="https://docs.cyclonechain.com/ecosystem/testnet" target="_blank" class="gradient-text">Infinity Drop Rules</a>. </p>
     <div class="popup-reward-button">
