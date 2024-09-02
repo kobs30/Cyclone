@@ -26,7 +26,8 @@
     --cc-font-family: "Inter", sans-serif;
     --cc-font-family-secondary: "Audiowide", sans-serif;
 	--cc-font-family-tertiary: "Abel", sans-serif;
-    --cc-layout-width: 1280px
+    --cc-layout-width: 1280px;
+	--cc-gradient: linear-gradient(136deg, rgba(12,246,157,1) 0%, rgba(169,98,255,1) 100%);
 }
 
 .button {
