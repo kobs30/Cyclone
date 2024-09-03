@@ -76,6 +76,8 @@
         $("#nick_name").val(_nick);
       }
 
+      $('.user_name').html(_nick);
+
       $("#xlogin_button").html("Hello <span class='gradient-text-conect'>"+_nick+"!</span>").addClass("connect-button-sucsess");
 
       // $.ajax({
@@ -456,7 +458,7 @@
           <svg width="18" height="18" style="margin: 0 10px">
             <use xlink:href="#xlogo" />
           </svg>
-          <span class="gradient-text-conect">CheFerreto!</span></a>
+          <span class="user_name" class="gradient-text-conect"></span></a>
 		      </div>
 
 	      
