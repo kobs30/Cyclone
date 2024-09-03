@@ -18,8 +18,8 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
-  var fe = "http://localhost:8080/infinity.html";
-  var be = "http://localhost:8081";
+  var fe = "http://185.229.119.188:8080/infinity.html";
+  var be = "http://185.229.119.188:8081";
 
 	;(function (h, o, t, j, a, r) {
 		h.hj =
@@ -403,7 +403,7 @@
       </svg>
       Connect</a>
     </div>
-    <div id="required-section" class="required-section" class="close-form-container">
+    <div id="required-section" class="required-section" class="hidden">
       <p class="form-title">REQUIRED</p>
       <label id="is_follow_p" class="checkbox-container" >
         <input id="is_follow" type="checkbox" name="is_follow" disabled required/>
@@ -522,15 +522,11 @@
   }
 
   function openConfirmation() {
-    document.getElementById("successPopup").classList.remove("close-form-container");
-    document.getElementById("successPopup").classList.add("open-form-container");
-    document.body.style.overflow = "hidden";
+    document.getElementById("successPopup").classList.remove("hidden");
   } 
 
   function closeConfirmation() {
-    document.getElementById("successPopup").classList.remove("open-form-container");
-    document.getElementById("successPopup").classList.add("close-form-container");
-    document.body.style.overflow = "auto";
+    document.getElementById("successPopup").classList.add("hidden");
   }
 	
 	function openDialogForm() {
@@ -554,13 +550,11 @@
 	}
 
 	function openRequired(){ 
-		document.getElementById("required-section").classList.remove("close-form-container");
-		document.getElementById("required-section").classList.add("open-form-container");
+		document.getElementById("required-section").classList.remove("hidden");
 	}
 	
 	function closeRequired(){ 
-		document.getElementById("required-section").classList.remove("open-form-container");
-		document.getElementById("required-section").classList.add("close-form-container");
+		document.getElementById("required-section").classList.add("hidden");
 	}
 
   // Close the success popup
