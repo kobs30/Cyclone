@@ -52,6 +52,7 @@
 
   $(document).ready(function(){
     _nick = getCookie("nick_name")
+    _registered = getCookie("registered")
 
     $('#is_follow_p').click(function(e){
       window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
@@ -93,6 +94,11 @@
       $("#xlogin_button").attr("href", be+"/login?redirect_url="+fe)
     }
 
+    if (_registered) {
+      closeForm();
+      openConfirmation();
+    }
+
     $('#infinityForm').submit(function(e) {
       _token = getCookie("token")
       if (!_token) {
@@ -123,6 +129,7 @@
         {
           closeForm();
           openConfirmation();
+          setCookie("registered", true, 7); 
         }
       });
     });
