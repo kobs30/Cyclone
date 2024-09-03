@@ -70,7 +70,11 @@
 
     if (_nick) {
       openRequired();
-      $("#nick_name").val(_nick);
+
+      if ($("#nick_name").val() == "") {
+        $("#nick_name").val(_nick);
+      }
+
       $("#xlogin_button").html("Hello <span class='gradient-text-conect'>"+_nick+"!</span>").addClass("connect-button-sucsess");
 
       $.ajax({
