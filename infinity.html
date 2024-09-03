@@ -41,18 +41,18 @@
   const urlParams = new URL(window.location.href);
   const token=urlParams.searchParams.get('token');
   const nick=urlParams.searchParams.get('nick_name');
-  const popen=urlParams.searchParams.get('p');
   const refer=urlParams.searchParams.get('referral');
 
   if(token!=null){
     setCookie("token", token, 7);  
-    setCookie("nick_name", nick, 7);  
-    window.location.replace(fe+"?p=1");
+    setCookie("nick_name", nick, 7); 
+
+    window.history.pushState({}, document.title, window.location.pathname);
+    //window.location.replace(fe+"?p=1");
   }	
 
   $(document).ready(function(){
-    _nick = getCookie("nick_name")
-    _registered = getCookie("registered")
+    _nick = getCookie("nick_name");
 
     $('#is_follow_p').click(function(e){
       window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
@@ -78,25 +78,20 @@
 
       $("#xlogin_button").html("Hello <span class='gradient-text-conect'>"+_nick+"!</span>").addClass("connect-button-sucsess");
 
-      $.ajax({
-        type: "POST",
-        url: be,
-        data: JSON.stringify({
-          "method": "check",
-        }),
-        success: function(data)
-        {
-          console.log(data)
-        }
-      });
+      // $.ajax({
+      //   type: "POST",
+      //   url: be,
+      //   data: JSON.stringify({
+      //     "method": "check",
+      //   }),
+      //   success: function(data)
+      //   {
+      //     console.log(data)
+      //   }
+      // });
 
     } else {
       $("#xlogin_button").attr("href", be+"/login?redirect_url="+fe)
-    }
-
-    if (_registered) {
-      closeForm();
-      openConfirmation();
     }
 
     $('#infinityForm').submit(function(e) {
@@ -133,12 +128,19 @@
         }
       });
     });
-    
-    if (popen) {
-      openForm();
-    }
   });
   
+  function XForm() {
+    _registered = getCookie("registered");
+
+    if (_registered) {
+      openConfirmation();
+    } else {
+      openForm();
+    }
+
+  }
+
   function setCookie(name, value, days) {
     let expires = "";
     if (days) {
@@ -321,7 +323,7 @@
 <main>
   <div class="content">
     <h1 class="gradient-text">Infinity Drop</h1>
-    <button class="cta-button" onclick="openForm()">I'M ON IT</button>
+    <button class="cta-button" onclick="XForm()">I'M ON IT</button>
   </div>
 </main>
 <div class="footer">
