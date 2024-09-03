@@ -15,6 +15,8 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 <script>
   var fe = "http://185.229.119.188:8080/infinity.html";
   var be = "http://185.229.119.188:8081";
@@ -52,12 +54,12 @@
     _nick = getCookie("nick_name")
 
     $('#is_follow_p').click(function(e){
-      window.open("https://x.com/Cyclone_Chain", "_blank")
+      window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
       setTimeout(() => $("#is_follow").prop('checked', true), 10000);
     });
 
     $('#repost_p').click(function(e){
-      window.open("https://x.com/Cyclone_Chain/status/1801268581167980721", "_blank")
+      window.open("https://x.com/intent/retweet?tweet_id=1801268581167980721", "_blank")
       setTimeout(() => $("#repost").prop('checked', true), 10000);
     });
 
@@ -68,8 +70,12 @@
 
     if (_nick) {
       openRequired();
-      $("#nick_name").val(_nick);
-      $("#xlogin_button").html("Hello "+_nick+"!");
+
+      if ($("#nick_name").val() == "") {
+        $("#nick_name").val(_nick);
+      }
+
+      $("#xlogin_button").html("Hello <span class='gradient-text-conect'>"+_nick+"!</span>").addClass("connect-button-sucsess");
 
       $.ajax({
         type: "POST",
@@ -393,30 +399,15 @@
     <div id="xlogin">
       <label class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
       <span class="label-info">Please verify your account by clicking the button below.</span> 
-	    
-<!--    <a id="xlogin_button" href="" class="connect-button">
-      <svg width="24" height="24" style="margin: 0 10px">
-        <use xlink:href="#xlogo" />
-      </svg>
-      Connect</a>-->
-
-	    <div class="checkbox-container">
-	   <a id="xlogin_button" href="" class="connect-button-sucsess">
-    <svg width="24" height="24" style="margin:5px 10px 0 10px">
-      <use xlink:href="#xlogo" />
-    </svg>
-    <span class="gradient-text-conect">CheFerreto!</span></a>
-	  </div>
-
-	    <a id="xlogin_button" href="" class="connect-button">
-      <svg width="24" height="24" style="margin: 5px 10px 0 10px">
-        <use xlink:href="#xlogo" />
-      </svg>
-      Connect</a>
-
-	    
+      <div class="checkbox-container">
+        <a id="xlogin_button" href="" class="connect-button">
+        <svg width="24" height="24" style="margin: 5px 10px 0 10px">
+          <use xlink:href="#xlogo" />
+        </svg>
+        Connect</a>
+      </div>
     </div>
-    <div id="required-section" class="required-section" class="hidden">
+    <div id="required-section" class="required-section hidden">
       <p class="form-title">REQUIRED</p>
       <label id="is_follow_p" class="checkbox-container" >
         <input id="is_follow" type="checkbox" name="is_follow" disabled required/>
