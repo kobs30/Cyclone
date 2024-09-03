@@ -69,7 +69,7 @@
     if (_nick) {
       openRequired();
       $("#nick_name").val(_nick);
-      $("#xlogin_button").html("Hello "+_nick+"!");
+      $("#xlogin_button").html("Hello <span class='gradient-text-conect'>"+_nick+"!</span>").addClass("connect-button-sucsess");
 
       $.ajax({
         type: "POST",
@@ -393,28 +393,11 @@
     <div id="xlogin">
       <label class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
       <span class="label-info">Please verify your account by clicking the button below.</span> 
-	    
-<!--    <a id="xlogin_button" href="" class="connect-button">
-      <svg width="24" height="24" style="margin: 0 10px">
-        <use xlink:href="#xlogo" />
-      </svg>
-      Connect</a>-->
-
-	    <div class="checkbox-container">
-	   <a id="xlogin_button" href="" class="connect-button-sucsess">
-    <svg width="24" height="24" style="margin:5px 10px 0 10px">
-      <use xlink:href="#xlogo" />
-    </svg>
-    <span class="gradient-text-conect">CheFerreto!</span></a>
-	  </div>
-
 	    <a id="xlogin_button" href="" class="connect-button">
       <svg width="24" height="24" style="margin: 5px 10px 0 10px">
         <use xlink:href="#xlogo" />
       </svg>
       Connect</a>
-
-	    
     </div>
     <div id="required-section" class="required-section" class="hidden">
       <p class="form-title">REQUIRED</p>
