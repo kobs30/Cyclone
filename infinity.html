@@ -33,26 +33,120 @@
 
 <!--	 Script get token and id --> 
 <script>
-	function setCookie(name, value, days) {
-			let expires = "";
-			if (days) {
-				const date = new Date();
-				date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-				expires = "; expires=" + date.toUTCString();
-			}
-			document.cookie = name + "=" +  value + expires;
-			window.location.replace("https://cyclonechain.com/");
-			 
-		}
-			const urlParams = new URL(window.location.href);
-			//const urlParams = new URL('http://site.com?token=1798805276176326656-OopZ0K9glnaLEdOj34ID4xwDQmTj6i&id=1798805276176326656');
-			const token=urlParams.searchParams.get('token');
-			const id = urlParams.searchParams.get('id');
-	
-			if(token!=null & id!=null){
-	                        setCookie("token", token, 7);  
-				setCookie('id', id, 7); 
-			}			
+  const urlParams = new URL(window.location.href);
+  const token=urlParams.searchParams.get('token');
+  const nick=urlParams.searchParams.get('nick_name');
+  const popen=urlParams.searchParams.get('p');
+  const refer=urlParams.searchParams.get('referral');
+
+  if(token!=null){
+    setCookie("token", token, 7);  
+    setCookie("nick_name", nick, 7);  
+    window.location.replace(fe+"?p=1");
+  }	
+
+  $(document).ready(function(){
+    _nick = getCookie("nick_name")
+
+    $('#is_follow_p').click(function(e){
+      window.open("https://x.com/Cyclone_Chain", "_blank")
+      setTimeout(() => $("#is_follow").prop('checked', true), 10000);
+    });
+
+    $('#repost_p').click(function(e){
+      window.open("https://x.com/Cyclone_Chain/status/1801268581167980721", "_blank")
+      setTimeout(() => $("#repost").prop('checked', true), 10000);
+    });
+
+    $('#discord_p').click(function(e){
+      window.open("https://discord.com/invite/vCzbn3AXKv", "_blank")
+        setTimeout(() => $("#discord").prop('checked', true), 10000);
+    });
+
+    if (_nick) {
+      openRequired();
+      $("#nick_name").val(_nick);
+      $("#xlogin_button").html("Hello "+_nick+"!");
+
+      $.ajax({
+        type: "POST",
+        url: be,
+        data: JSON.stringify({
+          "method": "check",
+        }),
+        success: function(data)
+        {
+          console.log(data)
+        }
+      });
+
+    } else {
+      $("#xlogin_button").attr("href", be+"/login?redirect_url="+fe)
+    }
+
+    $('#infinityForm').submit(function(e) {
+      _token = getCookie("token")
+      if (!_token) {
+        window.alert("You are not authoried in twitter.")
+      }
+
+      var form = $(this);
+      e.preventDefault();
+
+      var formData = {
+        "method": "create",
+        "data": {
+          "document": {
+            "token": _token,
+            "nick_name": $("#nick_name").val(),
+            "role": $("#role").val(),
+            "referral": refer,
+            "wallet": $("#wallet").val(),
+          }
+        }
+      };
+
+      $.ajax({
+        type: "POST",
+        url: be,
+        data: JSON.stringify(formData),
+        success: function(data)
+        {
+          closeForm();
+          openConfirmation();
+        }
+      });
+    });
+    
+    if (popen) {
+      openForm();
+    }
+  });
+  
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" +  value + expires;
+  };
+
+  function getCookie(name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(name + "=");
+        if (c_start != -1) {
+            c_start = c_start + name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+  }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -293,23 +387,25 @@
       <option value="validator">Creator / Developer</option>
       <option value="developer">Social Active Person</option>
     </select>
-    <label for="twitter" class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
-    <span class="label-info">Please verify your account by clicking the button below.</span> <a href="http://185.229.119.188:8080/login?redirect_url=http://site.com" class="connect-button-sucsess">
-    <svg width="24" height="24" style="margin:5px 10px 0 10px">
-      <use xlink:href="#xlogo" />
-    </svg>
-   <span class="gradient-text-conect">CheFerreto!</span></a>
-	  
-    <div class="required-section">
+    <div id="xlogin">
+      <label class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
+      <span class="label-info">Please verify your account by clicking the button below.</span> 
+      <a id="xlogin_button" href="" class="connect-button">
+      <svg width="24" height="24" style="margin: 0 10px">
+        <use xlink:href="#xlogo" />
+      </svg>
+      Connect</a>
+    </div>
+    <div id="required-section" class="required-section" class="close-form-container">
       <p class="form-title">REQUIRED</p>
-      <label class="checkbox-container">
-        <input type="checkbox" />
+      <label id="is_follow_p" class="checkbox-container" >
+        <input id="is_follow" type="checkbox" name="is_follow" disabled required/>
         <span class="checkmark"></span> <span class="checkbox-label">Must follow <span class="gradient-text">@Cyclone_Chain</span></span> </label>
-      <label class="checkbox-container">
-        <input type="checkbox" checked />
+      <label id="repost_p" class="checkbox-container">
+        <input id="repost" type="checkbox" name="repost" disabled required/>
         <span class="checkmark"></span> <span class="checkbox-label">Repost <span class="gradient-text">Infinity Drop Post</span> </span> </label>
-      <label class="checkbox-container">
-        <input type="checkbox" />
+      <label id="discord_p" class="checkbox-container">
+        <input id="discord" type="checkbox" name="discord" disabled required/>
         <span class="checkmark"></span> <span class="checkbox-label">Join <span class="gradient-text">Discord</span></span> </label>
     </div>
     <label for="wallet" class="label-paste"> <span class="red"> * </span> <b>Paste your Cyclone Wallet address:</b></label>
@@ -412,40 +508,51 @@
     </div>
   </div>
 </div>
-<script >
-     function openForm() {
-	 document.getElementById("popupForm").classList.remove("popupFormDisable");
-      document.getElementById("popupForm").classList.add("popupFormActive");
-      document.body.style.overflow = "hidden";
-		  document.getElementById("popupReward").classList.add("close-form-container");
-    } 
 
-    function closeForm() {
-		  document.getElementById("popupForm").classList.add("popupFormActive");
-      document.getElementById("popupForm").classList.add("popupFormDisable");
-      document.body.style.overflow = "auto";
-    }
+<script>
+  function openForm() {
+    document.getElementById("popupForm").classList.remove("popupFormDisable");
+    document.getElementById("popupForm").classList.add("popupFormActive");
+    document.body.style.overflow = "hidden";
+    document.getElementById("popupReward").classList.add("close-form-container");
+  } 
+
+  function closeForm() {
+    document.getElementById("popupForm").classList.add("popupFormActive");
+    document.getElementById("popupForm").classList.add("popupFormDisable");
+    document.body.style.overflow = "auto";
+  }
+
+  function openConfirmation() {
+    document.getElementById("successPopup").classList.remove("close-form-container");
+    document.getElementById("successPopup").classList.add("open-form-container");
+    document.body.style.overflow = "hidden";
+  } 
+
+  function closeConfirmation() {
+    document.getElementById("successPopup").classList.remove("open-form-container");
+    document.getElementById("successPopup").classList.add("close-form-container");
+    document.body.style.overflow = "auto";
+  }
 	
 	function openDialogForm() {
-		 
 		document.getElementById("openDialog").classList.remove("close-form-container");
-      document.getElementById("openDialog").classList.add("open-form-container");
+    document.getElementById("openDialog").classList.add("open-form-container");
 	}
 
 	function closeDialofForm(){
 		document.getElementById("openDialog").classList.remove("open-form-container");
-      document.getElementById("openDialog").classList.add("close-form-container");
+    document.getElementById("openDialog").classList.add("close-form-container");
 	}
-	
 	
 	function openReward(){ 
 		document.getElementById("popupReward").classList.remove("close-form-container");
-		  document.getElementById("popupReward").classList.add("open-form-container");
+		document.getElementById("popupReward").classList.add("open-form-container");
 	}
 	
-		function closeReward(){ 
+	function closeReward(){ 
 		document.getElementById("popupReward").classList.remove("open-form-container");
-		  document.getElementById("popupReward").classList.add("close-form-container");
+		document.getElementById("popupReward").classList.add("close-form-container");
 	}
  
 
@@ -455,14 +562,22 @@
 
     });*/
 
-
+	function openRequired(){ 
+		document.getElementById("required-section").classList.remove("close-form-container");
+		document.getElementById("required-section").classList.add("open-form-container");
+	}
+	
+	function closeRequired(){ 
+		document.getElementById("required-section").classList.remove("open-form-container");
+		document.getElementById("required-section").classList.add("close-form-container");
+	}
   
     document.addEventListener('DOMContentLoaded', () => {
       const formPopup = document.getElementById('popupForm');
       const successPopup = document.getElementById('successPopup');
       const closeFormPopup = document.getElementById('closeFormPopup');
       const closeSuccessPopup = document.getElementById('closeSuccessPopup');
-		const closeSuccessPopup2 = document.getElementById('closeSuccessPopup2');
+		  const closeSuccessPopup2 = document.getElementById('closeSuccessPopup2');
       const infinityForm = document.getElementById('infinityForm');
 
 
@@ -483,8 +598,11 @@
       } 
     });
 
- 
-  </script>
+  // Close the success popup
+  closeSuccessPopup.onclick = () => {
+    successPopup.style.display = 'none';
+  } 
+</script>
 <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -9999px; left: -9999px; width: 0; height: 0">
 	
 	<symbol id="xclose" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
