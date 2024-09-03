@@ -54,12 +54,12 @@
     _nick = getCookie("nick_name")
 
     $('#is_follow_p').click(function(e){
-      window.open("https://x.com/Cyclone_Chain", "_blank")
+      window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
       setTimeout(() => $("#is_follow").prop('checked', true), 10000);
     });
 
     $('#repost_p').click(function(e){
-      window.open("https://x.com/Cyclone_Chain/status/1801268581167980721", "_blank")
+      window.open("https://x.com/intent/retweet?tweet_id=1801268581167980721", "_blank")
       setTimeout(() => $("#repost").prop('checked', true), 10000);
     });
 
