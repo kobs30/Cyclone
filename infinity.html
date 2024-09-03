@@ -600,18 +600,18 @@
 
     // Close the success popup
     closeSuccessPopup.onclick = () => {
-      successPopup.style.display = 'none';
+      closeConfirmation();
     } 
 
     closeSuccessPopup2.onclick = () => {
-      successPopup.style.display = 'none';
+      closeConfirmation();
     } 
 
     // Form submission handler
     infinityForm.onsubmit = (e) => {
       e.preventDefault();
-      formPopup.style.display = 'none';
-      successPopup.style.display = 'block';
+      closeForm();
+      closeConfirmation();
     } 
   });
 </script>
