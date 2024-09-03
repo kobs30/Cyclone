@@ -677,9 +677,15 @@ cursor: pointer;
 
 #openReward {
     cursor: pointer;
-
 }
 
+.hidden {
+    display: none!important;
+}
+
+.shown {
+    display: block!important;
+}
 .popup-reward-content h3 {
     font-size: 32px;
     line-height: 39px;
