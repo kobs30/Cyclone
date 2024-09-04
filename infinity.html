@@ -18,6 +18,90 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
+  function openForm() {
+    document.getElementById("popupForm").classList.remove("popupFormDisable");
+    document.getElementById("popupForm").classList.add("popupFormActive");
+    document.body.style.overflow = "hidden";
+    document.getElementById("popupReward").classList.add("close-form-container");
+  } 
+
+  function closeForm() {
+    document.getElementById("popupForm").classList.add("popupFormActive");
+    document.getElementById("popupForm").classList.add("popupFormDisable");
+    document.body.style.overflow = "auto";
+  }
+
+  function openConfirmation() {
+    document.getElementById("successPopup").classList.remove("hidden");
+  } 
+
+  function closeConfirmation() {
+    document.getElementById("successPopup").classList.add("hidden");
+  }
+	
+	function openDialogForm() {
+		document.getElementById("openDialog").classList.remove("close-form-container");
+    document.getElementById("openDialog").classList.add("open-form-container");
+	}
+
+	function closeDialofForm(){
+		document.getElementById("openDialog").classList.remove("open-form-container");
+    document.getElementById("openDialog").classList.add("close-form-container");
+	}
+	
+	function openReward(){ 
+		document.getElementById("popupReward").classList.remove("close-form-container");
+		document.getElementById("popupReward").classList.add("open-form-container");
+	}
+	
+	function closeReward(){ 
+		document.getElementById("popupReward").classList.remove("open-form-container");
+		document.getElementById("popupReward").classList.add("close-form-container");
+	}
+ 
+
+/*   document.querySelector('.close-reward').addEventListener('click', function () {
+      document.getElementById('popupReward').style.display = 'none';
+      document.body.style.overflow = "auto";
+
+    });*/
+
+	function openRequired(){ 
+		document.getElementById("required-section").classList.remove("hidden");
+	}
+	
+	function closeRequired(){ 
+		document.getElementById("required-section").classList.add("hidden");
+	}
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const formPopup = document.getElementById('popupForm');
+    const successPopup = document.getElementById('successPopup');
+    const closeFormPopup = document.getElementById('closeFormPopup');
+    const closeSuccessPopup = document.getElementById('closeSuccessPopup');
+    const closeSuccessPopup2 = document.getElementById('closeSuccessPopup2');
+    const infinityForm = document.getElementById('infinityForm');
+
+
+    // Close the success popup
+    closeSuccessPopup.onclick = () => {
+      closeConfirmation();
+    } 
+
+    closeSuccessPopup2.onclick = () => {
+      closeConfirmation();
+    } 
+
+    // Form submission handler
+    infinityForm.onsubmit = (e) => {
+      e.preventDefault();
+      closeForm();
+      closeConfirmation();
+    } 
+  });
+</script>
+
+<script>
   var fe = "http://185.229.119.188:8080/infinity.html";
   var be = "http://185.229.119.188:8081";
 
@@ -43,7 +127,7 @@
   const nick=urlParams.searchParams.get('nick_name');
   const refer=urlParams.searchParams.get('referral');
 
-  if(token!=null){
+  if(token!=null && nick!=null){
     setCookie("token", token, 7);  
     setCookie("nick_name", nick, 7); 
 
@@ -54,6 +138,7 @@
 
   $(document).ready(function(){
     _nick = getCookie("nick_name");
+    _token = getCookie("token");
 
     $('#is_follow_p').click(function(e){
       $("#is_follow").prop('checked', true);
@@ -73,7 +158,7 @@
       // setTimeout(() => $("#discord").prop('checked', true), 10000);
     });
 
-    if (_nick) {
+    if (_nick && _token) {
       openRequired();
 
       if ($("#nick_name").val() == "") {
@@ -538,89 +623,7 @@
   </div>
 </div>
 
-<script>
-  function openForm() {
-    document.getElementById("popupForm").classList.remove("popupFormDisable");
-    document.getElementById("popupForm").classList.add("popupFormActive");
-    document.body.style.overflow = "hidden";
-    document.getElementById("popupReward").classList.add("close-form-container");
-  } 
 
-  function closeForm() {
-    document.getElementById("popupForm").classList.add("popupFormActive");
-    document.getElementById("popupForm").classList.add("popupFormDisable");
-    document.body.style.overflow = "auto";
-  }
-
-  function openConfirmation() {
-    document.getElementById("successPopup").classList.remove("hidden");
-  } 
-
-  function closeConfirmation() {
-    document.getElementById("successPopup").classList.add("hidden");
-  }
-	
-	function openDialogForm() {
-		document.getElementById("openDialog").classList.remove("close-form-container");
-    document.getElementById("openDialog").classList.add("open-form-container");
-	}
-
-	function closeDialofForm(){
-		document.getElementById("openDialog").classList.remove("open-form-container");
-    document.getElementById("openDialog").classList.add("close-form-container");
-	}
-	
-	function openReward(){ 
-		document.getElementById("popupReward").classList.remove("close-form-container");
-		document.getElementById("popupReward").classList.add("open-form-container");
-	}
-	
-	function closeReward(){ 
-		document.getElementById("popupReward").classList.remove("open-form-container");
-		document.getElementById("popupReward").classList.add("close-form-container");
-	}
- 
-
-/*   document.querySelector('.close-reward').addEventListener('click', function () {
-      document.getElementById('popupReward').style.display = 'none';
-      document.body.style.overflow = "auto";
-
-    });*/
-
-	function openRequired(){ 
-		document.getElementById("required-section").classList.remove("hidden");
-	}
-	
-	function closeRequired(){ 
-		document.getElementById("required-section").classList.add("hidden");
-	}
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const formPopup = document.getElementById('popupForm');
-    const successPopup = document.getElementById('successPopup');
-    const closeFormPopup = document.getElementById('closeFormPopup');
-    const closeSuccessPopup = document.getElementById('closeSuccessPopup');
-    const closeSuccessPopup2 = document.getElementById('closeSuccessPopup2');
-    const infinityForm = document.getElementById('infinityForm');
-
-
-    // Close the success popup
-    closeSuccessPopup.onclick = () => {
-      closeConfirmation();
-    } 
-
-    closeSuccessPopup2.onclick = () => {
-      closeConfirmation();
-    } 
-
-    // Form submission handler
-    infinityForm.onsubmit = (e) => {
-      e.preventDefault();
-      closeForm();
-      closeConfirmation();
-    } 
-  });
-</script>
 <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -9999px; left: -9999px; width: 0; height: 0">
 
 	<symbol id="discord2" width="32" height="25" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
