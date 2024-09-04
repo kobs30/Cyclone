@@ -227,7 +227,13 @@
       // });
 
     } else {
-      $("#xlogin_button").attr("href", be+"/login?redirect_url="+fe)
+      closeRequired();
+      
+      $("#xlogin_button")
+        .html('<svg width="24" height="24" style="margin: 5px 10px 0 10px"><use xlink:href="#xlogo" /></svg>Connect</a>')
+        .removeClass("connect-button-sucsess")
+        .attr("href", be+"/login?redirect_url="+fe)
+      ;
     }
 
     $('#infinityForm').submit(function(e) {
