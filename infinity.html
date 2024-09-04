@@ -56,18 +56,21 @@
     _nick = getCookie("nick_name");
 
     $('#is_follow_p').click(function(e){
-      window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
-      setTimeout(() => $("#is_follow").prop('checked', true), 10000);
+      $("#is_follow").prop('checked', true);
+      //window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
+      //setTimeout(() => $("#is_follow").prop('checked', true), 10000);
     });
 
     $('#repost_p').click(function(e){
-      window.open("https://x.com/intent/retweet?tweet_id=1801268581167980721", "_blank")
-      setTimeout(() => $("#repost").prop('checked', true), 10000);
+      $("#repost_p").prop('checked', true);
+      // window.open("https://x.com/intent/retweet?tweet_id=1801268581167980721", "_blank")
+      // setTimeout(() => $("#repost").prop('checked', true), 10000);
     });
 
     $('#discord_p').click(function(e){
-      window.open("https://discord.com/invite/vCzbn3AXKv", "_blank")
-        setTimeout(() => $("#discord").prop('checked', true), 10000);
+      $("#discord_p").prop('checked', true);
+      // window.open("https://discord.com/invite/vCzbn3AXKv", "_blank")
+      // setTimeout(() => $("#discord").prop('checked', true), 10000);
     });
 
     if (_nick) {
