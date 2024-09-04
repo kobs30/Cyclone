@@ -18,6 +18,9 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
+  _nick = getCookie("nick_name");
+  _token = getCookie("token");
+  
   function openForm() {
     handleForm();
     document.getElementById("popupForm").classList.remove("popupFormDisable");
