@@ -136,22 +136,19 @@
     _token = getCookie("token");
 
     $('#is_follow_p').click(function(e){
-      e.preventDefault();
       $("#is_follow").prop('checked', true);
       //window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
       //setTimeout(() => $("#is_follow").prop('checked', true), 10000);
     });
 
     $('#repost_p').click(function(e){
-      e.preventDefault();
-      $("#repost_p").prop('checked', true);
+      $("#repost").prop('checked', true);
       // window.open("https://x.com/intent/retweet?tweet_id=1801268581167980721", "_blank")
       // setTimeout(() => $("#repost").prop('checked', true), 10000);
     });
 
     $('#discord_p').click(function(e){
-      e.preventDefault();
-      $("#discord_p").prop('checked', true);
+      $("#discord").prop('checked', true);
       // window.open("https://discord.com/invite/vCzbn3AXKv", "_blank")
       // setTimeout(() => $("#discord").prop('checked', true), 10000);
     });
