@@ -43,6 +43,10 @@
     return "";
   }
 
+  _nick = getCookie("nick_name");
+  _token = getCookie("token");
+  _registered = getCookie("registered");
+
   function openForm() {
     handleForm();
     document.getElementById("popupForm").classList.remove("popupFormDisable");
@@ -115,9 +119,9 @@
       setCookie("token", "", 0);
       setCookie("registered", "", 0);
 
-      _nick = getCookie("nick_name");
-      _token = getCookie("token");
-      _registered = getCookie("registered");
+      _nick = ""
+      _token = ""
+      _registered = ""
 
       closeConfirmation();
     } 
@@ -161,6 +165,9 @@
     setCookie("token", token, 7);  
     setCookie("nick_name", nick, 7); 
 
+    _token = token;
+    _nick = nick;
+
     window.history.pushState({}, document.title, window.location.pathname);
     
     $(document).ready(function(){
@@ -169,9 +176,6 @@
   }	
 
   function handleForm() {
-    _nick = getCookie("nick_name");
-    _token = getCookie("token");
-
     $('#is_follow_p').click(function(e){
       e.preventDefault();
       if ($("#is_follow").not("checked")) {
@@ -227,7 +231,6 @@
     }
 
     $('#infinityForm').submit(function(e) {
-      _token = getCookie("token")
       if (!_token || _token == "") {
         window.alert("You are not authoried in twitter.")
         return;
@@ -258,14 +261,13 @@
           closeForm();
           openConfirmation();
           setCookie("registered", true, 7); 
+          _registered = true;
         }
       });
     });
   }
 
   function XForm() {
-    _registered = getCookie("registered");
-
     if (_registered) {
       openConfirmation();
     } else {
