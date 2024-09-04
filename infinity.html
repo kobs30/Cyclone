@@ -83,6 +83,9 @@
 
     closeSuccessPopup2.onclick = () => {
       closeConfirmation();
+      setCookie("nick_name", "", 0);
+      setCookie("token", "", 0);
+      setCookie("registered", "", 0);
     } 
 
     // Form submission handler
@@ -545,13 +548,13 @@
         </div>
         
         <div class="success-image"> <img src="images/sucsess.svg" alt=""/> </div>
-
-	              <div class="margin-top_80"> 
+	        <div class="margin-top_80"> 
 			      <a href="#" class="connect-button-close" id="closeSuccessPopup2">
-          <svg width="18" height="18" style="margin: 0 10px">
-            <use xlink:href="#xlogo" />
-          </svg>
-          <span class="user_name" class="gradient-text-conect"></span></a>
+              <svg width="18" height="18" style="margin: 0 10px">
+                <use xlink:href="#xlogo" />
+              </svg>
+              <span class="user_name" class="gradient-text-conect"></span>
+            </a>
 		      </div>
 
 	      
