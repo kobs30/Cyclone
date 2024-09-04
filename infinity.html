@@ -86,6 +86,7 @@
       setCookie("nick_name", "", 0);
       setCookie("token", "", 0);
       setCookie("registered", "", 0);
+      handleForm();
     } 
 
     // Form submission handler
@@ -134,7 +135,7 @@
     });
   }	
 
-  $(document).ready(function(){
+  function handleForm() {
     _nick = getCookie("nick_name");
     _token = getCookie("token");
 
@@ -227,8 +228,12 @@
         }
       });
     });
+  }
+
+  $(document).ready(function(){
+    handleForm();
   });
-  
+
   function XForm() {
     _registered = getCookie("registered");
 
