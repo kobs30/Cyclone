@@ -18,9 +18,34 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
 <script>
+  function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+      const date = new Date();
+      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+      expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" +  value + expires;
+  };
+
+  function getCookie(name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(name + "=");
+        if (c_start != -1) {
+            c_start = c_start + name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+  }
+  
   _nick = getCookie("nick_name");
   _token = getCookie("token");
-  
+
   function openForm() {
     handleForm();
     document.getElementById("popupForm").classList.remove("popupFormDisable");
@@ -245,31 +270,6 @@
       openForm();
     }
 
-  }
-
-  function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" +  value + expires;
-  };
-
-  function getCookie(name) {
-    if (document.cookie.length > 0) {
-        c_start = document.cookie.indexOf(name + "=");
-        if (c_start != -1) {
-            c_start = c_start + name.length + 1;
-            c_end = document.cookie.indexOf(";", c_start);
-            if (c_end == -1) {
-                c_end = document.cookie.length;
-            }
-            return unescape(document.cookie.substring(c_start, c_end));
-        }
-    }
-    return "";
   }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
