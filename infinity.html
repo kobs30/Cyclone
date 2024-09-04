@@ -19,25 +19,27 @@
 
 <script>
   function openForm() {
+    handleForm();
     document.getElementById("popupForm").classList.remove("popupFormDisable");
     document.getElementById("popupForm").classList.add("popupFormActive");
     document.body.style.overflow = "hidden";
     document.getElementById("popupReward").classList.add("close-form-container");
-    handleForm();
   } 
 
   function closeForm() {
+    handleForm();
     document.getElementById("popupForm").classList.add("popupFormActive");
     document.getElementById("popupForm").classList.add("popupFormDisable");
     document.body.style.overflow = "auto";
   }
 
   function openConfirmation() {
-    document.getElementById("successPopup").classList.remove("hidden");
     handleForm();
+    document.getElementById("successPopup").classList.remove("hidden");
   } 
 
   function closeConfirmation() {
+    handleForm();
     document.getElementById("successPopup").classList.add("hidden");
   }
 	
