@@ -42,9 +42,6 @@
     }
     return "";
   }
-  
-  _nick = getCookie("nick_name");
-  _token = getCookie("token");
 
   function openForm() {
     handleForm();
@@ -117,6 +114,11 @@
       setCookie("nick_name", "", 0);
       setCookie("token", "", 0);
       setCookie("registered", "", 0);
+
+      _nick = getCookie("nick_name");
+      _token = getCookie("token");
+      _registered = getCookie("registered");
+
       closeConfirmation();
     } 
 
