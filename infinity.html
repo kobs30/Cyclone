@@ -59,13 +59,6 @@
 		document.getElementById("popupReward").classList.add("close-form-container");
 	}
  
-
-/*   document.querySelector('.close-reward').addEventListener('click', function () {
-      document.getElementById('popupReward').style.display = 'none';
-      document.body.style.overflow = "auto";
-
-    });*/
-
 	function openRequired(){ 
 		document.getElementById("required-section").classList.remove("hidden");
 	}
@@ -132,8 +125,10 @@
     setCookie("nick_name", nick, 7); 
 
     window.history.pushState({}, document.title, window.location.pathname);
-    openForm();
-    //window.location.replace(fe+"?p=1");
+    
+    $(document).ready(function(){
+      openForm();
+    });
   }	
 
   $(document).ready(function(){
