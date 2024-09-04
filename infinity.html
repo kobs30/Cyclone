@@ -23,6 +23,7 @@
     document.getElementById("popupForm").classList.add("popupFormActive");
     document.body.style.overflow = "hidden";
     document.getElementById("popupReward").classList.add("close-form-container");
+    handleForm();
   } 
 
   function closeForm() {
@@ -229,10 +230,6 @@
       });
     });
   }
-
-  $(document).ready(function(){
-    handleForm();
-  });
 
   function XForm() {
     _registered = getCookie("registered");
