@@ -165,7 +165,7 @@
       }
     });
 
-    if (_nick && _token) {
+    if (_nick != "" && _token != "") {
       openRequired();
 
       if ($("#nick_name").val() == "") {
@@ -194,8 +194,9 @@
 
     $('#infinityForm').submit(function(e) {
       _token = getCookie("token")
-      if (!_token) {
+      if (!_token || _token == "") {
         window.alert("You are not authoried in twitter.")
+        return;
       }
 
       var form = $(this);
