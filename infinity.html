@@ -86,11 +86,10 @@
     } 
 
     closeSuccessPopup2.onclick = () => {
-      closeConfirmation();
       setCookie("nick_name", "", 0);
       setCookie("token", "", 0);
       setCookie("registered", "", 0);
-      handleForm();
+      closeConfirmation();
     } 
 
     // Form submission handler
