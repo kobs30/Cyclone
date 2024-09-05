@@ -502,7 +502,7 @@ cursor: pointer;
     margin-left: -200px;
 }
 
-.connect-button-close button{
+.connect-button-close button, .connect-button-sucsess button{
 	background: none;
 	border: 0;
 	cursor: pointer;
