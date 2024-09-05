@@ -392,11 +392,17 @@
     <label for="twitter" class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
     <span class="label-info">Please verify your account by clicking the button below.</span> 
 	  <div class="checkbox-container">
-	  <a href="http://185.229.119.188:8080/login?redirect_url=http://site.com" class="connect-button-sucsess">
+	  	  <div class="connect-button-sucsess">
     <svg width="24" height="24" style="margin:5px 10px 0 10px">
       <use xlink:href="#xlogo" />
     </svg>
-    <span class="gradient-text-conect">CheFerreto!</span></a>
+    <span class="gradient-text-conect">CheFerreto!</span>
+		  <button id="closeFormPopup2" onclick="closeForm()">
+            <svg width="24" height="24">
+              <use xlink:href="#xclose" />
+            </svg>
+            </button>
+		  </div>
 	  </div>
     <div class="required-section">
       <p class="form-title">REQUIRED</p>
