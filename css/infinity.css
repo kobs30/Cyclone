@@ -511,7 +511,7 @@ cursor: pointer;
 
 .connect-button-close .gradient-text-conect{
 	font-size: 18px;
-	 padding-right: 20px;
+	 padding-right: 10px;
 	font-family: var(--cc-font-family)!important;
 	 
     line-height: 130px;  
