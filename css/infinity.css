@@ -490,11 +490,8 @@ cursor: pointer;
     font-size: 16px;
     line-height: 20px;
     font-weight: 500;
-    cursor: pointer;
- 
- 
-
 }
+
 .connect-button-sucsess::before{
 	content: "";
 	display: block;
@@ -505,9 +502,11 @@ cursor: pointer;
     margin-left: -200px;
 }
 
-.connect-button-close{
-	background: url("../images/xclose.svg") 95% 50% no-repeat;
-	margin: 0 10px 0 0;
+.connect-button-close button{
+	background: none;
+	border: 0;
+	cursor: pointer;
+	padding-top: 3px;
 }
 
 .connect-button-close .gradient-text-conect{
