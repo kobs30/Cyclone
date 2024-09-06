@@ -522,11 +522,28 @@
       <label class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
       <span class="label-info">Please verify your account by clicking the button below.</span> 
       <div class="checkbox-container">
-        <a id="xlogin_button" href="" class="connect-button">
+	      
+   <!--   <a id="xlogin_button" href="" class="connect-button">
         <svg width="24" height="24" style="margin: 5px 10px 0 10px">
           <use xlink:href="#xlogo" />
         </svg>
-        Connect</a>
+        Connect</a>-->
+
+	      
+	 <a id="xlogin_button" href="" class="connect-button">
+    <svg width="24" height="24" style="margin:5px 10px 0 10px">
+      <use xlink:href="#xlogo" />
+    </svg>
+    <span class="gradient-text-conect">CheFerreto!</span>
+		  <button id="closeFormPopup2" onclick="closeForm()">
+            <svg width="24" height="24">
+              <use xlink:href="#xclose" />
+            </svg>
+            </button>
+		  </a>
+
+	      
+	      
       </div>
     </div>
     <div id="required-section" class="required-section hidden">
@@ -564,13 +581,18 @@
         
         <div class="success-image"> <img src="images/sucsess.svg" alt=""/> </div>
 	        <div class="margin-top_80"> 
-			      <a href="#" class="connect-button-close" title="Twitter logout" id="closeSuccessPopup2" >
+		<div class="connect-button-close" title="Twitter logout" >
               <svg width="18" height="18" style="margin: 0 10px">
                 <use xlink:href="#xlogo" />
               </svg>
               <span class="user_name" class="gradient-text-conect"></span>
-            </a>
-		      </div>
+		<button id="closeSuccessPopup2">
+		 <svg width="24" height="24">
+                  <use xlink:href="#xclose" />
+                 </svg>
+		</button>
+            </div>
+        </div>
 
 	      
 		  <p><!--<a href="#">Infinity Drop</a> -->The event will start in the coming months. <br>
