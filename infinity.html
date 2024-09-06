@@ -206,10 +206,7 @@
     if (_nick != "" && _token != "") {
       openRequired();
 
-      if ($("#nick_name").val() == "") {
-        $("#nick_name").val(_nick);
-      }
-
+      $("#nick_name").val(_nick);
       $('.user_name').html(_nick);
 
       $("#xlogin_button").html("Hello <span class='gradient-text-conect'>"+_nick+"!</span>").addClass("connect-button-sucsess");
@@ -641,7 +638,7 @@
           </div>
         </div>
         <div class="popup-reward-button">
-          <button class="cta-button" onclick="openForm()">OOOOOK - LET'S ROCK IT!</button>
+          <button class="cta-button" onclick="XForm()">OOOOOK - LET'S ROCK IT!</button>
         </div>
       </div>
     </div>
