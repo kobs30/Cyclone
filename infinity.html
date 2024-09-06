@@ -197,7 +197,7 @@
       $('.user_name').html(_nick);
 
       $("#xlogin_button")
-        .html('<svg width="24" height="24" style="margin:5px 10px 0 10px"><use xlink:href="#xlogo" /></svg><span class="gradient-text-conect">'+_nick+'</span><button onclick="disconnect()"><svg width="24" height="24"><use xlink:href="#xclose" /></svg></button>')
+        .html('<svg width="24" height="24" style="margin:5px 10px 0 10px"><use xlink:href="#xlogo" /></svg><span class="gradient-text-conect">'+_nick+'</span><button type="button" onclick="disconnect()"><svg width="24" height="24"><use xlink:href="#xclose" /></svg></button>')
         .addClass("connect-button-sucsess")
       ;
 
@@ -268,9 +268,7 @@
     }
   }
 
-  function disconnect(e) {
-    e.preventDefault();
-    
+  function disconnect() {
     setCookie("nick_name", "", 0);
     setCookie("token", "", 0);
     setCookie("registered", "", 0);
@@ -280,9 +278,7 @@
     _registered = "";
   }
 
-  function disconnectConfirmation(e) {
-    e.preventDefault();
-
+  function disconnectConfirmation() {
     disconnect();
     closeConfirmation();
     openForm();
