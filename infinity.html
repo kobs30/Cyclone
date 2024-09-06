@@ -105,24 +105,11 @@
     const successPopup = document.getElementById('successPopup');
     const closeFormPopup = document.getElementById('closeFormPopup');
     const closeSuccessPopup = document.getElementById('closeSuccessPopup');
-    const closeSuccessPopup2 = document.getElementById('closeSuccessPopup2');
     const infinityForm = document.getElementById('infinityForm');
 
 
     // Close the success popup
     closeSuccessPopup.onclick = () => {
-      closeConfirmation();
-    } 
-
-    closeSuccessPopup2.onclick = () => {
-      setCookie("nick_name", "", 0);
-      setCookie("token", "", 0);
-      setCookie("registered", "", 0);
-
-      _nick = ""
-      _token = ""
-      _registered = ""
-
       closeConfirmation();
     } 
 
@@ -227,7 +214,7 @@
       closeRequired();
       
       $("#xlogin_button")
-        .html('<svg width="24" height="24" style="margin: 5px 10px 0 10px"><use xlink:href="#xlogo" /></svg>Connect</a>')
+        .html('<svg width="24" height="24" style="margin:5px 10px 0 10px"><use xlink:href="#xlogo" /></svg><span class="gradient-text-conect">Connect</span><button id="closeFormPopup2" onclick="closeForm()"><svg width="24" height="24"><use xlink:href="#xclose" /></svg></button>')
         .removeClass("connect-button-sucsess")
         .attr("href", be+"/login?redirect_url="+fe)
       ;
@@ -248,7 +235,7 @@
           "document": {
             "token": _token,
             "nick_name": $("#nick_name").val(),
-            "role": $("#role").val(),
+            "role": $("#participant-role").val(),
             "referral": refer,
             "wallet": $("#wallet").val(),
           }
@@ -276,7 +263,22 @@
     } else {
       openForm();
     }
+  }
 
+  function disconnect() {
+    setCookie("nick_name", "", 0);
+    setCookie("token", "", 0);
+    setCookie("registered", "", 0);
+
+    _nick = "";
+    _token = "";
+    _registered = "";
+  }
+
+  function disconnectConfirmation() {
+    disconnect();
+    closeConfirmation();
+    openForm();
   }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -510,7 +512,7 @@
       its <a href="https://docs.cyclonechain.com/ecosystem/testnet" target="_blank" class="gradient-text">unique features and rules </a> and
       fill out this form. </p>
     <label for="name"><b>Your:</b></label>
-    <input type="text" placeholder="Name or Nickname" name="name" required />
+    <input id="nick_name" type="text" placeholder="Name or Nickname" name="name" required />
     <label for="participant-role">I join as:</label>
     <span class="label-info">Please choose your main participant role</span>
     <select id="participant-role" class="gradient-select">
@@ -530,20 +532,17 @@
         Connect</a>-->
 
 	      
-	 <a id="xlogin_button" href="" class="connect-button">
-    <svg width="24" height="24" style="margin:5px 10px 0 10px">
-      <use xlink:href="#xlogo" />
-    </svg>
-    <span class="gradient-text-conect">CheFerreto!</span>
-		  <button id="closeFormPopup2" onclick="closeForm()">
-            <svg width="24" height="24">
-              <use xlink:href="#xclose" />
-            </svg>
+        <a id="xlogin_button" href="" class="connect-button">
+          <svg width="24" height="24" style="margin:5px 10px 0 10px">
+            <use xlink:href="#xlogo" />
+          </svg>
+          <span class="gradient-text-conect">Connect</span>
+            <button onclick="disconnect()">
+                  <svg width="24" height="24">
+                    <use xlink:href="#xclose" />
+                  </svg>
             </button>
-		  </a>
-
-	      
-	      
+        </a>
       </div>
     </div>
     <div id="required-section" class="required-section hidden">
@@ -586,7 +585,7 @@
                 <use xlink:href="#xlogo" />
               </svg>
               <span class="user_name" class="gradient-text-conect"></span>
-		<button id="closeSuccessPopup2">
+		<button onclick="disconnectConfirmation()">
 		 <svg width="24" height="24">
                   <use xlink:href="#xclose" />
                  </svg>
