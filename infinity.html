@@ -268,7 +268,9 @@
     }
   }
 
-  function disconnect() {
+  function disconnect(e) {
+    e.preventDefault();
+    
     setCookie("nick_name", "", 0);
     setCookie("token", "", 0);
     setCookie("registered", "", 0);
@@ -278,7 +280,9 @@
     _registered = "";
   }
 
-  function disconnectConfirmation() {
+  function disconnectConfirmation(e) {
+    e.preventDefault();
+
     disconnect();
     closeConfirmation();
     openForm();
