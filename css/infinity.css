@@ -478,10 +478,10 @@ cursor: pointer;
     background-color: #000;
     color: #fff;
     border: 1px solid grey;
-    width: 200px;
+    width: auto;
     border-radius: 5px;
     margin: 7% auto 0;
-	 
+	padding: 0 10px; 
      
     height: 40px;
     display: flex;
@@ -498,8 +498,8 @@ cursor: pointer;
 	height: 23px;
 	width: 23px;
 	background: url("../images/check.svg") no-repeat;
-	position: absolute;
-    margin-left: -200px;
+	position: relative;
+    margin-left: -22px;
 }
 
 .connect-button-close button, .connect-button-sucsess button{
