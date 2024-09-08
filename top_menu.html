@@ -857,13 +857,13 @@
                 <div class="dialog__input_form">
                   <lable class="placeholder-box">
                     <p><span class="red"><sup>*</sup></span>COT Quantity</p>
-                    <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="quantity" name="quantity" placeholder="COT Quantity">
+                    <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" placeholder="COT Quantity">
                   </lable>
                 </div>
                 <div class="dialog__input_form">
                   <lable class="placeholder-box">
                     <p><span class="red"><sup>*</sup></span>EVM Wallet</p>
-                    <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="evm_adress" name="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
+                    <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
                   </lable>
                 </div>
                 <div class="dialog__input_form">
@@ -877,20 +877,20 @@
               <div class="reservation-dialog__column reservation-dialog__inf">
                 <div class="reservation-dialog__texts">
                   <p class="text-body2 secondary-text">We respect your anonymous right, so personal fields are optional. However, if you want us to keep you informed about the key events, please fill them out! </p>
-                  <div class="owner_token"> <img src="images/owner.png" width="115" height="122" alt=""/>
-                    <h4 class="h4"><span class="color_text">Cyclone 
-                      Owner Token</span></h4>
+                  <div class="owner_token"> <img src="images/owner_token.png" width="126" height="127" alt=""/>
+<h4 class="h4"><span class="color_text">Cyclone <br>
+                    Owner Token</span></h4>
                   </div>
                   <p class="text-body2 secondary-text"><a
 									href="https://docs.cyclonechain.com/gamechanging/economics/cycl-coin" target="_blank" class="reservation-dialog__cycl">#COT</a> confirms your ownership of a part of the validator license and consequently, a share of the profits from all transactions in the network.</p>
                   <p class="text-body2 secondary-text"> COT will be minted as wrapped (Polygon network). You will be able to exchange the wrapped COTs for the original counterpart in the Cyclone network after the Mainnet launch.</p>
                 </div>
-                <button type="button" data-dialog-button="wallet" data-dialog-close="reservation"
-							        class="button button_variant_outlined button_rounded reservation-dialog__wallet-button" onClick="openDialogSucsess()">
+                <a href="https://chromewebstore.google.com/detail/cyclone-wallet/caplndhphkmgognmgdeeelefmccbgemk" data-dialog-button="wallet" data-dialog-close="reservation"
+				class="button button_variant_outlined button_rounded reservation-dialog__wallet-button" target="_blank">
                 <svg width="20" height="20">
                   <use xlink:href="#cycle-coin"/>
                 </svg>
-                Create wallet </button>
+                Create wallet </a>
               </div>
             </div>
           </div>
