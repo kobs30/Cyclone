@@ -38,6 +38,7 @@
 <link href="css/index.css" rel="stylesheet" type="text/css">
 <link href="css/shared.css" rel="stylesheet" type="text/css">
 <link href="css/bridge.css" rel="stylesheet" type="text/css">
+<script src="js/bridge.js" defer></script>
 </head>
 
 <body>
@@ -196,11 +197,11 @@
     </div>
     <div class="main__container_form border-radius_40">
       <div class="form_nav">
-        <button class="form_tab">Sending</button>
-        <button class="form_tab">withdrawal</button>
+        <button class="form_tab active-tab" data-tab="sending">Sending</button>
+        <button class="form_tab" data-tab="withdrawal">withdrawal</button>
       </div>
-      <div class="form_content" data-tab1>
-        <button class="tab_convert border-radius_40">
+      <div class="form_content active-form" id="sending" data-form>
+        <button class="tab_convert border-radius_40" onclick="openWalletForm()">
         <div class="wallet_from">
           <svg width="20" height="18">
             <use xlink:href="#cycl_icon" />
@@ -216,8 +217,27 @@
         <div class="form_selections">
           <section class="select_form">
             <label for="select_from" class="lable">From</label>
-            <div class="select_input" id="select_from">-select-</div>
-            <div class="option"></div>
+            <div class="select_input" id="select_from" data-select="from">-select-</div>
+            <div class="option" id="from">
+              <ul>
+                <li>
+                  <svg width="18" height="20">
+                    <use xlink:href="#Ethereum" />
+                  </svg>
+                  <p>Ethereum</p>
+                </li>
+                <li>
+                  <svg width="18" height="18">
+                    <use xlink:href="#Solana" />
+                  </svg>
+                  Solana</li>
+                <li>
+                  <svg width="18" height="18">
+                    <use xlink:href="#cyclone" />
+                  </svg>
+                  cyclone</li>
+              </ul>
+            </div>
           </section>
           <button><span>
           <svg width="23" height="15">
@@ -226,8 +246,27 @@
           </span></button>
           <section class="select_form">
             <label for="select_from" class="lable">To</label>
-            <div class="select_input" id="select_from">-select-</div>
-            <div class="option"></div>
+            <div class="select_input" id="select_from" data-select="to">-select-</div>
+            <div class="option" id="to">
+			  <ul>
+                <li>
+                  <svg width="18" height="20">
+                    <use xlink:href="#Ethereum" />
+                  </svg>
+                  <p>Ethereum</p>
+                </li>
+                <li>
+                  <svg width="18" height="18">
+                    <use xlink:href="#Solana" />
+                  </svg>
+                  Solana</li>
+                <li>
+                  <svg width="18" height="18">
+                    <use xlink:href="#cyclone" />
+                  </svg>
+                  cyclone</li>
+              </ul>
+			  </div>
           </section>
         </div>
         <div class="token_value">
@@ -242,7 +281,7 @@
           <button class="transfer"> Transfer to bridge</button>
         </div>
       </div>
-      <div class="form_content" data-tab2></div>
+      <div class="form_content" id="withdrawal" data-form></div>
     </div>
     <div class="main__container_info">
       <p>Cyclone bridges are unique because their smart contracts are independent and autonomous. 
@@ -275,6 +314,39 @@
  
   </script>
 <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -9999px; left: -9999px; width: 0; height: 0">
+  <symbol id="cyclone" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M2.56801 2.78988L8.66387 5.73299C8.8756 5.83522 9.1244 5.83522 9.33613 5.73299L15.432 2.78988C16.1793 1.83572 17.6739 -0.0577964 17.6739 0.00135407V4.6126C17.6739 4.88778 17.5154 5.13982 17.2634 5.26542L11.1163 8.3288C10.9637 8.40483 10.9323 8.60355 11.0544 8.72052L12.3778 9.98857C12.4589 10.0663 12.5836 10.0814 12.6819 10.0254L16.1193 8.0681C16.2152 8.0135 16.3366 8.02646 16.418 8.09999L17.9197 9.45628C18.042 9.5668 18.0216 9.76035 17.8788 9.84451L16.2809 10.7858L9.53328 18L11.1658 12.8771L9.20013 10.3751C9.09937 10.2468 8.90063 10.2468 8.79987 10.3751L6.83424 12.8771L8.46672 18L1.71912 10.7858L0.121236 9.84451C-0.0216399 9.76035 -0.0420252 9.5668 0.0803452 9.45628L1.58197 8.09999C1.66337 8.02646 1.78479 8.0135 1.88069 8.0681L5.31812 10.0254C5.41639 10.0814 5.5411 10.0663 5.62221 9.98857L6.94561 8.72052C7.06769 8.60355 7.0363 8.40483 6.88373 8.3288L0.736598 5.26542C0.484567 5.13982 0.326068 4.88778 0.326068 4.6126V0.00135407C0.326068 -0.0577964 1.8207 1.83572 2.56801 2.78988Z" fill="white"/>
+  </symbol>
+  <symbol id="Solana" width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_5027_13538)">
+      <path d="M2.92472 13.739C3.03335 13.6004 3.18271 13.5195 3.34112 13.5195H17.7067C17.9692 13.5195 18.1005 13.9238 17.9149 14.1605L15.0771 17.7813C14.9685 17.9199 14.8191 18.0008 14.6607 18.0008H0.295104C0.0325945 18.0008 -0.0986602 17.5965 0.0869068 17.3598L2.92472 13.739Z" fill="white"/>
+      <path d="M2.92472 0.219442C3.03787 0.080847 3.18723 0 3.34112 0H17.7067C17.9692 0 18.1005 0.404235 17.9149 0.641001L15.0771 4.26179C14.9685 4.40038 14.8191 4.48123 14.6607 4.48123H0.295104C0.0325945 4.48123 -0.0986602 4.077 0.0869068 3.84023L2.92472 0.219442Z" fill="white"/>
+      <path d="M15.0771 6.93429C14.9685 6.79569 14.8191 6.71484 14.6607 6.71484H0.295104C0.0325945 6.71484 -0.0986602 7.11908 0.0869068 7.35584L2.92472 10.9766C3.03335 11.1152 3.18271 11.1961 3.34112 11.1961H17.7067C17.9692 11.1961 18.1005 10.7918 17.9149 10.5551L15.0771 6.93429Z" fill="white"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_5027_13538">
+        <rect width="18" height="18" fill="white"/>
+      </clipPath>
+    </defs>
+  </symbol>
+  <symbol id="Ethereum" width="18" height="20" viewBox="0 0 18 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_5027_13517)">
+      <path d="M8.84963 0.457031L9.04297 1.0619V18.6123L8.84963 18.7899L0.00492859 13.9744L8.84963 0.457031Z" fill="white"/>
+      <path d="M8.85038 0.457031L17.6953 13.9744L8.85038 18.7899V10.2715V0.457031Z" fill="white"/>
+      <path d="M8.85197 20.3325L8.96094 20.4549V26.7066L8.85197 26.9996L0.0018549 15.5195L8.85197 20.3325Z" fill="#72A5D1"/>
+      <path d="M8.85038 26.9996V20.3325L17.6953 15.5195L8.85038 26.9996Z" fill="white"/>
+      <path d="M8.85156 18.7919L0.00685883 13.9764L8.85156 10.2734V18.7919Z" fill="#3E607E"/>
+      <path d="M17.6953 13.9764L8.85038 18.7919V10.2734L17.6953 13.9764Z" fill="#86AACA"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_5027_13517">
+        <rect width="18" height="27" fill="white" transform="matrix(-1 0 0 1 18 0)"/>
+      </clipPath>
+    </defs>
+  </symbol>
+  <symbol id="xclose2" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.46159 0.195262C9.72194 0.455612 9.72194 0.877722 9.46159 1.13807L5.77124 4.82843L9.46159 8.51878C9.72194 8.77913 9.72194 9.20124 9.46159 9.46159C9.20124 9.72194 8.77913 9.72194 8.51878 9.46159L4.82843 5.77124L1.13807 9.46159C0.877722 9.72194 0.455612 9.72194 0.195262 9.46159C-0.0650874 9.20124 -0.0650874 8.77913 0.195262 8.51878L3.88562 4.82843L0.195262 1.13807C-0.0650874 0.877722 -0.0650874 0.455612 0.195262 0.195262C0.455612 -0.0650874 0.877722 -0.0650874 1.13807 0.195262L4.82843 3.88562L8.51878 0.195262C8.77913 -0.0650874 9.20124 -0.0650874 9.46159 0.195262Z" fill="black"/>
+  </symbol>
   <symbol id="revers" width="23" height="15" viewBox="0 0 23 15" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M9.23982 3.2851L9.26182 5.31753L18.4179 5.21842L18.4509 8.26708L22.4617 4.15832L18.3629 0.137331L18.3959 3.18599L9.23982 3.2851ZM4.26956 14.5186L4.23656 11.47L13.3927 11.3708L13.3707 9.33841L4.21456 9.43752L4.18156 6.38886L0.170845 10.4976L4.26956 14.5186Z" fill="white"/>
   </symbol>
@@ -995,6 +1067,23 @@
     </div>
   </div>
   <div class="dialog__overlay" data-dialog-overlay="true"></div>
+</div>
+<div class="connect__wallet" data-connect-wallet>
+  <div class="connect__wallet_form">
+    <div class="close_form">
+      <button onclick="closeWalletForm()">
+      <svg width="10" height="10" class="icon">
+        <use xlink:href="#xclose2"/>
+      </svg>
+      </button>
+    </div>
+    <h5>connect wallet</h5>
+    <p>Select the network wallet you will use to Send.</p>
+    <div class="network_wallet">
+      <div class="wallet"><img src="images/cyclone_wallet.png" width="375" height="68" alt=""/></div>
+      <div class="wallet"><img src="images/metamask_wallet.png" width="376" height="82" alt=""/></div>
+    </div>
+  </div>
 </div>
 </body>
 </html>
