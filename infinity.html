@@ -147,18 +147,21 @@
   const token=urlParams.searchParams.get('token');
   const nick=urlParams.searchParams.get('nick_name');
   const refer=urlParams.searchParams.get('referral');
+  const reg=urlParams.searchParams.get('r');
 
   if(token!=null && nick!=null){
     setCookie("token", token, 7);  
     setCookie("nick_name", nick, 7); 
+    setCookie("registered", reg, 7);
 
     _token = token;
     _nick = nick;
+    _registered = reg;
 
     window.history.pushState({}, document.title, window.location.pathname);
     
     $(document).ready(function(){
-      openForm();
+      xForm();
     });
   }	
 
@@ -552,7 +555,7 @@
     <input id="nick_name" type="text" placeholder="Name or Nickname" name="name" required />
     <label for="wallet"> <span class="red"> * </span> <b>Paste your Cyclone Wallet address:</b></label>
     <span class="label-info">Our Chain Non-custodial Wallet (Bitcoin Cryptography)</span>
-    <input type="text" placeholder="Cyclone Wallet Address" name="wallet" autocomplete="off" autocapitalize="off" spellcheck="false"  required minlength="33" 
+    <input id="wallet" type="text" placeholder="Cyclone Wallet Address" name="wallet" autocomplete="off" autocapitalize="off" spellcheck="false"  required minlength="33" 
 		   />
     <!-- <p class="error-message">This doesn't look like Cyclone's address!</p> -->
     <p class="f-text"> By submitting this form, you agree to the <a href="https://docs.cyclonechain.com/ecosystem/testnet" target="_blank" class="gradient-text">Infinity Drop Rules</a>. </p>
