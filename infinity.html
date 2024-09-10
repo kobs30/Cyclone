@@ -150,10 +150,14 @@
   const refer=urlParams.searchParams.get('referral');
   const reg=urlParams.searchParams.get('r');
 
-  setCookie("referral", refer, 7);
-  _referral = refer;
+  if (refer != null && token == null) {
+    setCookie("referral", refer, 7);
+    _referral = refer;
 
-  if(token!=null && nick!=null){
+    window.history.pushState({}, document.title, window.location.pathname);
+  }
+
+  if(token != null && nick != null){
     setCookie("token", token, 7);  
     setCookie("nick_name", nick, 7); 
     setCookie("registered", reg, 7);
@@ -162,7 +166,6 @@
     _nick = nick;
     _registered = reg;
     
-
     window.history.pushState({}, document.title, window.location.pathname);
     
     $(document).ready(function(){
