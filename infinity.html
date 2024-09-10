@@ -46,6 +46,7 @@
   _nick = getCookie("nick_name");
   _token = getCookie("token");
   _registered = getCookie("registered");
+  _referral = getCookie("referral");
 
   function openForm() {
     handleForm();
@@ -153,10 +154,12 @@
     setCookie("token", token, 7);  
     setCookie("nick_name", nick, 7); 
     setCookie("registered", reg, 7);
+    setCookie("referral", refer, 7);
 
     _token = token;
     _nick = nick;
     _registered = reg;
+    _referral = refer;
 
     window.history.pushState({}, document.title, window.location.pathname);
     
@@ -242,7 +245,7 @@
             "token": _token,
             "nick_name": $("#nick_name").val(),
             "role": $("#participant-role").val(),
-            "referral": refer,
+            "referral": _referral,
             "wallet": $("#wallet").val(),
           }
         }
