@@ -759,6 +759,12 @@ cursor: pointer;
 
 }
 
+.popup-reward-description a{
+	    color: #0CF69D;
+	display: block;
+	margin-top: 20px;
+}
+
 .cta-button {
     width: 352px;
      
