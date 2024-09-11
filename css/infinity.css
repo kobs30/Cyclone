@@ -463,6 +463,7 @@ cursor: pointer;
     border: 1px solid grey;
     padding: 7px 0 7px 19px;
     border-radius: 10px;
+	cursor: pointer;
 }
 
 .form-container .required-section label input {
