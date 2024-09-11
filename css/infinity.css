@@ -327,7 +327,7 @@ cursor: pointer;
     background-repeat: no-repeat;
     background-position: center;
     color: var(--cc-color-gray-400);
-     
+     text-align:center;
     margin: 20px auto;
 	font-family: var(--cc-font-family);
 }
