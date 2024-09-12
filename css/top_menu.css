@@ -30,6 +30,32 @@ main {
 	color: #ff0000;
 }
 
+.header-dropdown__menu{
+/*	padding-top: 15px;*/
+}
+
+.header-dropdown__menu{
+	display: none;
+    position: absolute;
+    left: 50%;
+	top:0px;
+    transform: translate(-50%);
+    padding-top: 64px;
+    border-radius: 0 0 35px 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 24px;
+	z-index: -100;
+/*	cursor: pointer;*/
+	 
+}
+.button{
+	z-index: 100;
+	 
+}
+.padding_testnet{
+	padding-top: 59px!important;
+}
 .color-dropdown{
 	border: 0;
     background: linear-gradient(135deg, rgba(50, 197, 255, 1) 0%, rgba(182, 32, 224, 1) 43%, rgba(247, 181, 0, 1) 100%);
@@ -46,7 +72,6 @@ main {
 .header__center {
 	gap:30px!important;
 }
-
 .color_text{
 	-webkit-background-clip: text;
     background-clip: text;
