@@ -21,7 +21,7 @@ main{
     background-position: 50% 50%;
     background-repeat: no-repeat;  
 	justify-content: center;
-	padding-top: 260px;
+	padding-top: 10vh;
 }
 main::-webkit-scrollbar {
    display: none;
