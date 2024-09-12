@@ -21,7 +21,7 @@ main{
     background-position: 50% 50%;
     background-repeat: no-repeat;  
 	justify-content: center;
-	padding-top: 350px;
+	padding-top: 260px;
 }
 main::-webkit-scrollbar {
    display: none;
@@ -36,6 +36,7 @@ main::-webkit-scrollbar {
 
 .margin-top_80{
 	margin: 80px 0 40px 0;
+	display:flex;
 }
 
 
@@ -46,10 +47,17 @@ main::-webkit-scrollbar {
     font-family: "Abel", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background: linear-gradient( 50deg, rgba(237,31,255,1) 0%, rgba(120,103,252,1) 16%, rgba(70,181,212,1) 29%, rgba(36,252,220,1) 46%, rgba(82,250,84,1) 82%, rgba(245,146,60,1) 100%);
+   background: linear-gradient( 25deg, rgba(237,31,255,1) 0%, rgba(120,103,252,1) 16%, rgba(70,181,212,1) 29%, rgba(36,252,220,1) 46%, rgba(82,250,84,1) 62%, rgba(245,146,60,1) 85%);
     -webkit-background-clip: text;
     color: transparent;
-    -webkit-text-stroke: 1px #000;
+/*    -webkit-text-stroke: 1px #000;*/
+    animation: gradient 3s infinite linear;
+	filter: drop-shadow(0px 4px 4px rgba(0,0,0,.42));
+}
+.span-gradient-text{
+    background: linear-gradient(166deg, rgba(12,246,157,1) 0%, rgba(169,98,255,1) 100%);
+    -webkit-background-clip: text;
+    color: transparent;
     animation: gradient 3s infinite linear;
 }
 
@@ -326,7 +334,7 @@ cursor: pointer;
     background-repeat: no-repeat;
     background-position: center;
     color: var(--cc-color-gray-400);
-     
+     text-align:center;
     margin: 20px auto;
 	font-family: var(--cc-font-family);
 }
@@ -420,8 +428,6 @@ cursor: pointer;
     width: 200px;
     border-radius: 5px;
     margin: 7% auto 0;
-	 
-     
     height: 40px;
     display: flex;
     align-items: center;
@@ -430,10 +436,14 @@ cursor: pointer;
     line-height: 20px;
     font-weight: 500;
     cursor: pointer;
- 
- 
-
+    transition: .5s;
 }
+
+.form-container .connect-button:hover{
+	filter: drop-shadow(0 0 0.5rem rgb(237, 31, 255, .8));
+	
+}
+
 
 .form-container .required-section {
     margin: 20px 0;
@@ -456,6 +466,7 @@ cursor: pointer;
     border: 1px solid grey;
     padding: 7px 0 7px 19px;
     border-radius: 10px;
+	cursor: pointer;
 }
 
 .form-container .required-section label input {
@@ -478,10 +489,10 @@ cursor: pointer;
     background-color: #000;
     color: #fff;
     border: 1px solid grey;
-    width: 200px;
+    width: auto;
     border-radius: 5px;
     margin: 7% auto 0;
-	 
+	padding: 0 10px; 
      
     height: 40px;
     display: flex;
@@ -498,8 +509,8 @@ cursor: pointer;
 	height: 23px;
 	width: 23px;
 	background: url("../images/check.svg") no-repeat;
-	position: absolute;
-    margin-left: -200px;
+	position: relative;
+    margin-left: -22px;
 }
 
 .connect-button-close button, .connect-button-sucsess button{
@@ -613,7 +624,8 @@ cursor: pointer;
 }
 
 .label-paste {
-    margin-top: 17%;
+    margin-top: 7%;
+	font-size:16px;
 }
 
 
@@ -745,6 +757,12 @@ cursor: pointer;
     line-height: 22px;
     text-align: left;
 
+}
+
+.popup-reward-description a{
+	    color: #0CF69D;
+	display: block;
+	margin-top: 20px;
 }
 
 .cta-button {
@@ -1011,7 +1029,7 @@ cursor: pointer;
 	}
 	main{
 /*		height: 640px;*/
-		padding-top: 250px;
+		padding-top: 10%;
 		height: 50vh;
 	}
 	.footer{
@@ -1053,6 +1071,7 @@ cursor: pointer;
 	}
 	.footer{
 		width: 320px;
+		margin-bottom: 30px;
 	}	
 	.cta-button{
 		width: 300px;
