@@ -586,6 +586,22 @@ lable.placeholder-box p{
     align-self: flex-start;
   }
 }
+@media (max-width: 900px) {
+  .header-dropdown__menu {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 53px !important;
+    left: 65px !important;
+    border-radius: 0 0 35px 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 24px;
+    z-index: -100;
+    transform: translate(-100%);
+    padding-top: 0px;
+  }
+}
 @media (max-width: 540px) {
   body, main {
     overflow-y: auto;
