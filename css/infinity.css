@@ -872,110 +872,21 @@ cursor: pointer;
     justify-items: center;
     align-items: flex-end;
 }
-/*.popup-footer .icon-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(61.57deg, #ED1FFF 16.62%, #7867FC 26.3%, #46B5D4 33.82%, #24FCDC 43.93%, #52FA54 64.94%, #F5923C 75.49%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 4% 0 0;
-    position: relative;
-}
 
-.popup-footer .back-circle {
-    width: 57px;
-    height: 57px;
-}
-
-.popup-footer .icon-circle img {
-    width: auto;
-    height: 21px;
-}*/
-/*
-.popup-success .close-btn {
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    font-size: 30px;
-    color: grey;
-    cursor: pointer;
-}
-
-.popup-success .gradient-text {
-    color: transparent;
-    -webkit-text-stroke: 0;
-}
-
-
-
-
-.success-image {
-    background-image: url(../images/Welcom-icon.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin: 5% auto;
-    padding: 17%;
-    width: auto;
-}
-
-.success-image img {
-    width: 132px;
-
-}
-
-
-
-::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
-
-.popup-success-content {
-    overflow-y: auto;
-    scrollbar-width: none;
-}
-
-.popup-footer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.popup-footer .icon-circle {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: linear-gradient(61.57deg, #ED1FFF 16.62%, #7867FC 26.3%, #46B5D4 33.82%, #24FCDC 43.93%, #52FA54 64.94%, #F5923C 75.49%);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0 4% 0 0;
-    position: relative;
-}
-
-.popup-footer .back-circle {
-    width: 57px;
-    height: 57px;
-}
-
-.popup-footer .icon-circle img {
-    width: auto;
-    height: 21px;
-}*/
 .dialog__content{
 	position: absolute!important;
 }
 
-/*
-@media screen and (min-width: 901px){
-	  .header__center {
-	left: calc(50%)!important;
-} 
-*/
-
+@media screen and (max-width: 1024px) {
+	main{
+		height: auto;
+		padding: 30vh 0 10vh 0;
+	}
+	.footer{
+		height: auto;
+		 
+	}
+}
 @media screen and (min-width: 1400px) {
 	main{
 		background-position: 50% 80%!important;
