@@ -603,7 +603,7 @@ lable.placeholder-box p{
 	  
   }
 .header-dropdown__content{
-height: 100vh;
+height: auto;
 	}
 }
 @media (max-width: 540px) {
