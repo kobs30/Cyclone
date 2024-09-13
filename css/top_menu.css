@@ -594,16 +594,19 @@ lable.placeholder-box p{
     top: 53px !important;
     left: 65px !important;
     border-radius: 0 0 35px 35px;
-   overflow: auto;
     white-space: nowrap;
     line-height: 24px;
     z-index: -100;
     transform: translate(-100%);
     padding-top: 0px;
-	  
+	  overflow: auto;
+	  padding-bottom: 53px;
   }
-.header-dropdown__content{
-height: 100vh;
+	.header-dropdown__content, .header-dropdown__border{
+		height: auto;
+	}
+	.dropdown-check:checked+.button+.button+.header-dropdown__menu{
+		background: #0e1010
 	}
 }
 @media (max-width: 540px) {
