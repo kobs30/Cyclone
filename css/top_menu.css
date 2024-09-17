@@ -1,16 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
-/* body {
-  max-width: 100vw;
-  overflow: hidden;
-	background: var(--cc-color-gray-900);
-}
-main {
-  display: flex;
-  max-width: 100vw;
-  height: 100vh;
-  overflow: hidden;
-  justify-content: center;
-} */
 
 .is-active{
 	display: block!important;
