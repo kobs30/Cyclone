@@ -46,6 +46,7 @@
   _nick = getCookie("nick_name");
   _token = getCookie("token");
   _registered = getCookie("registered");
+  _referral = getCookie("referral");
 
   function openForm() {
     handleForm();
@@ -149,15 +150,22 @@
   const refer=urlParams.searchParams.get('referral');
   const reg=urlParams.searchParams.get('r');
 
-  if(token!=null && nick!=null){
+  if (refer != null && token == null) {
+    setCookie("referral", refer, 7);
+    _referral = refer;
+
+    window.history.pushState({}, document.title, window.location.pathname);
+  }
+
+  if(token != null && nick != null){
     setCookie("token", token, 7);  
     setCookie("nick_name", nick, 7); 
     setCookie("registered", reg, 7);
-
+    
     _token = token;
     _nick = nick;
     _registered = reg;
-
+    
     window.history.pushState({}, document.title, window.location.pathname);
     
     $(document).ready(function(){
@@ -242,7 +250,7 @@
             "token": _token,
             "nick_name": $("#nick_name").val(),
             "role": $("#participant-role").val(),
-            "referral": refer,
+            "referral": _referral,
             "wallet": $("#wallet").val(),
           }
         }
@@ -277,10 +285,15 @@
     setCookie("nick_name", "", 0);
     setCookie("token", "", 0);
     setCookie("registered", "", 0);
+    setCookie("referral", "", 0);
 
     _nick = "";
     _token = "";
     _registered = "";
+    _referral = "";
+
+    $("#nick_name").val("");
+    $("#wallet").val("");
   }
 
   function disconnectConfirmation() {
