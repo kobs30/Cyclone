@@ -167,8 +167,8 @@
 <body>
 <header class="header">
   <div class="header__inner container"> <a href="index.html" class="header__homepage-link"> <img src="./images/cyclone-logo.png" alt="Cyclone Logo" width="170" height="32" class="header__logo" /> </a>
-    <div class="header__center"> <a href="testnet.html" class="button" data-header-link="testnet">Testnet</a>
-      <div class="header-dropdown">
+    <div class="header__center"> <a href="testnet.html" class="button" data-header-link="testnet">Drop</a>
+      <div class="header-dropdown color-dropdown">
         <input type="checkbox" id="toggle-dropdown" class="dropdown-check" style="display: none;">
         <label for="toggle-dropdown" class="button button_variant_text button_rounded button_icon-only button-desktop">
           <svg width="22" height="22">
@@ -183,9 +183,9 @@
         <div class="header-dropdown__menu desktop">
           <div class="header-dropdown__border">
             <div class="header-dropdown__content">
-              <div class="page-links"> <a href="testnet.html"
+              <div class="page-links"> <a href="infinity.html"
                    data-header-link="testnet"
-                  class="button button_rounded button_variant_outlined header-section__button">Testnet</a> <a href="ecosystem.html"
+                  class="button button_rounded button_variant_outlined header-section__button">Drop</a> <a href="ecosystem.html"
                    data-header-link="ecosystem"
                   class="button button_rounded button_variant_outlined header-section__button">Ecosystem</a> </div>
               <div class="proj-links">
@@ -211,22 +211,16 @@
                     </div>
                   </li>
                   <li class="background-button background-button_active background-button_mobile proj-links__li">
-                    <div role="button" data-dialog-button="reservation" class="proj-links__link" onclick="openDialogForm()" >
-                      <svg width="56" height="56">
-                        <use xlink:href="#virtual-coin-gradient" />
-                      </svg>
-                      <div> <span class="proj-links__title">CYCL Coin</span> <span class="proj-links__subtitle secondary-text"> Early pre-Book </span> </div>
+                    <div role="button" data-dialog-button="reservation" class="proj-links__link" onclick="openDialogForm()" > <img src="images/owner_token.png" width="115" height="122" alt="OWNER TOKEN" loading="lazy"/>
+                      <div> <span class="proj-links__title">OWNER TOKEN</span> <span class="proj-links__subtitle secondary-text"><span class="color_text">#COT</span> Rre-Book</span> </div>
                     </div>
                   </li>
                 </ul>
                 <div role="button" data-dialog-button="reservation" class="background-button header-dropdown-background-button" onclick="openDialogForm()">
-                  <div class="header-dropdown-background-button__content">
-                    <svg width="124" height="124">
-                      <use xlink:href="#virtual-coin-gradient" />
-                    </svg>
+                  <div class="header-dropdown-background-button__content"> <img src="images/owner_token.png" width="115" height="122" alt="OWNER TOKEN" loading="lazy"/>
                     <div>
-                      <div class="header-dropdown-background-button__title"> CYCL Coin </div>
-                      <div class="secondary-text">Early pre-Book</div>
+                      <div class="header-dropdown-background-button__title"> OWNER TOKEN </div>
+                      <div class="secondary-text"><span class="color_text">#COT</span> Rre-Book</div>
                     </div>
                   </div>
                 </div>
@@ -272,7 +266,7 @@
           <use xlink:href="#cycle-coin" />
         </svg>
         Wallet </span>
-        <div class="header-dropdown__menu">
+        <div class="header-dropdown__menu padding_testnet">
           <div class="header-dropdown__border">
             <div class="header-dropdown__content">
               <div class="secondary-text" style="margin-bottom: 5px">Testnet version</div>
