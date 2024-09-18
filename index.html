@@ -3429,152 +3429,124 @@
 	<div class="dialog__overlay" data-dialog-overlay="true"></div>
 </div>
 
-	<div class="dialog reservation-dialog" data-dialog="reservation" data-dialog-opened="false">
-	<div class="dialog__content">
-		<div class="dialog__dialog reservation-dialog__dialog">
-			<div class="dialog__border">
-				<div class="dialog__inner">
-					<div class="dialog__header">
-						<h3 class="h3 text-center">CYCL Reservation</h3>
-						<div role="button" class="dialog__close" data-dialog-close="reservation">
-							<svg width="24" height="24" class="icon">
-								<use xlink:href="#close"/>
-							</svg>
-						</div>
-					</div>
-					<div class="reservation-dialog__reserved" style="display:none;">
-						<div class="reservation-dialog__reserved-block">
-							<div class="reservation-dialog__icon-circle">
-								<svg width="66" height="66">
-									<use xlink:href="#done"></use>
-								</svg>
-							</div>
-							<h4 class="h4 text-center reservation-dialog__reserved-title">Wallets that have placed a pre-order will
-								receive a 72-hour head start to purchase wrapped CYCL Coins
-								before the official sales begin.</h4>
-						</div>
-						<p class="secondary-text text-body1 text-center" style="margin-top:13px;">Stay tuned with us to not miss out yor moment.</p>
-						<a href="https://x.com/Cyclone_Chain" target="_blank" class="button button_variant_outlined button_rounded" style="--width:410px;margin:15px auto 0;">
-							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g clip-path="url(#clip0_26_164)">
-									<path
+
+<div class="dialog reservation-dialog" id="openDialog" >
+  <div class="dialog__content">
+    <div class="dialog__dialog reservation-dialog__dialog">
+      <div class="dialog__border">
+        <div class="dialog__inner">
+          <div class="reservation-dialog__reserved top_30 not-active" data-dialog-sucsess>
+            <div class="dialog__header">
+              <div>&nbsp;</div>
+              <h3 class="h3 text-center"><span class="color_text">#COT</span> Reservation</h3>
+              <div role="button" class="dialog__close" data-dialog-close="reservation" onclick="closeDialofForm()">
+                <svg width="24" height="24" class="icon">
+                  <use xlink:href="#close"/>
+                </svg>
+              </div>
+            </div>
+            <div class="reservation-dialog__reserved-block top_90">
+              <div class="reservation-dialog__icon-circle">
+                <svg width="66" height="66">
+                  <use xlink:href="#done"></use>
+                </svg>
+              </div>
+              <h4 class="h4 text-center reservation-dialog__reserved-title">Wallets that have placed a pre-order will receive a 48-hour head start to purchase wrapped #COT  before the official sales begin.</h4>
+            </div>
+            <p class="secondary-text text-body1 text-center" style="margin-top:13px;"> Stay tuned with us to not miss out yor moment.</p>
+            <a href="https://x.com/Cyclone_Chain" target="_blank" class="button button_variant_outlined button_rounded" style="--width:410px;margin:15px auto 0;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_26_164)">
+                <path
 										d="M15.7333 0H18.8L12.0666 8.48708L19.9333 20H13.76L8.92664 13.0037L3.3933 20H0.326636L7.45997 10.9225L-0.0733643 0H6.2533L10.62 6.39114L15.7333 0ZM14.66 18.0074H16.36L5.35997 1.91882H3.5333L14.66 18.0074Z"
 										fill="url(#paint0_linear_26_164)"/>
-								</g>
-								<defs>
-									<linearGradient id="paint0_linear_26_164" x1="0.143897" y1="10.9381" x2="14.18" y2="3.33557"
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_26_164" x1="0.143897" y1="10.9381" x2="14.18" y2="3.33557"
 									                gradientUnits="userSpaceOnUse">
-										<stop stop-color="#ED1FFF"/>
-										<stop offset="0.164386" stop-color="#7867FC"/>
-										<stop offset="0.292124" stop-color="#46B5D4"/>
-										<stop offset="0.463949" stop-color="#24FCDC"/>
-										<stop offset="0.820802" stop-color="#52FA54"/>
-										<stop offset="1" stop-color="#F5923C"/>
-									</linearGradient>
-									<clipPath id="clip0_26_164">
-										<rect width="20" height="20" fill="white"/>
-									</clipPath>
-								</defs>
-							</svg>
-							<span>Tell the world that it has changed!</span>
-						</a>
-						<p class="secondary-text text-body2 text-center" style="margin-top: 21px">"In a time of deceit, telling the truth is a revolutionary act." - George Orwell</p>
-					</div>
-					<div class="subheader text-center" style="margin-top:10px;">Secure Your Spot Early – <span class="primary">No Payment Required!</span>
-					</div>
-					<div class="reservation-dialog__body">
-						<form id="reservation-form" class="reservation-dialog__column reservation-dialog__form">
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Name \ Nickname" name="name">
-							</div>
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="email" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Your email" name="email">
-							</div>
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="number" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Quantity*" required name="quantity">
-							</div>
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Cyclone Wallet Address*" required minlength="33" name="address">
-							</div>
-							<button type="submit" class="button button_variant_primary button_rounded reservation-dialog__submit">
-								Reservation
-							</button>
-						</form>
-						<div class="reservation-dialog__column reservation-dialog__inf">
-							<h4 class="h4">Gain a Head Start Before Official Sales Launch.</h4>
-							<div class="reservation-dialog__texts">
-								<p class="text-body2 secondary-text">We respect your anonymous right, so these fields are optional. However,
-									if you want us to keep you informed
-									about the key events, please fill them out!
-								</p>
-								<p class="text-body2 secondary-text"><a
-									href="https://docs.cyclonechain.com/gamechanging/economics/cycl-coin" target="_blank" class="reservation-dialog__cycl">#CYCL</a>
-									is a new <a href="https://docs.cyclonechain.com/gamechanging/economics/cycl-coin"
-									            target="_blank"
-									            class="reservation-dialog__currency">Balanced Cryptocurrency, and Universal intercurrences
-										unit</a> of Cyclone Chain.</p>
-								<p class="text-body2 secondary-text">Before the MAINNET launch, we will offer the opportunity to purchase it
-									at a discount for those who have
-									reserved it.</p>
-							</div>
-							<button type="button" data-dialog-button="wallet" data-dialog-close="reservation"
-							        class="button button_variant_outlined button_rounded reservation-dialog__wallet-button">
-								<svg width="20" height="20">
-									<use xlink:href="#cycle-coin"/>
-								</svg>
-								Create wallet
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="dialog__overlay" data-dialog-overlay="true"></div>
+                  <stop stop-color="#ED1FFF"/>
+                  <stop offset="0.164386" stop-color="#7867FC"/>
+                  <stop offset="0.292124" stop-color="#46B5D4"/>
+                  <stop offset="0.463949" stop-color="#24FCDC"/>
+                  <stop offset="0.820802" stop-color="#52FA54"/>
+                  <stop offset="1" stop-color="#F5923C"/>
+                </linearGradient>
+                <clipPath id="clip0_26_164">
+                  <rect width="20" height="20" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+            <span>Cyclone_Chain</span> </a> </div>
+          <div class="reservation-dialog_form" data-dialog-form>
+            <div class="dialog__header">
+              <div>&nbsp;</div>
+              <h3 class="h3 text-center"><span class="color_text">#COT</span> Reservation</h3>
+              <div role="button" class="dialog__close" data-dialog-close="reservation" onclick="closeDialofForm()">
+                <svg width="24" height="24" class="icon">
+                  <use xlink:href="#close"/>
+                </svg>
+              </div>
+            </div>
+            <div class="subheader text-center" style="margin-top:10px;">Secure Your Spot Early – <span class="primary">No Payment Required!</span> </div>
+            <div class="reservation-dialog__body">
+              <form id="reservation-form" class="reservation-dialog__column reservation-dialog__form">
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p>Name</p>
+                    <input  type="text" class="dialog__input_field" data-input-dialog="name" name="name" placeholder="Name \ Nickname">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p>Email</p>
+                    <input  type="email" class="dialog__input_field" data-input-dialog="email" name="email" placeholder="Your email">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p><span class="red"><sup>*</sup></span>COT Quantity</p>
+                    <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" placeholder="COT Quantity">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p><span class="red"><sup>*</sup></span>EVM Wallet</p>
+                    <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p><span class="red"><sup>*</sup></span>Cyclone Wallet Address</p>
+                    <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="wallet_adress" name="wallet_adress" placeholder="Cyclone Wallet Address">
+                  </lable>
+                </div>
+                <button type="submit" class="button button_variant_primary button_rounded reservation-dialog__submit"> Reservation </button>
+              </form>
+              <div class="reservation-dialog__column reservation-dialog__inf">
+                <div class="reservation-dialog__texts">
+                  <p class="text-body2 secondary-text">We respect your anonymous right, so personal fields are optional. However, if you want us to keep you informed about the key events, please fill them out! </p>
+                  <a href="https://docs.cyclonechain.com/gamechanging/economics/cot-token-and-validators" class="owner_token"> <img src="images/owner_token.png" width="126" height="127" alt=""/>
+<h4 class="h4"><span class="color_text">Cyclone <br>
+                    Owner Token</span></h4>
+                  </a>
+                  <p class="text-body2 secondary-text"><a
+									href="https://docs.cyclonechain.com/gamechanging/economics/cycl-coin" target="_blank" class="reservation-dialog__cycl">#COT</a> confirms your ownership of a part of the validator license and consequently, a share of the profits from all transactions in the network.</p>
+                  <p class="text-body2 secondary-text"> COT will be minted as wrapped (Polygon network). You will be able to exchange the wrapped COTs for the original counterpart in the Cyclone network after the Mainnet launch.</p>
+                </div>
+                <a href="https://chromewebstore.google.com/detail/cyclone-wallet/caplndhphkmgognmgdeeelefmccbgemk" data-dialog-button="wallet" data-dialog-close="reservation"
+				class="button button_variant_outlined button_rounded reservation-dialog__wallet-button" target="_blank">
+                <svg width="20" height="20">
+                  <use xlink:href="#cycle-coin"/>
+                </svg>
+                Create wallet </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dialog__overlay" data-dialog-overlay="true"></div>
 </div>
 
 </div>
