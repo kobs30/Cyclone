@@ -18,23 +18,26 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="css/token.css" rel="stylesheet" type="text/css">
-<script src="js/header_menu.js" defer></script>
+<script src="js/header_menu.js" defer></script> 
+<script type="module" crossorigin src="./js/index.js"></script>
+<link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
+<link rel="modulepreload" crossorigin href="./assets/shared-DyXCX77j.js">
 </head>
 <body>
 <header class="header">
   <div class="header__inner_container"> <a href="" class="header__logo"><img src="images/svg/logo.svg" alt="cyclone logo" loading="lazy" width="229" height="56"> </a>
-    <div class="header__center"> <a href="#" >drop</a>
+    <div class="header__center"> <a href="infinity_drop.html" >drop</a>
       <div class="header-dropdown">
         <div class="color-button">
           <div class="header-dropdown-menu">
             <div class="menu-inner">
               <div class="inner-container">
-                <div class="buttons_mobile"> <a href="">drop</a> <a href="">Ecosystem</a> </div>
-                <a href="" class="documents">
+                <div class="buttons_mobile"> <a href="infinity_drop.html">drop</a> <a href="ecosystem.html">Ecosystem</a> </div>
+                <a href="https://docs.cyclonechain.com/" class="documents">
                 <object width="56" height="56" type="image/svg+xml" data="images/svg/document.svg">
                 </object>
                 <div>Documents<span class="secondary-text"> Knowledge base </span> </div>
-                </a> <a href="" class="creators">
+                </a> <a href="https://discord.com/invite/vCzbn3AXKv" class="creators">
                 <object width="56" height="56" type="image/svg+xml" data="images/svg/creators.svg">
                 </object>
                 <div>Creators Hub<span class="secondary-text"> Community </span> </div>
@@ -53,16 +56,16 @@
                   <object width="21" height="20" type="image/svg+xml" data="images/svg/logo_gray.svg">
                   </object>
                   wallet availabel on PC </div>
-                <div class="bottom_links"> <a href="">
+                <div class="bottom_links"> <a href="https://faucet.cyclonechain.com/">
                   <object width="24" height="24" type="image/svg+xml" data="images/svg/faucet.svg">
                   </object>
-                  faucet</a> <a href="">
+                  faucet</a> <a href="https://explorer.cyclonechain.com/">
                   <object width="24" height="24" type="image/svg+xml" data="images/svg/globe.svg">
                   </object>
-                  Explorer</a> <a href="">
+                  Explorer</a> <a href="https://github.com/GRANDblockchain/cyclone_release">
                   <object width="24" height="24" type="image/svg+xml" data="images/svg/download.svg">
                   </object>
-                  Node</a> <a href="">
+                  Node</a> <a href="https://chromewebstore.google.com/detail/cyclone-wallet/caplndhphkmgognmgdeeelefmccbgemk">
                   <object width="24" height="24" type="image/svg+xml" data="images/svg/wallet.svg">
                   </object>
                   Wallet</a> </div>
@@ -72,7 +75,7 @@
           </div>
         </div>
       </div>
-      <a href="#" >Ecosystem</a> </div>
+      <a href="ecosystem.html" >Ecosystem</a> </div>
     <div class="header__wallet"><span class="header__wallet_button">
       <object width="20" height="17" type="image/svg+xml" data="images/svg/Subtract.svg">
       </object>
@@ -100,7 +103,7 @@
     <div class="section__social-in_container">
       <p>There are a few months remaining before the official sales launch (ICO). <br>
         At the moment, preliminary negotiations and early reservations are availabel.</p>
-      <a href=""><img src="images/svg/social_in.svg" alt="linkedin" loading="lazy" width="48" height="48"></a> </div>
+      <a href="https://www.linkedin.com/company/cyclone-blockchain"><img src="images/svg/social_in.svg" alt="linkedin" loading="lazy" width="48" height="48"></a> </div>
   </section>
   <section class="section__content-01">
     <div class="section__content-01_container">
@@ -348,7 +351,7 @@
   </aside>
   <footer class="section__footer">
     <div class="section__footer_container">
-      <div class="wrapper"> <a href="" class="cyclone_logo"> <img src="images/svg/logo.svg" alt="cyclone logo" loading="lazy" width="229" height="56"> </a>
+      <div class="wrapper"> <a href="https://cyclonechain.com/" class="cyclone_logo"> <img src="images/svg/logo.svg" alt="cyclone logo" loading="lazy" width="229" height="56"> </a>
         <div class="social_icons"> <a href="https://www.linkedin.com/company/cyclone-blockchain" class="social_icons_icon" target="_blank" > <img src="images/svg/linked.svg" alt="LinkedIn" loading="lazy" width="43" height="42"> </a> <a href="https://discord.com/invite/vCzbn3AXKv" class="social_icons_icon" target="_blank" > <img src="images/svg/Social_discord.svg" alt="Discord" loading="lazy" width="43" height="42"> </a> <a href="https://x.com/Cyclone_Chain" class="social_icons_icon" target="_blank" > <img src="images/svg/Social_x.svg" alt="X" loading="lazy" width="43" height="42"> </a> </div>
         <a href="mailto:hello@cyclonechain.com" class="mailto">hello@cyclonechain.com</a>
         <div class="copyright">Copyright © 2023 CycloneChain. All rights reserved.</div>
@@ -389,22 +392,16 @@
             <div class="subheader">Secure Your Spot Early – <span class="primary">No Payment Required!</span> </div>
             <div class="reservation-dialog__body">
               <form id="reservation-form" class="reservation-dialog__column reservation-dialog__form">
-				  
                 <label class="placeholder-box" for="name">Name </label>
                 <input  type="text" class="dialog__input_field" data-input-dialog="name" name="name" id="name" placeholder="Name \ Nickname">
-				  
                 <label class="placeholder-box" for="email">Email </label>
                 <input  type="email" class="dialog__input_field" data-input-dialog="email" name="email" id="email" placeholder="Your email">
-				  
                 <label class="placeholder-box" for="quantity"> <span class="red"><sup>*</sup></span>COT Quantity</label>
                 <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" id="quantity" placeholder="COT Quantity">
-				  
                 <label class="placeholder-box" for="evm_adress"><span class="red"><sup>*</sup></span>EVM Wallet </label>
                 <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" id="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
-				  
                 <label class="placeholder-box" for="wallet_adress"><span class="red"><sup>*</sup></span>Cyclone Wallet Address </label>
                 <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="wallet_adress" name="wallet_adress" id="wallet_adress" placeholder="Cyclone Wallet Address">
-				  
                 <button type="submit" class="button button_variant_primary button_rounded reservation-dialog__submit"> Reservation </button>
               </form>
               <div class="reservation-dialog__column reservation-dialog__inf">
@@ -429,7 +426,6 @@
       </div>
     </div>
   </div>
-<!--  <div class="dialog__overlay" data-dialog-overlay="true"></div>-->
 </div>
 </body>
 </html>
