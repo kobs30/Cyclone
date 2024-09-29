@@ -1,0 +1,254 @@
+// Scss Document
+@media (max-width: $width-mobile-until) {
+  html {
+    font-size: 50%;
+  }
+  .section__social-in_container {
+    gap: 20px !important;
+  }
+  .section__content-01_container .social_bg:after {
+    content: "";
+    position: absolute;
+    margin-left: -30.7rem !important;
+    margin-top: -1.5rem !important;
+    width: 31.9rem !important;
+    height: 31.3rem !important;
+  }
+  .section__content-01_container,
+  .section__content-02_container {
+    flex-direction: column;
+    align-items: center !important;
+    gap: 50px !important;
+    padding: 30px 20px !important;
+  }
+  .section__content-02_container .wrapper {
+    width: 90vw;
+  }
+  .section__content-03 {
+    margin: 50px 0 !important;
+  }
+  .section__content-03_container .wrapper {
+    width: 90vw;
+  }
+  .section__content-03 .table .border-overlay {
+    width: 443px !important;
+    margin-left: 818px !important;
+    height: 414px !important;
+  }
+  .section__content-04 {
+    background-size: auto !important;
+    padding-bottom: 0px !important;
+  }
+  .section__content-04 .wrapper {
+    flex-direction: column !important;
+  }
+  .aside__bottom .wrapper {
+    grid-template-rows: auto auto !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 30px 10px !important;
+  }
+  .aside__bottom .aside_menu:first-child {
+    grid-area: 1/1/2/2;
+  }
+  .aside__bottom .aside_menu:nth-child(2) {
+    grid-area: 1/2/2/3;
+    justify-self: flex-end !important;
+    text-align: right !important;
+  }
+  .aside__bottom .asside_subscribe {
+    grid-area: 2 / 1 / 3 / 3;
+    margin-left: 0 !important;
+  }
+  .aside__bottom form {
+    flex-direction: column;
+  }
+  .aside__bottom form input {
+    width: auto;
+    flex: none;
+  }
+  .aside__bottom form button {
+    width: 100%;
+    justify-content: center;
+  }
+  .section__footer_container .wrapper {
+    grid-template-rows: repeat(3, 1fr) !important;
+    grid-template-columns: 1fr !important;
+    justify-items: center;
+    gap: 0;
+  }
+  .section__footer_container .wrapper .cyclone_logo {
+    grid-area: 1/1/2/2;
+  }
+  .section__footer_container .wrapper .social_icons {
+    grid-area: 2/1/3/2;
+  }
+  .section__footer_container .wrapper .mailto {
+    display: none;
+  }
+  .section__footer_container .wrapper .copyright {
+    grid-area: 3/1/4/2;
+  }
+}
+
+@media (max-width: $width-tablet-until) {
+  .header {
+    &__inner_container {
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(2, 1fr) !important;
+      margin: 0 !important;
+    }
+    &__wallet,
+    &__center a {
+      display: none;
+    }
+    &__logo {
+      padding-left: 20px;
+    }
+    &__center {
+      justify-self: flex-end !important;
+      grid-template-columns: repeat(1, 1fr) !important;
+    }
+    .header-dropdown-menu {
+      right: 0 !important;
+      width: 100vw !important;
+      background: none !important;
+      overflow: inherit !important;
+      margin-top: 2px !important;
+    }
+    .header-dropdown:hover .color-button {
+      cursor: pointer;
+      background: var(--cc-background) url("../images/svg/close_app.svg") 50%
+        50% no-repeat !important;
+      background-size: 50% !important;
+    }
+    .header-dropdown {
+      box-sizing: border-box;
+    }
+    .inner-container {
+      display: grid;
+      grid-template-rows: 1fr 1fr 1fr 1fr 2.5fr 1fr 1fr !important ;
+      grid-template-columns: 1fr !important;
+    }
+    .buttons_mobile {
+      display: flex !important;
+      grid-area: 1/1/2/2 !important;
+      gap: 20px;
+      a {
+        @include button(auto, auto, 20px 0px, var(--cc-background));
+        @include text(
+          var(--font-audiowide),
+          1.4rem,
+          300,
+          uppercase,
+          var(--cc-white)
+        );
+        gap: 10px;
+        align-self: center;
+        border: 1px solid var(--cc-color-gray-600) !important;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+      }
+      a:hover {
+        background: var(--cc-color-gray-600);
+        color: var(--cc-white) !important;
+      }
+    }
+
+    .documents {
+      grid-area: 2/1/3/2 !important;
+    }
+    .creators {
+      grid-area: 3/1/4/2 !important;
+    }
+    .games {
+      grid-area: 4/1/5/2 !important;
+    }
+    .open_dialog {
+      grid-area: 5/1/6/2 !important;
+      margin: 20px 0 !important;
+      width: 100% !important;
+      height: auto !important;
+      aspect-ratio: inherit !important;
+      justify-content: flex-start !important;
+      padding: 5px 20px !important;
+      box-sizing: border-box !important;
+      flex-direction: row !important;
+      gap: 20px;
+      background: var(--cc-color-violet) url(../images/cyclone-pattern-001.png) !important;
+      background-position: 50% 50% !important;
+      box-shadow: 0 0 0 8px #42009180 !important;
+    }
+    .text-center {
+      text-align: inherit;
+    }
+
+    .wallet_aviable_mobile {
+      display: inline-flex !important;
+      grid-area: 6/1/7/2 !important;
+      @include button(auto, auto, 15px 0px, var(--cc-background));
+      @include text(
+        var(--font-audiowide),
+        1.4rem,
+        300,
+        uppercase,
+        var(--cc-color-gray-600)
+      );
+      gap: 10px;
+      align-self: center;
+      border: 1px solid var(--cc-color-gray-600) !important;
+      justify-content: center;
+      align-items: center;
+    }
+    .bottom_links {
+      grid-area: 7/1/8/2 !important;
+      grid-template-columns: repeat(3, 1fr) !important;
+    }
+    .bottom_links a:last-child {
+      display: none !important;
+    }
+    .bottom_links a:nth-child(3) {
+      justify-self: flex-end !important;
+    }
+    .menu-inner {
+      width: 100vw;
+      padding: 30px 20px !important;
+    }
+    .header-dropdown-menu:hover .drop__overlay {
+      display: block;
+    }
+  }
+  .dialog {
+    & .reservation-dialog__body {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: auto auto !important;
+      margin-top: 0 !important;
+    }
+    & .reservation-dialog__form {
+      grid-area: 2/1/3/2 !important;
+    }
+    & .reservation-dialog__inf {
+      grid-area: 1/1/2/2 !important;
+      align-self: flex-start;
+    }
+    & .reservation-dialog__texts {
+      padding: 0 0 30px 0 !important;
+    }
+  }
+}
+
+@media (min-width: $width-mobile) and (max-width: $width-tablet-until) {
+  .section__content-01_container,
+  .section__content-02_container {
+    flex-direction: column;
+    align-items: center !important;
+    gap: 50px !important;
+    padding: 30px 20px !important;
+  }
+}
+
+@media (max-width: $width-desktop) {
+  .section__content-03 .table {
+    max-width: 90vw !important;
+  }
+}
