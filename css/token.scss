@@ -768,10 +768,10 @@ main .section__header {
     position: absolute;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     min-height: 100%;
-    top: 80px;
   }
+	
   &__dialog {
     width: 100%;
     max-width: 800px;
@@ -880,7 +880,7 @@ main .section__header {
 	margin: 12px 0;
   }
 
-  .reservation-dialog__body lable {
+  .reservation-dialog__body label {
     color: var(--cc-color-gray-500);
     font-size: 14px;
     font-family: var(--cc-font-family);

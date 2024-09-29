@@ -3,6 +3,9 @@
   html {
     font-size: 50%;
   }
+	body{
+		overflow-x: hidden;
+	}
   .section__social-in_container {
     gap: 20px !important;
   }

@@ -478,6 +478,9 @@ a {
   html {
     font-size: 50%; }
 
+  body {
+    overflow-x: hidden; }
+
   .section__social-in_container {
     gap: 20px !important; }
 
@@ -1497,9 +1500,8 @@ main .section__header {
     position: absolute;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    min-height: 100%;
-    top: 80px; }
+    align-items: center;
+    min-height: 100%; }
   .dialog__dialog {
     width: 100%;
     max-width: 800px;
@@ -1584,7 +1586,7 @@ main .section__header {
     z-index: 10;
     box-sizing: border-box;
     margin: 12px 0; }
-  .dialog .reservation-dialog__body lable {
+  .dialog .reservation-dialog__body label {
     color: var(--cc-color-gray-500);
     font-size: 14px;
     font-family: var(--cc-font-family);
