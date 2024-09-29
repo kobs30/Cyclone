@@ -760,9 +760,11 @@ main .section__header {
   bottom: 0;
   z-index: 1001;
   overflow: auto;
+	background-color: #000c;
 	&:active body{
 		position: fixed
 	}
+
 
   &__content {
     position: absolute;
@@ -811,17 +813,6 @@ main .section__header {
     gap: 40px;
     margin-top: 22px;
     padding: 20px 32px 42px;
-  }
-  &__overlay {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: #000c;
   }
 
   &__close {
