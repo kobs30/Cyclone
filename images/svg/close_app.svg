@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" id="close" version="1.1" viewBox="0 0 25 24">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #00ffa3;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <!-- Generator: Adobe Illustrator 28.7.1, SVG Export Plug-In . SVG Version: 1.2.0 Build 142)  -->
+  <g>
+    <g id="close-apps">
+      <path class="cls-1" d="M18.5,6l-12,12"/>
+      <path class="cls-1" d="M6.5,6l12,12"/>
+    </g>
+  </g>
+</svg>
