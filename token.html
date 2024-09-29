@@ -391,19 +391,19 @@
               <form id="reservation-form" class="reservation-dialog__column reservation-dialog__form">
 				  
                 <label class="placeholder-box" for="name">Name </label>
-                <input  type="text" class="dialog__input_field" data-input-dialog="name" name="name" placeholder="Name \ Nickname">
+                <input  type="text" class="dialog__input_field" data-input-dialog="name" name="name" id="name" placeholder="Name \ Nickname">
 				  
                 <label class="placeholder-box" for="email">Email </label>
-                <input  type="email" class="dialog__input_field" data-input-dialog="email" name="email" placeholder="Your email">
+                <input  type="email" class="dialog__input_field" data-input-dialog="email" name="email" id="email" placeholder="Your email">
 				  
                 <label class="placeholder-box" for="quantity"> <span class="red"><sup>*</sup></span>COT Quantity</label>
-                <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" placeholder="COT Quantity">
+                <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" id="quantity" placeholder="COT Quantity">
 				  
                 <label class="placeholder-box" for="evm_adress"><span class="red"><sup>*</sup></span>EVM Wallet </label>
-                <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
+                <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" id="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
 				  
                 <label class="placeholder-box" for="wallet_adress"><span class="red"><sup>*</sup></span>Cyclone Wallet Address </label>
-                <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="wallet_adress" name="wallet_adress" placeholder="Cyclone Wallet Address">
+                <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="wallet_adress" name="wallet_adress" id="wallet_adress" placeholder="Cyclone Wallet Address">
 				  
                 <button type="submit" class="button button_variant_primary button_rounded reservation-dialog__submit"> Reservation </button>
               </form>
