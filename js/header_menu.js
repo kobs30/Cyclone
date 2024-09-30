@@ -17,3 +17,11 @@ function closeDialofForm() {
   document.getElementById("openDialog").classList.add("close-form-container");
   //  document.body.style.position = '';
 }
+
+const colorButton = document.querySelector(".color-button")
+const headerDropdownMenu = document.querySelector(".header-dropdown-menu")
+colorButton.addEventListener("click", ()=>{
+	console.log(colorButton)
+	colorButton.classList.toggle("close_app")
+	headerDropdownMenu.classList.toggle("header-dropdown-open")
+})
