@@ -10,7 +10,9 @@
 @import "Blocks/footer";
 @import "Blocks/header";
 @import "Blocks/popupDialog";
-
+main{
+	overflow-x: hidden;
+}
 main .section__header {
   width: 100%;
   height: 44.5rem;
@@ -68,6 +70,7 @@ main .section__header {
       background: #000;
       border-radius: 160px;
       margin: 20px 0 45px 0;
+	  position: relative;
     }
     .social_bg:before {
       content: "";
