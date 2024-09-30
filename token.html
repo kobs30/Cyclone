@@ -339,7 +339,7 @@
           <h4>Stay engaged</h4>
           <p>Get the latest news &#38; updates about airdrops, sales, giveaways, limited offers and more</p>
           <form id="footer-form">
-            <input type="email" name="email" placeholder="Your email" class="footer__input">
+            <input type="email" name="email" autocomplete="on"  placeholder="Your email"  class="footer__input">
             <button type="submit">Subscribe</button>
           </form>
         </div>
@@ -390,15 +390,15 @@
             <div class="reservation-dialog__body">
               <form id="reservation-form" class="reservation-dialog__column reservation-dialog__form">
                 <label class="placeholder-box" for="name">Name </label>
-                <input  type="text" class="dialog__input_field" data-input-dialog="name" name="name" id="name" placeholder="Name \ Nickname">
+                <input  type="text" class="dialog__input_field" data-input-dialog="name" name="name" id="name" autocomplete="on" placeholder="Name \ Nickname">
                 <label class="placeholder-box" for="email">Email </label>
-                <input  type="email" class="dialog__input_field" data-input-dialog="email" name="email" id="email" placeholder="Your email">
+                <input  type="email" class="dialog__input_field" data-input-dialog="email" name="email" id="email"  autocomplete="on"placeholder="Your email">
                 <label class="placeholder-box" for="quantity"> <span class="red"><sup>*</sup></span>COT Quantity</label>
-                <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" id="quantity" placeholder="COT Quantity">
+                <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" id="quantity" autocomplete="on" placeholder="COT Quantity">
                 <label class="placeholder-box" for="evm_adress"><span class="red"><sup>*</sup></span>EVM Wallet </label>
-                <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" id="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
+                <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" id="evm_adress" autocomplete="on" placeholder="EVM Wallet Address (Ethereum, Polygon)">
                 <label class="placeholder-box" for="wallet_adress"><span class="red"><sup>*</sup></span>Cyclone Wallet Address </label>
-                <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="wallet_adress" name="wallet_adress" id="wallet_adress" placeholder="Cyclone Wallet Address">
+                <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="wallet_adress" name="wallet_adress" id="wallet_adress"  autocomplete="on" placeholder="Cyclone Wallet Address">
                 <button type="submit" class="button button_variant_primary button_rounded reservation-dialog__submit"> Reservation </button>
               </form>
               <div class="reservation-dialog__column reservation-dialog__inf">
