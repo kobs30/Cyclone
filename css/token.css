@@ -582,11 +582,14 @@ a {
     width: 100vw !important;
     background: none !important;
     overflow: inherit !important;
-    margin-top: 2px !important; }
-  .header .header-dropdown:hover .color-button {
+    margin-top: 2px !important;
+    display: none !important; }
+  .header .close_app {
     cursor: pointer;
     background: var(--cc-background) url("../images/svg/close_app.svg") 50% 50% no-repeat !important;
     background-size: 50% !important; }
+  .header .header-dropdown-open {
+    display: flex !important; }
   .header .header-dropdown {
     box-sizing: border-box; }
   .header .inner-container {
@@ -1010,6 +1013,239 @@ a {
     width: 100vw;
     height: 100vh;
     z-index: -1; }
+
+.dialog {
+  display: none;
+  justify-content: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1001;
+  overflow: auto;
+  background-color: #000c; }
+  .dialog:active body {
+    position: fixed; }
+  .dialog__content {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100%; }
+  .dialog__dialog {
+    width: 100%;
+    max-width: 800px;
+    border-radius: 40px;
+    background-color: var(--cc-background);
+    overflow: hidden;
+    z-index: 1002; }
+  .dialog__border {
+    padding: 1px;
+    background-image: linear-gradient(transparent 10%, var(--cc-color-primary) 150%); }
+  .dialog__inner {
+    border-radius: 40px;
+    background-color: var(--cc-background); }
+  .dialog .reservation-dialog__reserved {
+    padding: 0 32px 42px;
+    text-align: center; }
+  .dialog__header {
+    position: relative;
+    justify-content: center;
+    padding: 32px 32px 0;
+    display: flex;
+    align-items: center; }
+  .dialog .not-active {
+    display: none !important; }
+  .dialog .reservation-dialog__body {
+    display: flex;
+    gap: 40px;
+    margin-top: 22px;
+    padding: 20px 32px 42px; }
+  .dialog__close {
+    width: 24px;
+    height: 24px;
+    background: url("../images/svg/close.svg") no-repeat;
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin-right: 30px; }
+  .dialog .subheader {
+    font-family: var(--font-inter);
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    line-height: 2.1rem;
+    color: var(--cc-color-gray-400);
+    text-align: center; }
+  .dialog .primary {
+    color: var(--cc-color-primary); }
+  .dialog .reservation-dialog__body {
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(2, 1fr); }
+  .dialog .reservation-dialog__form {
+    grid-area: 1 / 1 / 3 / 2;
+    display: grid;
+    flex-direction: column; }
+  .dialog .reservation-dialog__inf {
+    grid-area: 1 / 2 / 3 / 3;
+    display: grid; }
+  .dialog .dialog__input_field {
+    width: 100%;
+    height: auto;
+    font-size: 16px;
+    line-height: normal;
+    font-family: var(--cc-font-family);
+    color: var(--cc-text);
+    background-color: transparent;
+    outline: none;
+    border: 1px solid var(--cc-color-gray-500);
+    border-radius: 8px;
+    padding: 12px 14px;
+    position: relative;
+    z-index: 10;
+    box-sizing: border-box;
+    margin: 12px 0; }
+  .dialog .reservation-dialog__body label {
+    color: var(--cc-color-gray-500);
+    font-size: 14px;
+    font-family: var(--cc-font-family);
+    font-weight: 300; }
+  .dialog .button_variant_primary {
+    display: inline-flex;
+    width: auto;
+    height: inherit;
+    padding: 10px 30px;
+    background: var(--cc-color-primary);
+    border-radius: 80px;
+    border: 0;
+    transition: .3s;
+    font-family: var(--font-audiowide);
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 2.1rem;
+    color: var(--cc-color-ink-darkest);
+    justify-content: center;
+    margin-top: 20px;
+    align-self: flex-end; }
+    .dialog .button_variant_primary:hover {
+      filter: drop-shadow(0px 0px 10px rgba(0, 255, 163, 0.3)); }
+  .dialog .secondary-text {
+    line-height: 2.8rem; }
+  .dialog .reservation-dialog__texts {
+    padding-top: 26px; }
+  .dialog .owner_token {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+    margin: 18px 0; }
+  .dialog .content_owner {
+    font-family: var(--font-inter);
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: none;
+    line-height: 3.3rem;
+    color: var(--cc-color-ink-darkest); }
+  .dialog .reservation-dialog__cycl {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(61.57deg, var(--cc-color-gradient-a) 0%, var(--cc-color-gradient-b) 60%); }
+  .dialog .reservation-dialog__wallet-button {
+    display: inline-flex;
+    width: 100%;
+    height: inherit;
+    padding: 9px 0px;
+    background: var(--cc-background);
+    border-radius: 80px;
+    border: 0;
+    transition: .3s;
+    font-family: var(--font-audiowide);
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 2.1rem;
+    color: var(--cc-white);
+    justify-content: center;
+    gap: 10px;
+    align-self: center;
+    border: 1px solid var(--cc-color-gray-600) !important;
+    box-sizing: border-box;
+    align-self: flex-end;
+    transition: 0.3s; }
+  .dialog .reservation-dialog__wallet-button:hover {
+    cursor: pointer;
+    background: var(--cc-color-gray-600); }
+  .dialog .reservation-dialog__reserved-block {
+    position: relative;
+    margin-top: 90px;
+    padding-top: 80px;
+    padding-bottom: 32px;
+    border-radius: 28px;
+    background-color: var(--cc-color-gray-900);
+    display: flex;
+    justify-content: center; }
+  .dialog .reservation-dialog__icon-circle {
+    display: flex;
+    position: absolute;
+    top: -66px;
+    left: 50%;
+    transform: translate(-50%);
+    align-items: center;
+    justify-content: center;
+    min-width: var(--size);
+    max-width: var(--size);
+    height: var(--size);
+    z-index: 0; }
+  .dialog .sucsess_owner {
+    font-family: var(--font-inter);
+    font-size: 2.2rem;
+    font-weight: 800;
+    text-transform: none;
+    line-height: 3.3rem;
+    color: var(--cc-white);
+    max-width: 494px;
+    text-align: center;
+    margin: 0 50px; }
+  .dialog .button_variant_sucsess {
+    display: inline-flex;
+    width: auto;
+    height: inherit;
+    padding: 9px 91px;
+    background: var(--cc-background);
+    border-radius: 80px;
+    border: 0;
+    transition: .3s;
+    font-family: var(--font-audiowide);
+    font-size: 1.4rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    line-height: 2.1rem;
+    color: var(--cc-white);
+    justify-content: center;
+    gap: 10px;
+    align-self: center;
+    border: 1px solid var(--cc-color-gray-600) !important;
+    box-sizing: border-box;
+    align-self: flex-end;
+    transition: 0.3s; }
+  .dialog .button_variant_sucsess:hover {
+    cursor: pointer;
+    background: var(--cc-color-gray-600); }
+  .dialog .text-body1 {
+    margin: 10px 0; }
+
+.close-form-container {
+  display: none; }
+
+.open-form-container {
+  display: flex;
+  justify-content: center; }
 
 main .section__header {
   width: 100%;
@@ -1481,236 +1717,3 @@ main .section__header {
     text-transform: none;
     line-height: 2.1rem;
     color: var(--cc-color-gray-500); }
-
-.dialog {
-  display: none;
-  justify-content: center;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  z-index: 1001;
-  overflow: auto;
-  background-color: #000c; }
-  .dialog:active body {
-    position: fixed; }
-  .dialog__content {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100%; }
-  .dialog__dialog {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 40px;
-    background-color: var(--cc-background);
-    overflow: hidden;
-    z-index: 1002; }
-  .dialog__border {
-    padding: 1px;
-    background-image: linear-gradient(transparent 10%, var(--cc-color-primary) 150%); }
-  .dialog__inner {
-    border-radius: 40px;
-    background-color: var(--cc-background); }
-  .dialog .reservation-dialog__reserved {
-    padding: 0 32px 42px;
-    text-align: center; }
-  .dialog__header {
-    position: relative;
-    justify-content: center;
-    padding: 32px 32px 0;
-    display: flex;
-    align-items: center; }
-  .dialog .not-active {
-    display: none !important; }
-  .dialog .reservation-dialog__body {
-    display: flex;
-    gap: 40px;
-    margin-top: 22px;
-    padding: 20px 32px 42px; }
-  .dialog__close {
-    width: 24px;
-    height: 24px;
-    background: url("../images/svg/close.svg") no-repeat;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    margin-right: 30px; }
-  .dialog .subheader {
-    font-family: var(--font-inter);
-    font-size: 1.4rem;
-    font-weight: 500;
-    text-transform: uppercase;
-    line-height: 2.1rem;
-    color: var(--cc-color-gray-400);
-    text-align: center; }
-  .dialog .primary {
-    color: var(--cc-color-primary); }
-  .dialog .reservation-dialog__body {
-    display: grid;
-    grid-template-rows: repeat(1, 1fr);
-    grid-template-columns: repeat(2, 1fr); }
-  .dialog .reservation-dialog__form {
-    grid-area: 1 / 1 / 3 / 2;
-    display: grid;
-    flex-direction: column; }
-  .dialog .reservation-dialog__inf {
-    grid-area: 1 / 2 / 3 / 3;
-    display: grid; }
-  .dialog .dialog__input_field {
-    width: 100%;
-    height: auto;
-    font-size: 16px;
-    line-height: normal;
-    font-family: var(--cc-font-family);
-    color: var(--cc-text);
-    background-color: transparent;
-    outline: none;
-    border: 1px solid var(--cc-color-gray-500);
-    border-radius: 8px;
-    padding: 12px 14px;
-    position: relative;
-    z-index: 10;
-    box-sizing: border-box;
-    margin: 12px 0; }
-  .dialog .reservation-dialog__body label {
-    color: var(--cc-color-gray-500);
-    font-size: 14px;
-    font-family: var(--cc-font-family);
-    font-weight: 300; }
-  .dialog .button_variant_primary {
-    display: inline-flex;
-    width: auto;
-    height: inherit;
-    padding: 10px 30px;
-    background: var(--cc-color-primary);
-    border-radius: 80px;
-    border: 0;
-    transition: .3s;
-    font-family: var(--font-audiowide);
-    font-size: 1.4rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    line-height: 2.1rem;
-    color: var(--cc-color-ink-darkest);
-    justify-content: center;
-    margin-top: 20px;
-    align-self: flex-end; }
-    .dialog .button_variant_primary:hover {
-      filter: drop-shadow(0px 0px 10px rgba(0, 255, 163, 0.3)); }
-  .dialog .secondary-text {
-    line-height: 2.8rem; }
-  .dialog .reservation-dialog__texts {
-    padding-top: 26px; }
-  .dialog .owner_token {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-    margin: 18px 0; }
-  .dialog .content_owner {
-    font-family: var(--font-inter);
-    font-size: 2.2rem;
-    font-weight: 800;
-    text-transform: none;
-    line-height: 3.3rem;
-    color: var(--cc-color-ink-darkest); }
-  .dialog .reservation-dialog__cycl {
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-image: linear-gradient(61.57deg, var(--cc-color-gradient-a) 0%, var(--cc-color-gradient-b) 60%); }
-  .dialog .reservation-dialog__wallet-button {
-    display: inline-flex;
-    width: 100%;
-    height: inherit;
-    padding: 9px 0px;
-    background: var(--cc-background);
-    border-radius: 80px;
-    border: 0;
-    transition: .3s;
-    font-family: var(--font-audiowide);
-    font-size: 1.4rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    line-height: 2.1rem;
-    color: var(--cc-white);
-    justify-content: center;
-    gap: 10px;
-    align-self: center;
-    border: 1px solid var(--cc-color-gray-600) !important;
-    box-sizing: border-box;
-    align-self: flex-end;
-    transition: 0.3s; }
-  .dialog .reservation-dialog__wallet-button:hover {
-    cursor: pointer;
-    background: var(--cc-color-gray-600); }
-  .dialog .reservation-dialog__reserved-block {
-    position: relative;
-    margin-top: 90px;
-    padding-top: 80px;
-    padding-bottom: 32px;
-    border-radius: 28px;
-    background-color: var(--cc-color-gray-900);
-    display: flex;
-    justify-content: center; }
-  .dialog .reservation-dialog__icon-circle {
-    display: flex;
-    position: absolute;
-    top: -66px;
-    left: 50%;
-    transform: translate(-50%);
-    align-items: center;
-    justify-content: center;
-    min-width: var(--size);
-    max-width: var(--size);
-    height: var(--size);
-    z-index: 0; }
-  .dialog .sucsess_owner {
-    font-family: var(--font-inter);
-    font-size: 2.2rem;
-    font-weight: 800;
-    text-transform: none;
-    line-height: 3.3rem;
-    color: var(--cc-white);
-    max-width: 494px;
-    text-align: center;
-    margin: 0 50px; }
-  .dialog .button_variant_sucsess {
-    display: inline-flex;
-    width: auto;
-    height: inherit;
-    padding: 9px 91px;
-    background: var(--cc-background);
-    border-radius: 80px;
-    border: 0;
-    transition: .3s;
-    font-family: var(--font-audiowide);
-    font-size: 1.4rem;
-    font-weight: 300;
-    text-transform: uppercase;
-    line-height: 2.1rem;
-    color: var(--cc-white);
-    justify-content: center;
-    gap: 10px;
-    align-self: center;
-    border: 1px solid var(--cc-color-gray-600) !important;
-    box-sizing: border-box;
-    align-self: flex-end;
-    transition: 0.3s; }
-  .dialog .button_variant_sucsess:hover {
-    cursor: pointer;
-    background: var(--cc-color-gray-600); }
-  .dialog .text-body1 {
-    margin: 10px 0; }
-
-.close-form-container {
-  display: none; }
-
-.open-form-container {
-  display: flex;
-  justify-content: center; }
