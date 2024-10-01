@@ -613,7 +613,7 @@ a {
       background: var(--cc-background);
       border-radius: 80px;
       border: 0;
-      transition: .3s;
+      transition: 0.3s;
       font-family: var(--font-audiowide);
       font-size: 1.4rem;
       font-weight: 300;
@@ -661,7 +661,7 @@ a {
     background: var(--cc-background);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;
@@ -958,7 +958,7 @@ a {
     background: var(--cc-background);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;
@@ -1131,7 +1131,7 @@ a {
     background: var(--cc-color-primary);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;
@@ -1173,7 +1173,7 @@ a {
     background: var(--cc-background);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;
@@ -1229,7 +1229,7 @@ a {
     background: var(--cc-background);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;
@@ -1283,7 +1283,7 @@ main .section__header {
     background: var(--cc-bolt);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     margin-top: 6rem;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
@@ -1548,7 +1548,7 @@ main .section__header {
       color: var(--cc-color-gray-300);
       text-align: center; }
     .section__content-03 .table .cell:nth-child(8) {
-      font-size: 2.0rem;
+      font-size: 2rem;
       font-weight: 600; }
     .section__content-03 .table .thead .cell {
       background: none; }
@@ -1621,7 +1621,7 @@ main .section__header {
     background: var(--cc-color-gray-500);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;
@@ -1638,7 +1638,7 @@ main .section__header {
     background: var(--cc-color-primary);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;
@@ -1702,7 +1702,7 @@ main .section__header {
     background: var(--cc-color-primary);
     border-radius: 80px;
     border: 0;
-    transition: .3s;
+    transition: 0.3s;
     font-family: var(--font-audiowide);
     font-size: 1.4rem;
     font-weight: 300;

@@ -10,8 +10,8 @@
 @import "Blocks/footer";
 @import "Blocks/header";
 @import "Blocks/popupDialog";
-main{
-	overflow-x: hidden;
+main {
+  overflow-x: hidden;
 }
 main .section__header {
   width: 100%;
@@ -54,10 +54,10 @@ main .section__header {
     gap: 80px;
     padding: 0 20px;
   }
-	.social_blockchain_link{
-		display: flex;
-		gap:50px
-	}
+  .social_blockchain_link {
+    display: flex;
+    gap: 50px;
+  }
 }
 .section__content-01 {
   width: 100%;
@@ -65,7 +65,7 @@ main .section__header {
   flex-direction: column;
   &_container {
     max-width: $width-desktop;
-    @include grid-block(2,2,80px);
+    @include grid-block(2, 2, 80px);
     align-items: flex-start;
     padding: 80px 20px;
     gap: 130px;
@@ -74,7 +74,7 @@ main .section__header {
       background: #000;
       border-radius: 160px;
       margin: 20px 0 45px 0;
-	  position: relative;
+      position: relative;
     }
     .social_bg:before {
       content: "";
@@ -117,7 +117,6 @@ main .section__header {
       @include text(var(--font-inter), 4.4rem, 500, none, auto);
     }
   }
-
 
   &_container .wrapper .wrapper_inner {
     @include flex-left;
@@ -315,11 +314,11 @@ main .section__header {
       );
       text-align: center;
     }
-	  .cell:nth-child(8){
-		  font-size: 2.0rem;
-		  font-weight: 600;
-	  }
-	  .thead .cell {
+    .cell:nth-child(8) {
+      font-size: 2rem;
+      font-weight: 600;
+    }
+    .thead .cell {
       background: none;
     }
     .tbody .cell {
@@ -359,14 +358,14 @@ main .section__header {
       padding-top: 10px;
     }
     .tbody:before {
-    content: "";
-    position: absolute;
-    width: 444px;
-    height: 415px;
-    background: var(--cc-bolt);
-    top: 0;
-    margin-left: 819px;
-    margin-top: -1px;
+      content: "";
+      position: absolute;
+      width: 444px;
+      height: 415px;
+      background: var(--cc-bolt);
+      top: 0;
+      margin-left: 819px;
+      margin-top: -1px;
     }
   }
 }
@@ -396,8 +395,8 @@ main .section__header {
       uppercase,
       var(--cc-color-ink-darkest)
     );
-	  pointer-events: none;  
-cursor: default;
+    pointer-events: none;
+    cursor: default;
   }
   .button_content_primary {
     @include button(auto, inherit, 10px 100px, var(--cc-color-primary));
@@ -408,11 +407,11 @@ cursor: default;
       uppercase,
       var(--cc-color-ink-darkest)
     );
-	  cursor: pointer;
+    cursor: pointer;
   }
-	.button_content_primary:hover{
-		 filter: drop-shadow(0px 0px 10px rgba(0, 255, 163, 0.3));
-	}
+  .button_content_primary:hover {
+    filter: drop-shadow(0px 0px 10px rgba(0, 255, 163, 0.3));
+  }
 }
 .aside__bottom {
   width: 100%;
@@ -494,5 +493,3 @@ cursor: default;
     );
   }
 }
-
-
