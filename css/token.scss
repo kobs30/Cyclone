@@ -54,6 +54,10 @@ main .section__header {
     gap: 80px;
     padding: 0 20px;
   }
+	.social_blockchain_link{
+		display: flex;
+		gap:50px
+	}
 }
 .section__content-01 {
   width: 100%;
@@ -61,7 +65,7 @@ main .section__header {
   flex-direction: column;
   &_container {
     max-width: $width-desktop;
-    @include flex-center;
+    @include grid-block(2,2,80px);
     align-items: flex-start;
     padding: 80px 20px;
     gap: 130px;
@@ -113,18 +117,8 @@ main .section__header {
       @include text(var(--font-inter), 4.4rem, 500, none, auto);
     }
   }
-}
-.section__content-02 {
-  width: 100%;
-  @include flex-center;
-  flex-direction: column;
-  &_container {
-    max-width: $width-desktop;
-    @include flex-center;
-    align-items: flex-start;
-    padding: 0px 20px;
-    gap: 80px;
-  }
+
+
   &_container .wrapper .wrapper_inner {
     @include flex-left;
   }
@@ -321,7 +315,11 @@ main .section__header {
       );
       text-align: center;
     }
-    .thead .cell {
+	  .cell:nth-child(8){
+		  font-size: 2.0rem;
+		  font-weight: 600;
+	  }
+	  .thead .cell {
       background: none;
     }
     .tbody .cell {
@@ -361,14 +359,14 @@ main .section__header {
       padding-top: 10px;
     }
     .tbody:before {
-      content: "";
-      position: absolute;
-      width: 442px;
-      height: 415px;
-      background: var(--cc-bolt);
-      top: 0;
-      margin-left: 819px;
-      margin-top: -1px;
+    content: "";
+    position: absolute;
+    width: 444px;
+    height: 415px;
+    background: var(--cc-bolt);
+    top: 0;
+    margin-left: 819px;
+    margin-top: -1px;
     }
   }
 }
@@ -398,6 +396,8 @@ main .section__header {
       uppercase,
       var(--cc-color-ink-darkest)
     );
+	  pointer-events: none;  
+cursor: default;
   }
   .button_content_primary {
     @include button(auto, inherit, 10px 100px, var(--cc-color-primary));
@@ -408,7 +408,11 @@ main .section__header {
       uppercase,
       var(--cc-color-ink-darkest)
     );
+	  cursor: pointer;
   }
+	.button_content_primary:hover{
+		 filter: drop-shadow(0px 0px 10px rgba(0, 255, 163, 0.3));
+	}
 }
 .aside__bottom {
   width: 100%;

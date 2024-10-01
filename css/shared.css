@@ -149,6 +149,7 @@
 
 .header-dropdown .header-dropdown-background-button {
     background-color: var(--cc-color-gray-800)
+		
 }
 
 .header-dropdown:hover .header-dropdown__menu {

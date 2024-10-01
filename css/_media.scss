@@ -6,8 +6,15 @@
 	body{
 		overflow-x: hidden;
 	}
-  .section__social-in_container {
-    gap: 20px !important;
+  .section__social-in_container .social_blockchain_link {
+     display: flex;
+	 gap: 20px !important;
+	 align-items: center;
+	 hyphens: auto;
+	  p{
+		  text-overflow: ellipsis;
+	  }
+	  
   }
   .section__content-01_container .social_bg:after {
     content: "";
@@ -19,12 +26,15 @@
   }
   .section__content-01_container,
   .section__content-02_container {
-    flex-direction: column;
-    align-items: center !important;
-    gap: 50px !important;
+	   display: grid!important;
+	grid-template-rows: repeat(4, auto)!important;
+	grid-template-columns: repeat(1, auto)!important;
+//    flex-direction: column;
+//    align-items: center !important;
+//    gap: 50px !important;
     padding: 30px 20px !important;
   }
-  .section__content-02_container .wrapper {
+  .section__content-01_container .wrapper {
     width: 90vw;
   }
   .section__content-03 {
@@ -117,13 +127,24 @@
       background: none !important;
       overflow: inherit !important;
       margin-top: 2px !important;
+		display: none!important;
     }
-    .header-dropdown:hover .color-button {
+//    .header-dropdown:hover .color-button {
+//      cursor: pointer;
+//      background: var(--cc-background) url("../images/svg/close_app.svg") 50%
+//        50% no-repeat !important;
+//      background-size: 50% !important;
+//    }
+	      .close_app {
       cursor: pointer;
       background: var(--cc-background) url("../images/svg/close_app.svg") 50%
         50% no-repeat !important;
       background-size: 50% !important;
     }
+	  .header-dropdown-open{
+		  display: flex!important;
+	  }
+	  
     .header-dropdown {
       box-sizing: border-box;
     }
@@ -243,10 +264,15 @@
 @media (min-width: $width-mobile) and (max-width: $width-tablet-until) {
   .section__content-01_container,
   .section__content-02_container {
-    flex-direction: column;
-    align-items: center !important;
-    gap: 50px !important;
-    padding: 30px 20px !important;
+	   display: grid!important;
+	grid-template-rows: repeat(4, auto)!important;
+	grid-template-columns: repeat(1, auto)!important;
+	  padding: 30px 20px !important;
+	  gap: 50px !important;
+//    flex-direction: column;
+//    align-items: center !important;
+//    gap: 50px !important;
+//    padding: 30px 20px !important;
   }
 }
 
