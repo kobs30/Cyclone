@@ -6,6 +6,10 @@
   body {
     overflow-x: hidden;
   }
+  .header-dropdown:hover .color-button {
+    cursor: pointer;
+    background-color: var(--cc-background)!important;
+  }
   .section__social-in_container .social_blockchain_link {
     display: flex;
     gap: 20px !important;
