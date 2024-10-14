@@ -24,8 +24,8 @@
 
   &__center {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0px;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
     align-self: center;
     justify-self: center;
     @include text(
