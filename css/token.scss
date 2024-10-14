@@ -374,7 +374,7 @@ main .section__header {
   @include flex-center;
   background: url(../images/svg/bg_footer.svg) 0 100% repeat-x;
   background-size: 200px;
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   &_container {
     max-width: $width-desktop;
     @include flex-center;
@@ -411,6 +411,81 @@ main .section__header {
   }
   .button_content_primary:hover {
     filter: drop-shadow(0px 0px 10px rgba(0, 255, 163, 0.3));
+  }
+}
+
+.section__content-05 {
+  width: 100%;
+  @include flex-center;
+  flex-direction: column;
+	background: url(../images/svg/bg_footer.svg) 0 40% repeat-x;
+  background-size: 200px;
+	 &_container {
+    max-width: $width-desktop;
+    @include flex-center;
+    flex-direction: column;
+    padding: 0px 20px;
+    gap: 80px;
+  }
+	&_container .wrapper{
+		display: flex;
+    justify-content: center;
+    gap: 30px;
+		flex-wrap: wrap;
+	}
+	.block_partner{
+		width: 170px;
+		height: 115px;
+		border-radius: 5px;
+		background: var(--cc-color-ink-darkest);
+		    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+	}
+	.block_partner:hover{
+		cursor: pointer;
+		background: var(--cc-color-gray-900)
+	}
+	.block_partner::before{
+		content: "";
+		position: absolute;
+		width: 170px;
+		height: 115px;
+		padding: 1px;
+		background: var(--cc-color-gray-800);
+		    z-index: -10;
+    border-radius: 5px;
+	}
+		.block_partner::after{
+		content: "";
+		position: absolute;
+		width: 170px;
+		height: 115px;
+		padding: 1px;
+			background: var(--cc-bolt);
+		    z-index: -1;
+    border-radius: 5px;
+		 opacity: 0;
+		transition: .3s;
+	}
+		.block_partner:hover::after{
+		opacity: 1;
+	}
+	  a.button {
+    @include button(auto, inherit, 15px 120px, var(--cc-bolt));
+    margin: 3rem 0;
+    @include text(
+      var(--font-audiowide),
+      1.4rem,
+      300,
+      uppercase,
+      var(--cc-white)
+    );
+    transition: 0.5s;
+  }
+    a.button:hover {
+    filter: drop-shadow(0px 0px 10px rgba(182, 32, 224, 0.7));
   }
 }
 .aside__bottom {

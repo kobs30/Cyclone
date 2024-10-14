@@ -50,11 +50,14 @@
   }
   .section__content-04 {
     background-size: auto !important;
-    padding-bottom: 0px !important;
+    padding-bottom: 80px !important;
   }
   .section__content-04 .wrapper {
     flex-direction: column !important;
   }
+	.section__content-05{
+		background: none!important;
+	}
   .aside__bottom .wrapper {
     grid-template-rows: auto auto !important;
     grid-template-columns: repeat(2, 1fr) !important;
