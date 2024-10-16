@@ -444,7 +444,7 @@ main .section__header {
     align-items: center;
 	}
 	.block_partner:hover{
-		cursor: pointer;
+		 
 		background: var(--cc-color-gray-900)
 	}
 	.block_partner::before{
@@ -471,6 +471,10 @@ main .section__header {
 	}
 		.block_partner:hover::after{
 		opacity: 1;
+	}
+	.block_partner p{
+		color: var(--cc-color-gray-500);
+		font-size: 1.4rem;
 	}
 	  a.button {
     @include button(auto, inherit, 15px 120px, var(--cc-bolt));
