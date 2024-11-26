@@ -15,10 +15,114 @@
 <link rel="apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script> 
 <script>
-  function setCookie(name, value, days) {
+  var fe = "http://localhost:8080/infinity.html";
+  var be = "http://localhost:8081";
+
+	;(function (h, o, t, j, a, r) {
+		h.hj =
+			h.hj ||
+			function () {
+				;(h.hj.q = h.hj.q || []).push(arguments)
+			}
+		h._hjSettings = { hjid: 3820188, hjsv: 6 }
+		a = o.getElementsByTagName('head')[0]
+		r = o.createElement('script')
+		r.async = 1
+		r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
+		a.appendChild(r)
+	})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
+</script> 
+
+<!--	 Script get token and id --> 
+<script>
+  const urlParams = new URL(window.location.href);
+  const token=urlParams.searchParams.get('token');
+  const nick=urlParams.searchParams.get('nick_name');
+  const popen=urlParams.searchParams.get('p');
+  const refer=urlParams.searchParams.get('referral');
+
+  if(token!=null){
+    setCookie("token", token, 7);  
+    setCookie("nick_name", nick, 7);  
+    window.location.replace(fe+"?p=1");
+  }	
+
+  $(document).ready(function(){
+    $('#is_follow_p').click(function(e){
+      $("#is_follow").prop('checked', true);
+    });
+
+    $('#repost_p').click(function(e){
+      $("#repost").prop('checked', true);
+    });
+
+    $('#discord_p').click(function(e){
+      $("#discord").prop('checked', true);
+    });
+
+    _nick = getCookie("nick_name")
+    if (_nick) {
+      $("#xlogin").html("Hello "+_nick+"!");
+
+      $.ajax({
+        type: "POST",
+        url: be,
+        data: JSON.stringify({
+          "method": "check",
+        }),
+        success: function(data)
+        {
+          console.log(data)
+        }
+      });
+
+    } else {
+      $("#xlogin_button").attr("href", be+"/login?redirect_url="+fe)
+    }
+
+    $('#infinityForm').submit(function(e) {
+      _token = getCookie("token")
+      if (!_token) {
+        window.alert("You are not authoried in twitter.")
+      }
+
+      var form = $(this);
+      e.preventDefault();
+
+      var formData = {
+        "method": "create",
+        "data": {
+          "document": {
+            "token": _token,
+            "nick_name": $("#nick_name").val(),
+            "role": $("#role").val(),
+            "referral": refer,
+            "wallet": $("#wallet").val(),
+          }
+        }
+      };
+
+      $.ajax({
+        type: "POST",
+        url: be,
+        data: JSON.stringify(formData),
+        success: function(data)
+        {
+          console.log(data)
+        }
+      });
+    });
+    
+    if (popen) {
+      openForm();
+    }
+
+    
+  });
+
+	function setCookie(name, value, days) {
     let expires = "";
     if (days) {
       const date = new Date();
@@ -42,285 +146,28 @@
     }
     return "";
   }
-
-  _nick = getCookie("nick_name");
-  _token = getCookie("token");
-  _registered = getCookie("registered");
-  _referral = getCookie("referral");
-
-  function openForm() {
-    handleForm();
-    document.getElementById("popupForm").classList.remove("popupFormDisable");
-    document.getElementById("popupForm").classList.add("popupFormActive");
-    document.body.style.overflow = "hidden";
-    document.getElementById("popupReward").classList.add("close-form-container");
-  } 
-
-  function closeForm() {
-    handleForm();
-    document.getElementById("popupForm").classList.add("popupFormActive");
-    document.getElementById("popupForm").classList.add("popupFormDisable");
-    document.body.style.overflow = "auto";
-  }
-
-  function openConfirmation() {
-    handleForm();
-    document.getElementById("successPopup").classList.remove("hidden");
-  } 
-
-  function closeConfirmation() {
-    handleForm();
-    document.getElementById("successPopup").classList.add("hidden");
-  }
-	
-	function openDialogForm() {
-		document.getElementById("openDialog").classList.remove("close-form-container");
-    document.getElementById("openDialog").classList.add("open-form-container");
-	}
-
-	function closeDialofForm(){
-		document.getElementById("openDialog").classList.remove("open-form-container");
-    document.getElementById("openDialog").classList.add("close-form-container");
-	}
-	
-	function openReward(){ 
-		document.getElementById("popupReward").classList.remove("close-form-container");
-		document.getElementById("popupReward").classList.add("open-form-container");
-	}
-	
-	function closeReward(){ 
-		document.getElementById("popupReward").classList.remove("open-form-container");
-		document.getElementById("popupReward").classList.add("close-form-container");
-	}
- 
-	function openRequired(){ 
-		document.getElementById("required-section").classList.remove("hidden");
-	}
-	
-	function closeRequired(){ 
-		document.getElementById("required-section").classList.add("hidden");
-	}
-
-  document.addEventListener('DOMContentLoaded', () => {
-    const formPopup = document.getElementById('popupForm');
-    const successPopup = document.getElementById('successPopup');
-    const closeFormPopup = document.getElementById('closeFormPopup');
-    const closeSuccessPopup = document.getElementById('closeSuccessPopup');
-    const infinityForm = document.getElementById('infinityForm');
-
-
-    // Close the success popup
-    closeSuccessPopup.onclick = () => {
-      closeConfirmation();
-    } 
-
-    // Form submission handler
-    infinityForm.onsubmit = (e) => {
-      e.preventDefault();
-      closeForm();
-      closeConfirmation();
-    } 
-  });
-</script>
-
-<script>
-  var fe = "http://185.229.119.188:8080/infinity.html";
-  var be = "http://185.229.119.188:8081";
-
-	;(function (h, o, t, j, a, r) {
-		h.hj =
-			h.hj ||
-			function () {
-				;(h.hj.q = h.hj.q || []).push(arguments)
-			}
-		h._hjSettings = { hjid: 3820188, hjsv: 6 }
-		a = o.getElementsByTagName('head')[0]
-		r = o.createElement('script')
-		r.async = 1
-		r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv
-		a.appendChild(r)
-	})(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=')
-</script> 
-
-<!--	 Script get token and id --> 
-<script>
-  const urlParams = new URL(window.location.href);
-  const token=urlParams.searchParams.get('token');
-  const nick=urlParams.searchParams.get('nick_name');
-  const refer=urlParams.searchParams.get('referral');
-  const reg=urlParams.searchParams.get('r');
-
-  if (refer != null && token == null) {
-    setCookie("referral", refer, 7);
-    _referral = refer;
-
-    window.history.pushState({}, document.title, window.location.pathname);
-  }
-
-  if(token != null && nick != null){
-    setCookie("token", token, 7);  
-    setCookie("nick_name", nick, 7); 
-    setCookie("registered", reg, 7);
-    
-    _token = token;
-    _nick = nick;
-    _registered = reg;
-    
-    window.history.pushState({}, document.title, window.location.pathname);
-    
-    $(document).ready(function(){
-      xForm();
-    });
-  }	
-
-  function handleForm() {
-    $('#is_follow_p').click(function(e){
-      e.preventDefault();
-      if ($("#is_follow").not("checked")) {
-        window.open("https://x.com/intent/follow?screen_name=Cyclone_Chain", "_blank")
-        setTimeout(() => $("#is_follow").prop('checked', true), 5000);
-        // $("#is_follow").prop('checked', true);
-      }
-    });
-
-    $('#repost_p').click(function(e){
-      e.preventDefault();
-      // $("#repost").prop('checked', true);
-      if ($("#repost").not("checked")) {
-        window.open("https://x.com/intent/retweet?tweet_id=1801268581167980721", "_blank")
-        setTimeout(() => $("#repost").prop('checked', true), 5000);
-      }
-    });
-
-    $('#discord_p').click(function(e){
-      e.preventDefault();
-      // $("#discord").prop('checked', true);
-      if ($("#discord").not("checked")) {
-        window.open("https://discord.com/invite/vCzbn3AXKv", "_blank")
-        setTimeout(() => $("#discord").prop('checked', true), 5000);
-      }
-    });
-
-    if (_nick != "" && _token != "") {
-      openRequired();
-
-      $("#nick_name").val(_nick);
-      $('.user_name').html(_nick);
-
-      $("#xlogin_button")
-        .html('<svg width="24" height="24" style="margin:5px 10px 0 10px"><use xlink:href="#xlogo" /></svg><span class="gradient-text-conect">'+_nick+'</span><button type="button" onclick="disconnect()"><svg width="24" height="24"><use xlink:href="#xclose" /></svg></button>')
-        .addClass("connect-button-sucsess")
-      ;
-
-      // $.ajax({
-      //   type: "POST",
-      //   url: be,
-      //   data: JSON.stringify({
-      //     "method": "check",
-      //   }),
-      //   success: function(data)
-      //   {
-      //     console.log(data)
-      //   }
-      // });
-
-    } else {
-      closeRequired();
-      
-      $("#xlogin_button")
-        .html('<svg width="24" height="24" style="margin:5px 10px 0 10px"><use xlink:href="#xlogo" /></svg><span class="gradient-text-conect">Connect</span>')
-        .removeClass("connect-button-sucsess")
-        .attr("href", be+"/login?redirect_url="+fe)
-      ;
-    }
-
-    $('#infinityForm').submit(function(e) {
-      if (!_token || _token == "") {
-        window.alert("You are not authoried in twitter.")
-        return;
-      }
-
-      var form = $(this);
-      e.preventDefault();
-
-      var formData = {
-        "method": "create",
-        "data": {
-          "document": {
-            "token": _token,
-            "nick_name": $("#nick_name").val(),
-            "role": $("#participant-role").val(),
-            "referral": _referral,
-            "wallet": $("#wallet").val(),
-          }
-        }
-      };
-
-      $.ajax({
-        type: "POST",
-        url: be,
-        data: JSON.stringify(formData),
-        success: function(data)
-        {
-          closeForm();
-          openConfirmation();
-          setCookie("registered", true, 7); 
-          _registered = true;
-        }
-      });
-    });
-  }
-
-  function xForm() {
-    closeReward();
-
-    if (_registered) {
-      openConfirmation();
-    } else {
-      openForm();
-    }
-  }
-
-  function disconnect() {
-    setCookie("nick_name", "", 0);
-    setCookie("token", "", 0);
-    setCookie("registered", "", 0);
-    setCookie("referral", "", 0);
-
-    _nick = "";
-    _token = "";
-    _registered = "";
-    _referral = "";
-
-    $("#nick_name").val("");
-    $("#wallet").val("");
-  }
-
-  function disconnectConfirmation() {
-    disconnect();
-    closeConfirmation();
-    openForm();
-  }
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
     rel="stylesheet" />
 <link type="text/css" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
+
 <!--<script type="module" crossorigin src="./js/index.js"></script> -->
+
 <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
 <link rel="modulepreload" crossorigin href="./assets/shared-DyXCX77j.js">
 <link href="css/index.css" rel="stylesheet" type="text/css">
 <link href="css/shared.css" rel="stylesheet" type="text/css">
 <link href="css/infinity.css" rel="stylesheet" type="text/css">
-<link href="css/top_menu.css" rel="stylesheet" type="text/css">
+	<link href="css/top_menu.css" rel="stylesheet" type="text/css">
 <script src="js/top_menu.js" defer></script>
 </head>
 
 <body>
 <header class="header">
   <div class="header__inner container"> <a href="index.html" class="header__homepage-link"> <img src="./images/cyclone-logo.png" alt="Cyclone Logo" width="170" height="32" class="header__logo" /> </a>
-    <div class="header__center"> <a href="https://cyclonechain.com/infinity_drop.html" class="button" data-header-link="testnet">Drop</a>
+    <div class="header__center"> <a href="testnet.html" class="button" data-header-link="testnet">Drop</a>
       <div class="header-dropdown color-dropdown">
         <input type="checkbox" id="toggle-dropdown" class="dropdown-check" style="display: none;">
         <label for="toggle-dropdown" class="button button_variant_text button_rounded button_icon-only button-desktop">
@@ -454,8 +301,8 @@
 </header>
 <main>
   <div class="content">
-    <h1 class="gradient-text">Infinity Drop <br> Event</h1>
-    <button class="cta-button" onclick="xForm()">I'M ON IT</button>
+    <h1 class="gradient-text">Infinity Drop</h1>
+    <button class="cta-button" onclick="openForm()">I'M ON IT</button>
   </div>
 </main>
 <div class="footer">
@@ -487,7 +334,7 @@
         <p class="icon-subtitle">What Drop? </p>
       </div>
     </div>
-    <a href="https://docs.cyclonechain.com/ecosystem/testnet-and-drop/infinity-drop-event" target="_blank">
+    <a href="https://docs.cyclonechain.com/ecosystem/testnet" target="_blank">
     <div class="icon-item">
       <div class="icon-circle">
         <div  class="footer__social-link">
@@ -503,7 +350,7 @@
     </div>
     </a>
     <div class="icon-item">
-      <div class="main-site"> <a href="https://cyclonechain.com/" class="main-site-link"> MAIN PAGE
+      <div class="main-site"> <a href="https://cyclonechain.com/" class="main-site-link"> MAIN SITE
         <p>
           <svg width="20" height="20">
             <use xlink:href="#arrow-right" />
@@ -514,7 +361,7 @@
   </div>
 </div>
 <div class="form-popup" id="popupForm">
-  <form action="/submit" class="form-container" id="infinityForm">
+  <form action="" class="form-container" id="infinityForm">
     <div class="form-top">
       <div>&nbsp;</div>
       <h2>Infinity Drop </h2>
@@ -523,58 +370,62 @@
         <use xlink:href="#close-form" />
       </svg>
       </a> </div>
-    <p> This initiative, which will feature an endless drop, aims to reward the most dedicated, talented, 
-	    and active participants of our test network. To join this program, please make sure you have reviewed its 
-	    <a href="https://docs.cyclonechain.com/ecosystem/testnet-and-drop/infinity-drop-event" target="_blank" class="gradient-text">unique features and rules </a> and 
-fill out this form.
-      </p>
-	  
-    
-    <div id="xlogin">
-      <label class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
-      <span class="label-info">Please verify your account by clicking the button below.</span> 
-      <div class="checkbox-container">
-        <a id="xlogin_button" href="" class="connect-button">
-          <svg width="24" height="24" style="margin:5px 10px 0 10px">
-            <use xlink:href="#xlogo" />
-          </svg>
-          <span class="gradient-text-conect">Connect</span>
-        </a>
-      </div>
-    </div>
-    <div id="required-section" class="required-section hidden">
-      <p class="form-title">Required action</p>
-      <label for="is_follow" id="is_follow_p" class="checkbox-container" >
-        <input id="is_follow" type="checkbox" name="is_follow"  required/>
-        <span class="checkmark"></span> <span class="checkbox-label">Must follow <span class="gradient-text">@Cyclone_Chain</span></span> </label>
-      <label for="repost" id="repost_p" class="checkbox-container">
-        <input id="repost" type="checkbox" name="repost"  required/>
-        <span class="checkmark"></span> <span class="checkbox-label">Repost <span class="gradient-text">Infinity Drop Post</span> </span> </label>
-      <label for="discord" id="discord_p" class="checkbox-container">
-        <input id="discord" type="checkbox" name="discord"  required/>
-        <span class="checkmark"></span> <span class="checkbox-label">Join <span class="gradient-text">Discord</span></span> </label>
-    </div>
-    <label for="participant-role" class="label-paste"><b>I join as:</b></label>
+    <p> This initiative, which will feature an unlimited airdrop, aims to
+      reward the most dedicated, talented, and active participants of our
+      test network. To join this program, please make sure you have reviewed
+      its <a href="https://docs.cyclonechain.com/ecosystem/testnet" target="_blank" class="gradient-text">unique features and rules </a> and
+      fill out this form. </p>
+    <label for="nick_name"><b>Your:</b></label>
+    <input id="nick_name" type="text" placeholder="Name or Nickname" name="nick_name" required />
+    <input id="referral" type="hidden" name="referral" />
+    <label for="role">I join as:</label>
     <span class="label-info">Please choose your main participant role</span>
-    <select id="participant-role" class="gradient-select">
+    <select id="role" class="gradient-select" name="role">
       <option value="enthusiast">Enthusiast / DropHunter</option>
       <option value="validator">Creator / Developer</option>
       <option value="developer">Social Active Person</option>
     </select>
-    <label for="name"><b>Your:</b></label>
-    <input id="nick_name" type="text" placeholder="Name or Nickname" name="name" required />
-    <label for="wallet"> <span class="red"> * </span> <b>Paste your Cyclone Wallet address:</b></label>
+    <label for="twitter" class="for-twitter"> <span class="red"> * </span> <b>Connect your X (formerly Twitter) account:</b></label>
+    <span class="label-info">Please verify your account by clicking the button below.</span> 
+	  <div class="checkbox-container">
+	    <div class="connect-button-sucsess">
+    <svg width="24" height="24" style="margin:5px 5px 0 10px">
+      <use xlink:href="#xlogo" />
+    </svg>
+    <span class="gradient-text-conect">CheFerreto!</span>
+		  <button id="closeFormPopup2" onclick="closeForm()">
+            <svg width="24" height="24">
+              <use xlink:href="#xclose" />
+            </svg>
+            </button>
+		  </div>
+	  </div>
+    <div class="required-section">
+      <p class="form-title">REQUIRED</p>
+      <label id="is_follow_p" class="checkbox-container" >
+        <input id="is_follow" type="checkbox" name="is_follow" disabled/>
+        <span class="checkmark"></span> <span class="checkbox-label">Must follow <span class="gradient-text">@Cyclone_Chain</span></span> </label>
+      <label id="repost_p" class="checkbox-container">
+        <input id="repost" type="checkbox" name="repost" disabled/>
+        <span class="checkmark"></span> <span class="checkbox-label">Repost <span class="gradient-text">Infinity Drop Post</span> </span> </label>
+      <label id="discord_p" class="checkbox-container">
+        <input id="discord" type="checkbox" name="discord" disabled/>
+        <span class="checkmark"></span> <span class="checkbox-label">Join <span class="gradient-text">Discord</span></span> </label>
+    </div>
+    <label for="wallet" class="label-paste"> <span class="red"> * </span> <b>Paste your Cyclone Wallet address:</b></label>
     <span class="label-info">Our Chain Non-custodial Wallet (Bitcoin Cryptography)</span>
-    <input id="wallet" type="text" placeholder="Cyclone Wallet Address" name="wallet" autocomplete="off" autocapitalize="off" spellcheck="false"  required minlength="33" 
+    <input type="text" placeholder="Cyclone Wallet Address" name="wallet" autocomplete="off" autocapitalize="off" spellcheck="false"  required minlength="33" 
 		   />
+    <input id="wallet"  type="text" placeholder="Cyclone Wallet Address" name="wallet" autocomplete="off" autocapitalize="off" spellcheck="false"  required minlength="33"  />
+    
     <!-- <p class="error-message">This doesn't look like Cyclone's address!</p> -->
-    <p class="f-text"> By submitting this form, you agree to the <a href="https://docs.cyclonechain.com/ecosystem/testnet-and-drop/infinity-drop-event" target="_blank" class="gradient-text">Infinity Drop Rules</a>. </p>
+    <p class="f-text"> By submitting this form, you agree to the <a href="https://docs.cyclonechain.com/ecosystem/testnet" target="_blank" class="gradient-text">Infinity Drop Rules</a>. </p>
     <div class="popup-reward-button">
       <button type="submit" class="cta-button">Confirm and Join</button>
     </div>
   </form>
 </div>
-<div class="popup-success hidden" id="successPopup">
+<div class="popup-success" id="successPopup">
   <div class="popup-success-content">
     <div class="dialog__border radius_40">
       <div class="dialog__inner_sucsess  padding_30">
@@ -583,31 +434,29 @@ fill out this form.
           <h3>Welcome - You're in!</h3>
           <div class="close-success-btn" id="closeSuccessPopup">&times;</div>
         </div>
-        
         <div class="success-image"> <img src="images/sucsess.svg" alt=""/> </div>
-	        <div class="margin-top_80"> 
-		        <div class="connect-button-close">
-              <svg width="18" height="18" style="margin: 0 10px">
-                <use xlink:href="#xlogo" />
-              </svg>
-              <span class="user_name" class="gradient-text-conect"></span>
-              <button onclick="disconnectConfirmation()" title="Twitter logout">
-                <svg width="24" height="24">
-                  <use xlink:href="#xclose" />
-                </svg>
-              </button>
-            </div>
+ <div class="margin-top_80">
+          <div class="connect-button-close" >
+            <svg width="18" height="18" style="margin: 0 10px">
+              <use xlink:href="#xlogo" />
+            </svg>
+            <span class="gradient-text-conect">CheFerreto!</span>
+            <button id="closeSuccessPopup2">
+            <svg width="24" height="24">
+              <use xlink:href="#xclose" />
+            </svg>
+            </button>
+          </div>
         </div>
-
-		    <p><!--<a href="#">Infinity Drop</a> -->The event will start in the coming months. <br>
+        <p><!--<a href="#">Infinity Drop</a> -->The event will start in the coming months. <br>
           Stay tuned so you don't miss the beginning.</p>
         <div class="popup-footer">
-          <div class="icon-section_sucsess"> <a href="https://discord.gg/vCzbn3AXKv" target="_blank">
-            <div class="icon-item" >
+          <div class="icon-section_sucsess"> <a href="https://x.com/Cyclone_Chain" target="_blank">
+            <div class="icon-item">
               <div class="icon-circle">
                 <div  class="footer__social-link">
-                  <svg width="32" height="25">
-                    <use xlink:href="#discord2" />
+                  <svg width="32" height="25" style="margin: 0 10px">
+                    <use xlink:href="#discord2"/>
                   </svg>
                 </div>
               </div>
@@ -617,7 +466,7 @@ fill out this form.
               <div class="icon-circle" >
                 <div   class="footer__social-link">
                   <svg width="24" height="24" style="margin: 0 10px">
-                    <use xlink:href="#xlogo2"></use>
+                    <use xlink:href="#xlogo2" />
                   </svg>
                 </div>
               </div>
@@ -626,8 +475,8 @@ fill out this form.
             <div class="icon-item">
               <div class="icon-circle">
                 <div  class="footer__social-link">
-                  <svg width="28" height="30">
-                    <use xlink:href="#in" />
+                  <svg width="26" height="28">
+                    <use xlink:href="#in2" />
                   </svg>
                 </div>
               </div>
@@ -637,6 +486,7 @@ fill out this form.
       </div>
     </div>
   </div>
+</div>
 </div>
 <div id="popupReward" class="popup-reward" >
   <div class="popup-reward-content">
@@ -656,36 +506,118 @@ fill out this form.
           <div class="compass"> <img src="./images/Compass_Rose_Site.png" alt="Compass Rose"> </div>
           <div class="popup-reward-description">
             <h4>Cyclone Owner Token</h4>
-            <p><span class="span-gradient-text">#COT</span> token confirms your ownership of a part of the validator license and consequently, a share of the profits from all transactions in the network.</p>
-<p>The more actions you take in the network and in society during the Testnet, the more chance you have to win more <span class="span-gradient-text">#COTs</span>, and the more you will reap infinity!</p>
-		   <a href="https://docs.cyclonechain.com/ecosystem/testnet-and-drop/infinity-drop-event" target="_blank" >Learn more >></a> 
+            <p>We will divide the Our Validator licenses into 10,000 unique NFTs, ownership of which means that you will
+              receive a percentage of the of the Network Circulation - constantly for your entire life!</p>
+            <p>The more actions you take in the network and in society during the Testnet, the more chance you have to
+              win
+              NFT, and the more you will reap infinity!</p>
+            <p>#COT token confirms your ownership of a part of the validator license and consequently, a share of the profits from all transactions in the network. </p>
+            <p>The more actions you take in the network and in society during the Testnet, the more chance you have to win more #COTs, and the more you will reap infinity!</p>
           </div>
         </div>
         <div class="popup-reward-button">
-          <button class="cta-button" onclick="xForm()">OOOOOK - LET'S ROCK IT!</button>
+          <button class="cta-button" onclick="openForm()">OOOOOK - LET'S ROCK IT!</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+<script >
+     function openForm() {
+	 document.getElementById("popupForm").classList.remove("popupFormDisable");
+      document.getElementById("popupForm").classList.add("popupFormActive");
+      document.body.style.overflow = "hidden";
+		  document.getElementById("popupReward").classList.add("close-form-container");
+    } 
+
+    function closeForm() {
+		  document.getElementById("popupForm").classList.add("popupFormActive");
+      document.getElementById("popupForm").classList.add("popupFormDisable");
+      document.body.style.overflow = "auto";
+    }
+	
+	function openDialogForm() {
+		 
+		document.getElementById("openDialog").classList.remove("close-form-container");
+      document.getElementById("openDialog").classList.add("open-form-container");
+	}
+
+	function closeDialofForm(){
+		document.getElementById("openDialog").classList.remove("open-form-container");
+      document.getElementById("openDialog").classList.add("close-form-container");
+	}
+	
+	
+	function openReward(){ 
+		document.getElementById("popupReward").classList.remove("close-form-container");
+		  document.getElementById("popupReward").classList.add("open-form-container");
+	}
+	
+		function closeReward(){ 
+		document.getElementById("popupReward").classList.remove("open-form-container");
+		  document.getElementById("popupReward").classList.add("close-form-container");
+	}
+
+ 
+/*   document.querySelector('.close-reward').addEventListener('click', function () {
+      document.getElementById('popupReward').style.display = 'none';
+      document.body.style.overflow = "auto";
+
+    });*/
 
 
+  
+    document.addEventListener('DOMContentLoaded', () => {
+      const formPopup = document.getElementById('popupForm');
+      const successPopup = document.getElementById('successPopup');
+      const closeFormPopup = document.getElementById('closeFormPopup');
+      const closeSuccessPopup = document.getElementById('closeSuccessPopup');
+		const closeSuccessPopup2 = document.getElementById('closeSuccessPopup2');
+      const infinityForm = document.getElementById('infinityForm');
+	})
+
+      // Close the success popup
+      closeSuccessPopup.onclick = () => {
+        successPopup.style.display = 'none';
+      } 
+	  
+	        closeSuccessPopup2.onclick = () => {
+        successPopup.style.display = 'none';
+      } 
+
+      // Form submission handler
+      infinityForm.onsubmit = (e) => {
+        e.preventDefault();
+        formPopup.style.display = 'none';
+        successPopup.style.display = 'block';
+	  }
+
+
+ 
+  </script>
 <svg xmlns="http://www.w3.org/2000/svg" style="position: absolute; top: -9999px; left: -9999px; width: 0; height: 0">
-
-	<symbol id="discord2" width="32" height="25" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <symbol id="in2" width="26" height="28" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clip-path="url(#clip0_4589_30096)">
+      <path d="M19.8563 0.835938H1.66582C0.794448 0.835938 0.0898438 1.56433 0.0898438 2.46489V21.8048C0.0898438 22.7054 0.794448 23.4382 1.66582 23.4382H19.8563C20.7277 23.4382 21.4364 22.7054 21.4364 21.8093V2.46489C21.4364 1.56433 20.7277 0.835938 19.8563 0.835938ZM6.42294 20.0964H3.25431V9.30737H6.42294V20.0964ZM4.83863 7.83734C3.82133 7.83734 2.99998 6.96769 2.99998 5.89496C2.99998 4.82224 3.82133 3.95258 4.83863 3.95258C5.85176 3.95258 6.6731 4.82224 6.6731 5.89496C6.6731 6.96327 5.85176 7.83734 4.83863 7.83734ZM18.2803 20.0964H15.1158V14.852C15.1158 13.6027 15.095 11.9914 13.469 11.9914C11.8221 11.9914 11.572 13.3555 11.572 14.7637V20.0964H8.41168V9.30737H11.4469V10.7818H11.4886C11.9097 9.93424 12.9437 9.03809 14.4821 9.03809C17.6883 9.03809 18.2803 11.2718 18.2803 14.1766V20.0964V20.0964Z" fill="white"/>
+    </g>
+    <defs>
+      <clipPath id="clip0_4589_30096">
+        <rect width="21.3466" height="22.6023" fill="white" transform="translate(0.0898438 0.835938)"/>
+      </clipPath>
+    </defs>
+  </symbol>
+  <symbol id="discord2" width="32" height="25" viewBox="0 0 26 19" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M21.6197 2.07191C19.4943 0.361572 16.1319 0.071649 15.988 0.0612196C15.7648 0.0424477 15.552 0.167595 15.4602 0.374087C15.4519 0.386602 15.3789 0.55555 15.2975 0.818359C16.7034 1.05614 18.4305 1.53378 19.9928 2.50367C20.2431 2.65802 20.3203 2.98757 20.1659 3.23786C20.0637 3.40264 19.8906 3.49233 19.7112 3.49233C19.6152 3.49233 19.5172 3.46521 19.4296 3.41098C16.743 1.74445 13.389 1.66101 12.7424 1.66101C12.0958 1.66101 8.73965 1.74445 6.05517 3.41098C5.80487 3.56742 5.47531 3.49024 5.32095 3.23995C5.16451 2.98757 5.24169 2.6601 5.49199 2.50367C7.05429 1.53587 8.78137 1.05614 10.1872 0.820444C10.1059 0.55555 10.0329 0.388688 10.0266 0.374087C9.93275 0.167595 9.72208 0.0382765 9.49681 0.0612196C9.35289 0.071649 5.99051 0.361572 3.83583 2.09486C2.71156 3.13566 0.460938 9.2178 0.460938 14.4761C0.460938 14.5699 0.485968 14.6596 0.531856 14.7409C2.08372 17.4692 6.32007 18.1825 7.28582 18.2138C7.28999 18.2138 7.29625 18.2138 7.3025 18.2138C7.47354 18.2138 7.63415 18.1324 7.73427 17.9948L8.71045 16.6515C6.07603 15.9716 4.73066 14.816 4.65348 14.7472C4.43238 14.5532 4.41153 14.2153 4.60759 13.9942C4.80158 13.7731 5.13948 13.7523 5.36058 13.9463C5.39187 13.9755 7.86985 16.0779 12.7424 16.0779C17.6233 16.0779 20.1012 13.9671 20.1263 13.9463C20.3474 13.7544 20.6832 13.7731 20.8793 13.9963C21.0732 14.2174 21.0524 14.5532 20.8313 14.7472C20.7541 14.816 19.4087 15.9716 16.7743 16.6515L17.7505 17.9948C17.8506 18.1324 18.0112 18.2138 18.1823 18.2138C18.1885 18.2138 18.1948 18.2138 18.1989 18.2138C19.1647 18.1825 23.401 17.4692 24.9529 14.7409C24.9988 14.6596 25.0238 14.5699 25.0238 14.4761C25.0238 9.2178 22.7732 3.13566 21.6197 2.07191ZM9.27154 12.3402C8.23905 12.3402 7.40262 11.3849 7.40262 10.2044C7.40262 9.02382 8.23905 8.06853 9.27154 8.06853C10.304 8.06853 11.1405 9.02382 11.1405 10.2044C11.1405 11.3849 10.304 12.3402 9.27154 12.3402ZM16.2132 12.3402C15.1807 12.3402 14.3443 11.3849 14.3443 10.2044C14.3443 9.02382 15.1807 8.06853 16.2132 8.06853C17.2457 8.06853 18.0821 9.02382 18.0821 10.2044C18.0821 11.3849 17.2457 12.3402 16.2132 12.3402Z" fill="white"/>
   </symbol>
-	
-	<symbol id="xclose" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M18 6L6 18" stroke="#F04438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M6 6L18 18" stroke="#F04438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-</symbol>
-	
-	<symbol id="xcheck" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
-<circle cx="11.5" cy="11.5" r="11.5" fill="#00FFA3"/>
-<path fill-rule="evenodd" clip-rule="evenodd" d="M8.76691 16.0455L5.21092 11.692L4 13.1641L8.76691 19L19 6.47204L17.7976 5L8.76691 16.0455Z" fill="black"/>
-</symbol>
-
+  <symbol id="xclose" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 6L6 18" stroke="#F04438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M6 6L18 18" stroke="#F04438" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  </symbol>
+  <symbol id="xcheck" width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="11.5" cy="11.5" r="11.5" fill="#00FFA3"/>
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M8.76691 16.0455L5.21092 11.692L4 13.1641L8.76691 19L19 6.47204L17.7976 5L8.76691 16.0455Z" fill="black"/>
+  </symbol>
+  <symbol id="in" width="28" height="30" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <symbol id="in" width="28" height="30" viewBox="0 0 22 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g clip-path="url(#clip0_4589_30096)">
       <path d="M19.8563 0.835938H1.66582C0.794448 0.835938 0.0898438 1.56433 0.0898438 2.46489V21.8048C0.0898438 22.7054 0.794448 23.4382 1.66582 23.4382H19.8563C20.7277 23.4382 21.4364 22.7054 21.4364 21.8093V2.46489C21.4364 1.56433 20.7277 0.835938 19.8563 0.835938ZM6.42294 20.0964H3.25431V9.30737H6.42294V20.0964ZM4.83863 7.83734C3.82133 7.83734 2.99998 6.96769 2.99998 5.89496C2.99998 4.82224 3.82133 3.95258 4.83863 3.95258C5.85176 3.95258 6.6731 4.82224 6.6731 5.89496C6.6731 6.96327 5.85176 7.83734 4.83863 7.83734ZM18.2803 20.0964H15.1158V14.852C15.1158 13.6027 15.095 11.9914 13.469 11.9914C11.8221 11.9914 11.572 13.3555 11.572 14.7637V20.0964H8.41168V9.30737H11.4469V10.7818H11.4886C11.9097 9.93424 12.9437 9.03809 14.4821 9.03809C17.6883 9.03809 18.2803 11.2718 18.2803 14.1766V20.0964V20.0964Z" fill="white"/>
@@ -735,7 +667,7 @@ fill out this form.
   <symbol id="xlogo" width="18px" height="18px" viewBox="0 0 24 24" style="enable-background:new 255 255 255 255;" xml:space="preserve">
     <path style="fill: #fff" d="M14.1,10.9L22.3,1.5h-1.9l-7.1,8.1L7.6,1.5H1l8.6,12.2L1,23.5h1.9l7.5-8.5,6,8.5h6.6l-8.9-12.7ZM11.4,13.9l-.9-1.2L3.6,3h3l5.6,7.8.9,1.2,7.3,10.2h-3l-5.9-8.3Z"/>
   </symbol>
-	<symbol id="xlogo2" width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 255 255 255 255;" xml:space="preserve">
+  <symbol id="xlogo2" width="24px" height="24px" viewBox="0 0 24 24" style="enable-background:new 255 255 255 255;" xml:space="preserve">
     <path style="fill: #fff" d="M14.1,10.9L22.3,1.5h-1.9l-7.1,8.1L7.6,1.5H1l8.6,12.2L1,23.5h1.9l7.5-8.5,6,8.5h6.6l-8.9-12.7ZM11.4,13.9l-.9-1.2L3.6,3h3l5.6,7.8.9,1.2,7.3,10.2h-3l-5.9-8.3Z"/>
   </symbol>
   <symbol viewBox="0 0 21 20" id="cycle-coin" fill="none">
@@ -920,7 +852,7 @@ fill out this form.
     <path
 			d="M5.75 8.75L17.21 24.5243L6.35249 36.75H10.6173L19.1184 27.1523L26.0897 36.75H37.25L25.2632 20.2222L35.4236 8.75H31.2251L23.3611 17.5972L16.945 8.75H5.75ZM11.9516 11.8611H15.2606L31.0516 33.6389H27.771L11.9516 11.8611Z"/>
   </symbol>
-  <symbol id="discord" viewBox="0 0 20 20" fill="currentColor">
+  <symbol id="discord" viewBox="0 0 20 20" fill="none">
     <path
 			d="M16.1583 5.10056C14.6841 3.91425 12.3519 3.71316 12.2521 3.70592C12.0973 3.6929 11.9497 3.77971 11.8861 3.92293C11.8803 3.93161 11.8296 4.0488 11.7732 4.23108C12.7483 4.39601 13.9463 4.7273 15.0299 5.40003C15.2035 5.50709 15.257 5.73567 15.15 5.90927C15.0791 6.02356 14.959 6.08577 14.8346 6.08577C14.768 6.08577 14.7 6.06696 14.6392 6.02935C12.7758 4.87342 10.4494 4.81555 10.0009 4.81555C9.55245 4.81555 7.22461 4.87342 5.36263 6.02935C5.18902 6.13785 4.96043 6.08432 4.85337 5.91072C4.74486 5.73567 4.79839 5.50853 4.97201 5.40003C6.05563 4.72875 7.25354 4.39601 8.22866 4.23253C8.17224 4.0488 8.1216 3.93306 8.11726 3.92293C8.05216 3.77971 7.90603 3.69001 7.74978 3.70592C7.64996 3.71316 5.31778 3.91425 3.82328 5.11647C3.04348 5.83838 1.48242 10.057 1.48242 13.7042C1.48242 13.7693 1.49978 13.8315 1.53161 13.8879C2.608 15.7802 5.54637 16.275 6.21622 16.2967C6.21911 16.2967 6.22345 16.2967 6.22779 16.2967C6.34643 16.2967 6.45783 16.2403 6.52727 16.1448L7.20435 15.2131C5.3771 14.7415 4.44394 13.94 4.39041 13.8923C4.23705 13.7577 4.22258 13.5233 4.35858 13.37C4.49313 13.2166 4.7275 13.2022 4.88086 13.3367C4.90256 13.357 6.62131 14.8153 10.0009 14.8153C13.3864 14.8153 15.1051 13.3512 15.1225 13.3367C15.2758 13.2036 15.5088 13.2166 15.6447 13.3714C15.7793 13.5248 15.7648 13.7577 15.6115 13.8923C15.5579 13.94 14.6248 14.7415 12.7975 15.2131L13.4746 16.1448C13.5441 16.2403 13.6555 16.2967 13.7741 16.2967C13.7784 16.2967 13.7828 16.2967 13.7857 16.2967C14.4555 16.275 17.3939 15.7802 18.4703 13.8879C18.5021 13.8315 18.5195 13.7693 18.5195 13.7042C18.5195 10.057 16.9584 5.83838 16.1583 5.10056ZM7.59353 12.2227C6.87739 12.2227 6.29724 11.5601 6.29724 10.7413C6.29724 9.92246 6.87739 9.25987 7.59353 9.25987C8.30968 9.25987 8.88983 9.92246 8.88983 10.7413C8.88983 11.5601 8.30968 12.2227 7.59353 12.2227ZM12.4083 12.2227C11.6922 12.2227 11.1121 11.5601 11.1121 10.7413C11.1121 9.92246 11.6922 9.25987 12.4083 9.25987C13.1245 9.25987 13.7046 9.92246 13.7046 10.7413C13.7046 11.5601 13.1245 12.2227 12.4083 12.2227Z"/>
   </symbol>

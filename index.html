@@ -6,8 +6,8 @@
   <meta name="viewport"
     content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Cyclone | Making a blockchain world simple. For Everyone</title>
- 
+  <title>Cyclone 1 | Making a blockchain world simple. For Everyone</title>
+
   <meta name="description"
     content="Simplifying blockchain for all with inclusive, AI-powered, and cross-language technology.">
 
@@ -41,23 +41,21 @@
   <link type="text/css" href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
     rel="stylesheet" />
   <link type="text/css" href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" />
-	<link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
   <script type="module" crossorigin src="./js/index.js"></script>
   <link rel="modulepreload" crossorigin href="./assets/modulepreload-polyfill-B5Qt9EMX.js">
   <link rel="modulepreload" crossorigin href="./assets/shared-DyXCX77j.js">
-  <link href="css/index.css" rel="stylesheet" type="text/css">
-  <link href="css/shared.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" crossorigin href="./css/shared.css">
+  <link rel="stylesheet" crossorigin href="./css/index.css">
+	<link href="css/top_menu.css" rel="stylesheet" type="text/css">
+<script src="js/top_menu.js" defer></script>
+	
 </head>
 
 <body>
-  <header class="header">
-  <div class="header__inner container">
-    <a href="index.html" class="header__homepage-link">
-      <img src="./images/cyclone-logo.png" alt="Cyclone Logo" width="170" height="32" class="header__logo" />
-    </a>
-    <div class="header__center">
-      <a href="testnet.html" class="button" data-header-link="testnet">Testnet</a>
-      <div class="header-dropdown">
+<header class="header">
+  <div class="header__inner container"> <a href="index.html" class="header__homepage-link"> <img src="./images/cyclone-logo.png" alt="Cyclone Logo" width="170" height="32" class="header__logo" /> </a>
+    <div class="header__center"> <a href="infinity_drop.html" class="button" data-header-link="testnet">Drop</a>
+      <div class="header-dropdown color-dropdown">
         <input type="checkbox" id="toggle-dropdown" class="dropdown-check" style="display: none;">
         <label for="toggle-dropdown" class="button button_variant_text button_rounded button_icon-only button-desktop">
           <svg width="22" height="22">
@@ -72,80 +70,44 @@
         <div class="header-dropdown__menu desktop">
           <div class="header-dropdown__border">
             <div class="header-dropdown__content">
-              <div class="page-links">
-                <a href="testnet.html"
+              <div class="page-links"> <a href="infinity_drop.html"
                    data-header-link="testnet"
-                  class="button button_rounded button_variant_outlined header-section__button">Testnet</a>
-                <a href="ecosystem.html"
+                  class="button button_rounded button_variant_outlined header-section__button">Drop</a> <a href="ecosystem.html"
                    data-header-link="ecosystem"
-                  class="button button_rounded button_variant_outlined header-section__button">Ecosystem</a>
-
-              </div>
+                  class="button button_rounded button_variant_outlined header-section__button">Ecosystem</a> </div>
               <div class="proj-links">
                 <ul>
-                  <li class="proj-links__li">
-                    <a href="https://docs.cyclonechain.com/" target="_blank" class="proj-links__link">
-                      <svg width="56" height="56">
-                        <use xlink:href="#file-text" />
-                      </svg>
-                      <div>
-                        <span class="proj-links__title">Documents</span>
-                        <span class="proj-links__subtitle secondary-text">
-                          Knowledge base
-                        </span>
-                      </div>
-                    </a>
-                  </li>
-                  <li class="proj-links__li">
-                    <a href="https://discord.gg/vCzbn3AXKv" target="_blank" class="proj-links__link">
-                      <svg width="56" height="56">
-                        <use xlink:href="#users-gradient" />
-                      </svg>
-                      <div>
-                        <span class="proj-links__title">Creators Hub</span>
-                        <span class="proj-links__subtitle secondary-text">
-                          Community
-                        </span>
-                      </div>
-                    </a>
-                  </li>
+                  <li class="proj-links__li"> <a href="https://docs.cyclonechain.com/" target="_blank" class="proj-links__link">
+                    <svg width="56" height="56">
+                      <use xlink:href="#file-text" />
+                    </svg>
+                    <div> <span class="proj-links__title">Documents</span> <span class="proj-links__subtitle secondary-text"> Knowledge base </span> </div>
+                    </a> </li>
+                  <li class="proj-links__li"> <a href="https://discord.gg/vCzbn3AXKv" target="_blank" class="proj-links__link">
+                    <svg width="56" height="56">
+                      <use xlink:href="#users-gradient" />
+                    </svg>
+                    <div> <span class="proj-links__title">Creators Hub</span> <span class="proj-links__subtitle secondary-text"> Community </span> </div>
+                    </a> </li>
                   <li class="proj-links__li">
                     <div class="proj-links__link">
                       <svg width="56" height="56" style="color: var(--cc-color-gray-500);">
                         <use xlink:href="#game" />
                       </svg>
-                      <div>
-                        <span class="proj-links__title">Games Platform</span>
-                        <span class="proj-links__subtitle secondary-text">
-                          Coming soon...
-                        </span>
-                      </div>
+                      <div> <span class="proj-links__title">Games Platform</span> <span class="proj-links__subtitle secondary-text"> Coming soon... </span> </div>
                     </div>
                   </li>
                   <li class="background-button background-button_active background-button_mobile proj-links__li">
-                    <div role="button" data-dialog-button="reservation" class="proj-links__link">
-                      <svg width="56" height="56">
-                        <use xlink:href="#virtual-coin-gradient" />
-                      </svg>
-                      <div>
-                        <span class="proj-links__title">CYCL Coin</span>
-                        <span class="proj-links__subtitle secondary-text">
-                          Early pre-Book
-                        </span>
-                      </div>
+                    <div role="button" data-dialog-button="reservation" class="proj-links__link" onclick="openDialogForm()" > <img src="images/owner_token.png" width="115" height="122" alt="OWNER TOKEN" loading="lazy"/>
+                      <div> <span class="proj-links__title">OWNER TOKEN</span> <span class="proj-links__subtitle secondary-text"><span class="color_text">#COT</span> Rre-Book</span> </div>
                     </div>
                   </li>
                 </ul>
-                <div role="button" data-dialog-button="reservation" class="background-button header-dropdown-background-button">
-                  <div class="header-dropdown-background-button__content">
-                    <svg width="124" height="124">
-                      <use xlink:href="#virtual-coin-gradient" />
-                    </svg>
+                <div role="button" data-dialog-button="reservation" class="background-button header-dropdown-background-button" onclick="openDialogForm()">
+                  <div class="header-dropdown-background-button__content"> <img src="./images/owner_token.png" width="115" height="122" alt="OWNER TOKEN" loading="lazy"/>
                     <div>
-                      <div class="header-dropdown-background-button__title">
-                        CYCL Coin
-                      </div>
-                      <div class="secondary-text">Early pre-Book</div>
+                      <div class="header-dropdown-background-button__title"> OWNER TOKEN </div>
+                      <div class="secondary-text"><span class="color_text">#COT</span> Rre-Book</div>
                     </div>
                   </div>
                 </div>
@@ -154,93 +116,68 @@
                 class="wallet-button button button_disabled button_rounded button_variant_outlined header-section__button">
                 <svg width="21" height="20">
                   <use xlink:href="#logo-cb"></use>
-                </svg>wallet
-                available on PC
-              </div>
+                </svg>
+                wallet
+                available on PC </div>
               <ul class="header-dropdown__footer proj-links-footer">
-                <li>
-                  <a href="https://faucet.cyclonechain.com/" class="proj-links-footer__link">
-                    <svg width="24" height="24" class="icon">
-                      <use xlink:href="#zap-bold" />
-                    </svg>
-                    <span>Faucet</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="http://explorer.cyclonechain.com/" target="_blank" class="proj-links-footer__link">
-                    <svg width="24" height="24" class="icon">
-                      <use xlink:href="#globe" />
-                    </svg>
-                    <span>Explorer</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://github.com/GRANDblockchain/cyclone_release" target="_blank"
+                <li> <a href="https://faucet.cyclonechain.com/" class="proj-links-footer__link">
+                  <svg width="24" height="24" class="icon">
+                    <use xlink:href="#zap-bold" />
+                  </svg>
+                  <span>Faucet</span> </a> </li>
+                <li> <a href="http://explorer.cyclonechain.com/" target="_blank" class="proj-links-footer__link">
+                  <svg width="24" height="24" class="icon">
+                    <use xlink:href="#globe" />
+                  </svg>
+                  <span>Explorer</span> </a> </li>
+                <li> <a href="https://github.com/GRANDblockchain/cyclone_release" target="_blank"
                     class="proj-links-footer__link">
-                    <svg width="24" height="24" class="icon">
-                      <use xlink:href="#download" />
-                    </svg>
-                    <span>Node</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="https://chromewebstore.google.com/detail/cyclone-wallet/caplndhphkmgognmgdeeelefmccbgemk" target="_blank" class="proj-links-footer__link">
-                    <svg width="24" height="24" class="icon">
-                      <use xlink:href="#cycle-coin-outlined" />
-                    </svg>
-                    <span>Wallet</span>
-                  </a>
-                </li>
+                  <svg width="24" height="24" class="icon">
+                    <use xlink:href="#download" />
+                  </svg>
+                  <span>Node</span> </a> </li>
+                <li> <a href="https://chromewebstore.google.com/detail/cyclone-wallet/caplndhphkmgognmgdeeelefmccbgemk" target="_blank" class="proj-links-footer__link">
+                  <svg width="24" height="24" class="icon">
+                    <use xlink:href="#cycle-coin-outlined" />
+                  </svg>
+                  <span>Wallet</span> </a> </li>
               </ul>
-
             </div>
-
           </div>
         </div>
       </div>
-      <a href="ecosystem.html" class="button" data-header-link="ecosystem">Ecosystem</a>
-    </div>
+      <a href="ecosystem.html" class="button" data-header-link="ecosystem">Ecosystem</a> </div>
     <div class="header__right">
-      <div class="header-dropdown extension-dropdown">
-        <span class="button button_variant_outlined button_rounded header__button-wallet">
-          <svg width="20" height="20">
-            <use xlink:href="#cycle-coin" />
-          </svg>
-          Wallet
-        </span>
-        <div class="header-dropdown__menu">
+      <div class="header-dropdown extension-dropdown"> <span class="button button_variant_outlined button_rounded header__button-wallet">
+        <svg width="20" height="20">
+          <use xlink:href="#cycle-coin" />
+        </svg>
+        Wallet </span>
+        <div class="header-dropdown__menu padding_testnet">
           <div class="header-dropdown__border">
             <div class="header-dropdown__content">
               <div class="secondary-text" style="margin-bottom: 5px">Testnet version</div>
               <a href="https://chromewebstore.google.com/detail/cyclone-wallet/caplndhphkmgognmgdeeelefmccbgemk" target="_blank" class="background-button wallet-background-button header-dropdown-background-button">
-                <div class="wallet-background-button__content">
-                  <div class="wallet-background-button__coin-n-chrome">
-                    <svg width="124" height="124">
-                      <use xlink:href="#cycle-coin" />
-                    </svg>
-                    <img src="./images/chrome-logo.png" alt="Chrome" width="20" height="20"
-                      class="wallet-background-button__chrome-icon" />
-                  </div>
-                  <div>
-                    <div class="wallet-background-button__title">
-                      Install
-                    </div>
-                    <div class="secondary-text" style="margin-top: 4px">
-                      for Google Chrome
-                    </div>
-                  </div>
+              <div class="wallet-background-button__content">
+                <div class="wallet-background-button__coin-n-chrome">
+                  <svg width="124" height="124">
+                    <use xlink:href="#cycle-coin" />
+                  </svg>
+                  <img src="images/chrome-logo.png" alt="Chrome" width="20" height="20"
+                      class="wallet-background-button__chrome-icon" /> </div>
+                <div>
+                  <div class="wallet-background-button__title"> Install </div>
+                  <div class="secondary-text" style="margin-top: 4px"> for Google Chrome </div>
                 </div>
+              </div>
               </a>
               <ul class="header-dropdown__footer" style="justify-content: center">
-                <li>
-                  <a href="https://discord.gg/vCzbn3AXKv" target="_blank"
+                <li> <a href="https://discord.gg/vCzbn3AXKv" target="_blank"
                     class="proj-links-footer__link">
-                    <svg width="24" height="24" class="icon">
-                      <use xlink:href="#info" />
-                    </svg>
-                    <span>Help</span>
-                  </a>
-                </li>
+                  <svg width="24" height="24" class="icon">
+                    <use xlink:href="#info" />
+                  </svg>
+                  <span>Help</span> </a> </li>
               </ul>
             </div>
           </div>
@@ -248,7 +185,6 @@
       </div>
     </div>
   </div>
-
 </header>
 
   <main class="main">
@@ -256,7 +192,7 @@
   <div class="header-section__inner">
     <div class="main-legend header-section__legend">the Layer 1</div>
     <h1 class="h1 header-section__title">
-      <span>Paradigm</span>
+      <span>Cutting-edge</span>
       <span class="header-section__highlight">Blockchain Technology</span>
     </h1>
     <div class="header-section__buttons">
@@ -301,18 +237,16 @@
 					</svg>
 				</div>
 				<div>
-				  <h4 class="h4 background-button__title">Barrier-free Interactions</h4>
+				  <h4 class="h4 background-button__title">Balanced Coin</h4>
 				  <p class="text-body1 secondary-text">
-					
-					World's first ML
-					<b>Balanced</b>
-					Cryptocurrency.
+
+					World's first Self-Regulating Cryptocurrency.
 				  </p>
 				</div>
 			  </div>
 			  <div class="game-changer-section__link-mobile">
 				<div class="block-with-icon">
-				  <h4 class="h4 background-button__title">Barrier-free Interactions</h4>
+				  <h4 class="h4 background-button__title">Balanced Coin</h4>
 				  <div class="icon-circle">
 					  <svg width="36" height="36">
 						  <use xlink:href="#virtual-coin-bold" />
@@ -321,7 +255,7 @@
 				</div>
 				<div class="block-with-text">
 				  <p class="text-body1 secondary-text">
-					
+
 					World's first ML
 					<b>Balanced</b>
 					Cryptocurrency.
@@ -329,7 +263,7 @@
 				</div>
 			  </div>
 		</a>
-       
+
       </div>
       <div class="background-button background-button_hover-disabled game-changer-section__link">
         <div class="game-changer-section__link-desktop">
@@ -339,7 +273,7 @@
 			  </svg>
           </div>
           <div>
-            <h4 class="h4 background-button__title">Balance Coin</h4>
+            <h4 class="h4 background-button__title">Barrier-free Interactions </h4>
             <p class="text-body1 secondary-text">
 				Forget about all the complexities with coins &amp; fees.
             </p>
@@ -347,9 +281,9 @@
         </div>
         <div class="game-changer-section__link-mobile">
           <div class="block-with-icon">
-            <h4 class="h4 background-button__title">Balance Coin</h4>
+            <h4 class="h4 background-button__title">Barrier-free Interactions</h4>
             <div class="icon-circle">
-              
+
 			  <svg width="36" height="36">
                 <use xlink:href="#zap" />
               </svg>
@@ -443,7 +377,7 @@
 			<div class="features-section__row">
 				<div class="features-section__image">
 					<div>
-						<h3 class="h3">Balance COIN</h3>
+						<h3 class="h3">Balanced COIN</h3>
 						<p class="subheader features-section__description">
 							Dynamic Emission Model (CEM)
 						</p>
@@ -520,7 +454,7 @@
 								<p class="text-body1">
 									Cyclone enables interaction with the network without the need to own the native coin, completely
 									removing the entry barrier for new experienced users and eliminating all complexity for beginners.
-									We've rid the world of these limitations!Fees can be paid in any tokens you prefer, for maximum
+									We've rid the world of these limitations! Fees can be paid in any tokens you prefer, for maximum
 									flexibility and convenience.
 								</p>
 							</div>
@@ -2106,7 +2040,7 @@
           </svg>
           <span class="numbers-section__label">
             Total CYCL coins
-            <button type="button" data-dialog-button="coins" class="numbers-section__booked">booked</button>
+            <button type="button"  class="numbers-section__booked">booked</button>
           </span>
         </div>
         <div class="numbers-section__number">
@@ -2175,7 +2109,7 @@
             <br />
             to receive a reward and more...
           </p>
-          <a href="testnet.html" class="button next-button numbers-section__next-button">
+          <a href="infinity_drop.html" class="button next-button numbers-section__next-button">
             Join the Game
             <svg width="20" height="20">
               <use xlink:href="#arrow-right" />
@@ -2465,7 +2399,7 @@
       </svg>
     </div>
     <div class="join-section__links">
-      <a href="testnet.html" target="_blank" class="background-button join-section__background-button">
+      <a href="infinity_drop.html" target="_blank" class="background-button join-section__background-button">
         <div class="icon-circle">
           <svg width="36" height="36">
             <use xlink:href="#corner-down-right" />
@@ -2511,7 +2445,7 @@
           <span class="text-body2 footer__heading">Main info</span>
           <ul class="footer__ul">
             <li>
-              <a href="testnet.html" class="footer__link">Testnet</a>
+              <a href="infinity_drop.html" class="footer__link">Drop</a>
             </li>
             <li>
               <a href="https://docs.cyclonechain.com/" target="_blank" class="footer__link">Documents</a>
@@ -3429,152 +3363,123 @@
 	<div class="dialog__overlay" data-dialog-overlay="true"></div>
 </div>
 
-	<div class="dialog reservation-dialog" data-dialog="reservation" data-dialog-opened="false">
-	<div class="dialog__content">
-		<div class="dialog__dialog reservation-dialog__dialog">
-			<div class="dialog__border">
-				<div class="dialog__inner">
-					<div class="dialog__header">
-						<h3 class="h3 text-center">CYCL Reservation</h3>
-						<div role="button" class="dialog__close" data-dialog-close="reservation">
-							<svg width="24" height="24" class="icon">
-								<use xlink:href="#close"/>
-							</svg>
-						</div>
-					</div>
-					<div class="reservation-dialog__reserved" style="display:none;">
-						<div class="reservation-dialog__reserved-block">
-							<div class="reservation-dialog__icon-circle">
-								<svg width="66" height="66">
-									<use xlink:href="#done"></use>
-								</svg>
-							</div>
-							<h4 class="h4 text-center reservation-dialog__reserved-title">Wallets that have placed a pre-order will
-								receive a 72-hour head start to purchase wrapped CYCL Coins
-								before the official sales begin.</h4>
-						</div>
-						<p class="secondary-text text-body1 text-center" style="margin-top:13px;">Stay tuned with us to not miss out yor moment.</p>
-						<a href="https://x.com/Cyclone_Chain" target="_blank" class="button button_variant_outlined button_rounded" style="--width:410px;margin:15px auto 0;">
-							<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-								<g clip-path="url(#clip0_26_164)">
-									<path
+<div class="dialog reservation-dialog" id="openDialog" >
+  <div class="dialog__content">
+    <div class="dialog__dialog reservation-dialog__dialog">
+      <div class="dialog__border">
+        <div class="dialog__inner">
+          <div class="reservation-dialog__reserved top_30 not-active" data-dialog-sucsess>
+            <div class="dialog__header">
+              <div>&nbsp;</div>
+              <h3 class="h3 text-center"><span class="color_text">#COT</span> Reservation</h3>
+              <div role="button" class="dialog__close" data-dialog-close="reservation" onclick="closeDialofForm()">
+                <svg width="24" height="24" class="icon">
+                  <use xlink:href="#close"/>
+                </svg>
+              </div>
+            </div>
+            <div class="reservation-dialog__reserved-block top_90">
+              <div class="reservation-dialog__icon-circle">
+                <svg width="66" height="66">
+                  <use xlink:href="#done"></use>
+                </svg>
+              </div>
+              <h4 class="h4 text-center reservation-dialog__reserved-title">Wallets that have placed a pre-order will receive a 48-hour head start to purchase wrapped #COT  before the official sales begin.</h4>
+            </div>
+            <p class="secondary-text text-body1 text-center" style="margin-top:13px;"> Stay tuned with us to not miss out yor moment.</p>
+            <a href="https://x.com/Cyclone_Chain" target="_blank" class="button button_variant_outlined button_rounded" style="--width:410px;margin:15px auto 0;">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <g clip-path="url(#clip0_26_164)">
+                <path
 										d="M15.7333 0H18.8L12.0666 8.48708L19.9333 20H13.76L8.92664 13.0037L3.3933 20H0.326636L7.45997 10.9225L-0.0733643 0H6.2533L10.62 6.39114L15.7333 0ZM14.66 18.0074H16.36L5.35997 1.91882H3.5333L14.66 18.0074Z"
 										fill="url(#paint0_linear_26_164)"/>
-								</g>
-								<defs>
-									<linearGradient id="paint0_linear_26_164" x1="0.143897" y1="10.9381" x2="14.18" y2="3.33557"
+              </g>
+              <defs>
+                <linearGradient id="paint0_linear_26_164" x1="0.143897" y1="10.9381" x2="14.18" y2="3.33557"
 									                gradientUnits="userSpaceOnUse">
-										<stop stop-color="#ED1FFF"/>
-										<stop offset="0.164386" stop-color="#7867FC"/>
-										<stop offset="0.292124" stop-color="#46B5D4"/>
-										<stop offset="0.463949" stop-color="#24FCDC"/>
-										<stop offset="0.820802" stop-color="#52FA54"/>
-										<stop offset="1" stop-color="#F5923C"/>
-									</linearGradient>
-									<clipPath id="clip0_26_164">
-										<rect width="20" height="20" fill="white"/>
-									</clipPath>
-								</defs>
-							</svg>
-							<span>Tell the world that it has changed!</span>
-						</a>
-						<p class="secondary-text text-body2 text-center" style="margin-top: 21px">"In a time of deceit, telling the truth is a revolutionary act." - George Orwell</p>
-					</div>
-					<div class="subheader text-center" style="margin-top:10px;">Secure Your Spot Early – <span class="primary">No Payment Required!</span>
-					</div>
-					<div class="reservation-dialog__body">
-						<form id="reservation-form" class="reservation-dialog__column reservation-dialog__form">
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Name \ Nickname" name="name">
-							</div>
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="email" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Your email" name="email">
-							</div>
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="number" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Quantity*" required name="quantity">
-							</div>
-							<div class="input">
-								<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" class="input__border">
-									<rect
-										class="input__rect"
-										width="100%"
-										height="100%"
-										fill="none"
-										stroke-width="2"
-										stroke="url(#input-gradient)"
-										rx="8"
-									/>
-								</svg>
-								<input type="text" autocomplete="off" autocapitalize="off" spellcheck="false" class="input__input" placeholder="Cyclone Wallet Address*" required minlength="33" name="address">
-							</div>
-							<button type="submit" class="button button_variant_primary button_rounded reservation-dialog__submit">
-								Reservation
-							</button>
-						</form>
-						<div class="reservation-dialog__column reservation-dialog__inf">
-							<h4 class="h4">Gain a Head Start Before Official Sales Launch.</h4>
-							<div class="reservation-dialog__texts">
-								<p class="text-body2 secondary-text">We respect your anonymous right, so these fields are optional. However,
-									if you want us to keep you informed
-									about the key events, please fill them out!
-								</p>
-								<p class="text-body2 secondary-text"><a
-									href="https://docs.cyclonechain.com/gamechanging/economics/cycl-coin" target="_blank" class="reservation-dialog__cycl">#CYCL</a>
-									is a new <a href="https://docs.cyclonechain.com/gamechanging/economics/cycl-coin"
-									            target="_blank"
-									            class="reservation-dialog__currency">Balanced Cryptocurrency, and Universal intercurrences
-										unit</a> of Cyclone Chain.</p>
-								<p class="text-body2 secondary-text">Before the MAINNET launch, we will offer the opportunity to purchase it
-									at a discount for those who have
-									reserved it.</p>
-							</div>
-							<button type="button" data-dialog-button="wallet" data-dialog-close="reservation"
-							        class="button button_variant_outlined button_rounded reservation-dialog__wallet-button">
-								<svg width="20" height="20">
-									<use xlink:href="#cycle-coin"/>
-								</svg>
-								Create wallet
-							</button>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="dialog__overlay" data-dialog-overlay="true"></div>
+                  <stop stop-color="#ED1FFF"/>
+                  <stop offset="0.164386" stop-color="#7867FC"/>
+                  <stop offset="0.292124" stop-color="#46B5D4"/>
+                  <stop offset="0.463949" stop-color="#24FCDC"/>
+                  <stop offset="0.820802" stop-color="#52FA54"/>
+                  <stop offset="1" stop-color="#F5923C"/>
+                </linearGradient>
+                <clipPath id="clip0_26_164">
+                  <rect width="20" height="20" fill="white"/>
+                </clipPath>
+              </defs>
+            </svg>
+            <span>Cyclone_Chain</span> </a> </div>
+          <div class="reservation-dialog_form" data-dialog-form>
+            <div class="dialog__header">
+              <div>&nbsp;</div>
+              <h3 class="h3 text-center"><span class="color_text">#COT</span> Reservation</h3>
+              <div role="button" class="dialog__close" data-dialog-close="reservation" onclick="closeDialofForm()">
+                <svg width="24" height="24" class="icon">
+                  <use xlink:href="#close"/>
+                </svg>
+              </div>
+            </div>
+            <div class="subheader text-center" style="margin-top:10px;">Secure Your Spot Early – <span class="primary">No Payment Required!</span> </div>
+            <div class="reservation-dialog__body">
+              <form id="reservation-form" class="reservation-dialog__column reservation-dialog__form">
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p>Name</p>
+                    <input  type="text" class="dialog__input_field" data-input-dialog="name" name="name" placeholder="Name \ Nickname">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p>Email</p>
+                    <input  type="email" class="dialog__input_field" data-input-dialog="email" name="email" placeholder="Your email">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p><span class="red"><sup>*</sup></span>COT Quantity</p>
+                    <input required  type="text" class="dialog__input_field" data-input-dialog="quantity" name="quantity" placeholder="COT Quantity">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p><span class="red"><sup>*</sup></span>EVM Wallet</p>
+                    <input required  type="text" class="dialog__input_field"  minlength="42" data-input-dialog="evm_adress" name="evm_adress" placeholder="EVM Wallet Address (Ethereum, Polygon)">
+                  </lable>
+                </div>
+                <div class="dialog__input_form">
+                  <lable class="placeholder-box">
+                    <p><span class="red"><sup>*</sup></span>Cyclone Wallet Address</p>
+                    <input required  type="text" class="dialog__input_field"  minlength="33" data-input-dialog="wallet_adress" name="wallet_adress" placeholder="Cyclone Wallet Address">
+                  </lable>
+                </div>
+                <button type="submit" class="button button_variant_primary button_rounded reservation-dialog__submit"> Reservation </button>
+              </form>
+              <div class="reservation-dialog__column reservation-dialog__inf">
+                <div class="reservation-dialog__texts">
+                  <p class="text-body2 secondary-text">We respect your anonymous right, so personal fields are optional. However, if you want us to keep you informed about the key events, please fill them out! </p>
+                  <a href="https://docs.cyclonechain.com/gamechanging/economics/cot-token-and-validators" class="owner_token"> <img src="images/owner_token.png" width="126" height="127" alt=""/>
+<h4 class="h4"><span class="color_text">Cyclone <br>
+                    Owner Token</span></h4>
+                  </a>
+                  <p class="text-body2 secondary-text"><a
+									href="https://docs.cyclonechain.com/gamechanging/economics/cycl-coin" target="_blank" class="reservation-dialog__cycl">#COT</a> confirms your ownership of a part of the validator license and consequently, a share of the profits from all transactions in the network.</p>
+                  <p class="text-body2 secondary-text"> COT will be minted as wrapped (Polygon network). You will be able to exchange the wrapped COTs for the original counterpart in the Cyclone network after the Mainnet launch.</p>
+                </div>
+                <a href="https://chromewebstore.google.com/detail/cyclone-wallet/caplndhphkmgognmgdeeelefmccbgemk" data-dialog-button="wallet" data-dialog-close="reservation"
+				class="button button_variant_outlined button_rounded reservation-dialog__wallet-button" target="_blank">
+                <svg width="20" height="20">
+                  <use xlink:href="#cycle-coin"/>
+                </svg>
+                Create wallet </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dialog__overlay" data-dialog-overlay="true"></div>
 </div>
 
 </div>

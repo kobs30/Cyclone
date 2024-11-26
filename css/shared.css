@@ -26,7 +26,8 @@
     --cc-font-family: "Inter", sans-serif;
     --cc-font-family-secondary: "Audiowide", sans-serif;
 	--cc-font-family-tertiary: "Abel", sans-serif;
-    --cc-layout-width: 1280px
+    --cc-layout-width: 1280px;
+	--cc-gradient: linear-gradient(136deg, rgba(12,246,157,1) 0%, rgba(169,98,255,1) 100%);
 }
 
 .button {
@@ -148,6 +149,7 @@
 
 .header-dropdown .header-dropdown-background-button {
     background-color: var(--cc-color-gray-800)
+		
 }
 
 .header-dropdown:hover .header-dropdown__menu {
@@ -602,7 +604,8 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    column-gap: 24px
+    column-gap: 24px;
+	 
 }
 
 .tabs__centered {
@@ -622,7 +625,9 @@
     text-transform: uppercase;
     font-family: var(--cc-font-family-secondary);
     color: var(--cc-color-gray-300);
-    cursor: pointer
+    cursor: pointer;
+ 
+	 
 }
 
 .tabs__radio {

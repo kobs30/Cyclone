@@ -1,0 +1,266 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cc-background);
+  z-index: 1000;
+  height: 80px;
+  &__inner_container {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: $width-desktop;
+    margin: 0 30px;
+    height: 100%;
+  }
+  &__inner_container .header__logo {
+    align-self: center;
+  }
+
+  &__center {
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap: 20px;
+    align-self: center;
+    justify-self: center;
+    @include text(
+      var(--font-audiowide),
+      1.4rem,
+      300,
+      uppercase,
+      var(--cc-white)
+    );
+  }
+	&__center a{
+		align-self: center;
+		justify-self: center;
+	}
+  &__center a:first-child {
+    align-self: center;
+    justify-self: flex-end;
+  }
+  &__center a:last-child {
+    align-self: center;
+    justify-self: flex-start;
+  }
+  &__center a:hover {
+    color: var(--cc-color-primary);
+  }
+  .color-button {
+    justify-self: center;
+    width: 50px;
+    aspect-ratio: 1;
+    background: #000 url("../images/svg/points.svg") 50% 50% no-repeat;
+    border-radius: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+  }
+  .header-dropdown:hover .color-button {
+    cursor: pointer;
+    background: var(--cc-color-gray-600) url("../images/svg/points.svg") 50% 50%
+      no-repeat;
+  }
+
+  .color-button::before {
+    content: "";
+    position: absolute;
+    padding: 2px;
+    width: 50px;
+    aspect-ratio: 1;
+    background: var(--cc-bolt);
+    border-radius: 36px;
+    z-index: -1;
+  }
+  .header-dropdown {
+    position: relative;
+    justify-self: center;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+  }
+  .header-dropdown:hover {
+    cursor: pointer;
+  }
+  .header-dropdown-menu:hover {
+    display: flex;
+  }
+  .header-dropdown:hover .header-dropdown-menu {
+    display: flex;
+  }
+  .header-dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 60px;
+    padding: 1px;
+    border-radius: 0 0 35px 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 24px;
+    background-image: linear-gradient(transparent, var(--cc-color-primary));
+    width: max-content;
+    margin-top: 2px;
+  }
+  .menu-inner {
+    background-color: var(--cc-background);
+    border-radius: 0 0 35px 35px;
+    padding: 31px;
+  }
+  .inner-container {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 100%;
+    a {
+      justify-self: flex-start;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      span {
+        display: block;
+        @include text(
+          var(--font-inter),
+          1.4rem,
+          300,
+          none,
+          var(--cc-color-gray-400)
+        );
+      }
+    }
+    .buttons_mobile {
+      display: none;
+    }
+    .documents {
+      grid-area: 1 / 1 / 2 / 3;
+    }
+    .creators {
+      grid-area: 2 / 1 / 3 / 3;
+    }
+    .games {
+      grid-area: 3 / 1 / 4 / 3;
+    }
+
+    .open_dialog {
+      margin: 20px 0 20px 30px;
+      grid-area: 1 / 3 / 4 / 5;
+      @include violet-block;
+    }
+    .wallet_aviable_mobile {
+      display: none;
+    }
+    .bottom_links {
+      grid-area: 4 / 1 / 5 / 5;
+      border-top: 1px solid var(--cc-color-gray-600);
+      margin-top: 20px;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      justify-items: center;
+    }
+    .bottom_links a:last-child {
+      justify-self: flex-end;
+    }
+    .bottom_links a:nth-child(2),
+    .bottom_links a:nth-child(3) {
+      justify-self: center;
+    }
+  }
+  &__wallet {
+    align-self: center;
+    justify-self: flex-end;
+    position: relative;
+  }
+  &__wallet:hover span.header__wallet_button {
+    cursor: pointer;
+    background: var(--cc-color-gray-600);
+  }
+  &__wallet:hover &__dropdown_wallet {
+    display: block;
+  }
+  &__dropdown_wallet {
+    display: none;
+    height: auto;
+    position: absolute;
+    width: 100%;
+    padding: 1px;
+    border-radius: 0 0 35px 35px;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: 24px;
+    background: var(--cc-border-gradient);
+  }
+  &__dropdown_inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background: var(--cc-background);
+    border-radius: 0 0 35px 35px;
+    padding-top: 19px;
+    box-sizing: border-box;
+  }
+  &__wallet_button {
+    @include button(auto, inherit, 9px 91px, var(--cc-background));
+    @include text(
+      var(--font-audiowide),
+      1.4rem,
+      300,
+      uppercase,
+      var(--cc-white)
+    );
+    gap: 10px;
+    align-self: center;
+    border: 1px solid var(--cc-color-gray-600) !important;
+  }
+  &__wallet_button img {
+    margin-top: 1px;
+  }
+  .wallet_install {
+    @include violet-block;
+    margin: 5px 0 30px 0;
+  }
+
+  .wallet_install::after {
+    content: "";
+    margin-left: 70px;
+    background-size: 100% !important;
+    position: absolute;
+    width: 20px;
+    aspect-ratio: 1;
+    background: url(../images/chrome-logo.png) no-repeat;
+  }
+
+  .help {
+    padding: 20px 0;
+    border-top: 1px solid var(--cc-color-gray-600);
+    width: 216px;
+    @include text(var(--font-inter), 1.4rem, 300, none, var(--cc-white));
+    text-align: center;
+    background: url("../images/svg/info.svg") 40% 50% no-repeat;
+    margin-bottom: 10px;
+  }
+  .help a {
+    padding-left: 30px;
+  }
+  .help a:hover {
+    color: var(--cc-color-primary);
+  }
+  .drop__overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--cc-background);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+}

@@ -18,19 +18,17 @@ h5 {
   text-transform: uppercase;
   line-height: 24px;
 }
-.active{
-	display: block!important;
+.active {
+  display: block !important;
 }
- 
 .bottom_10 {
   margin-bottom: 10px;
 }
 .bottom_50 {
   margin-bottom: 50px !important;
 }
-.top-16{
-	margin-top: -16px;
-	
+.top-16 {
+  margin-top: -16px;
 }
 .align_right {
   text-align: right;
@@ -134,7 +132,6 @@ h5 {
   justify-content: center;
   padding: 8px 0;
 }
-
 .arrow_left {
   width: 10%;
   height: 12px;
@@ -146,10 +143,9 @@ h5 {
   height: 12px;
   background: url("../images/cyclone_table/arrow_right.svg")50% 50% no-repeat;
   margin: 35px 0 0 0;
-	
 }
-.arrow_left:hover, .arrow_right:hover{
-	cursor: pointer;
+.arrow_left:hover, .arrow_right:hover {
+  cursor: pointer;
 }
 .content_center {
   width: 80%;
@@ -159,8 +155,7 @@ h5 {
   font-weight: 300;
   color: var(--cc-color-gray-400);
   line-height: 24px;
-	display: none;
-  
+  display: none;
 }
 .container-statistic {
   display: flex;
@@ -349,7 +344,7 @@ h5 {
   left: 0;
   right: 0;
   bottom: 0;
-	background-color: var(--cc-color-gray-500);
+  background-color: var(--cc-color-gray-500);
   -webkit-transition: .4s;
   transition: .4s;
 }
@@ -379,7 +374,7 @@ input:checked + .slider:before {
   display: flex;
   justify-content: flex-end;
   position: relative;
-  top:-65px;
+  top: -65px;
   margin-left: 600px;
 }
 .toggle p {
@@ -397,11 +392,10 @@ input:checked + .slider:before {
 .slider.round:before {
   border-radius: 50%;
 }
-
 .table, .row {
   display: flex;
   flex-wrap: wrap;
-	    justify-content: space-between;
+  justify-content: space-between;
   background: #17212e;
   border-bottom: 1px solid rgba(29, 41, 57, 1);
   color: var(--cc-color-gray-400);
@@ -410,9 +404,7 @@ input:checked + .slider:before {
   font-weight: 300;
   transition: .3s;
 }
-.table{
-	 
-}
+.table {}
 a.row:hover {
   background-color: var(--cc-color-violet);
   color: #fff;
@@ -421,12 +413,12 @@ a.row:hover {
   padding: 12px 20px;
 }
 .cell:nth-child(1) {
-  width: 10%!important;
+  width: 10% !important;
 }
 .last .cell:nth-child(1) {
-  width: 33%!important;
+  width: 33% !important;
 }
-.container_right-table .cell{
+.container_right-table .cell {
   width: 30%;
 }
 .container_right-table .row {
@@ -435,8 +427,7 @@ a.row:hover {
   width: 100%;
 }
 .container_right-table {
-   width: 100%;
-	 
+  width: 100%;
 }
 .row:nth-child(1) {
   background: rgba(29, 41, 57, 1);
@@ -591,7 +582,7 @@ a.row:hover {
   font-size: 14px;
   line-height: 16px;
   color: #aaa;
-	white-space: nowrap
+  white-space: nowrap
 }
 .main-site p {
   display: inline-block;
@@ -976,12 +967,12 @@ a.row:hover {
     display: none;
   }
   .toggle {
-        margin-left: 0;
-        display: flex;
-        position: inherit;
-        margin-bottom: 50px;
-        justify-content: flex-start;
-       align-items: center;
+    margin-left: 0;
+    display: flex;
+    position: inherit;
+    margin-bottom: 50px;
+    justify-content: flex-start;
+    align-items: center;
   }
   .toggle p {
     margin: 0 0 0 20px;
@@ -999,18 +990,17 @@ a.row:hover {
   .tabs {
     gap: 20px;
   }
-	.toggle {
-        margin-left: 0;
-        display: flex;
-        position: inherit;
-        margin-bottom: 50px;
-        justify-content: flex-start;
-       align-items: center;
+  .toggle {
+    margin-left: 0;
+    display: flex;
+    position: inherit;
+    margin-bottom: 50px;
+    justify-content: flex-start;
+    align-items: center;
   }
   .toggle p {
     margin: 0 0 0 20px;
   }
-
   .container_left li {
     margin-bottom: 10px !important;
   }
@@ -1059,21 +1049,17 @@ a.row:hover {
   }
 }
 @media screen and (max-width: 495px) and (min-width: 0px) {
-.statistic-repost .statistic-tooltip,	.statistic-message .statistic-tooltip{
-		    margin-left: -80px;
+  .statistic-repost .statistic-tooltip, .statistic-message .statistic-tooltip {
+    margin-left: -80px;
     margin-right: 10px;
-	}
-	  .toggle {
+  }
+  .toggle {
     margin-left: 0;
   }
-  .toggle p {
-	  
-	}
- 
-	.last .cell:nth-child(1), .container_right-table .cell{
-		width: auto!important;
-	}
- 
+  .toggle p {}
+  .last .cell:nth-child(1), .container_right-table .cell {
+    width: auto !important;
+  }
   .icon-item:nth-child(4) {
     justify-content: center;
   }
@@ -1087,7 +1073,7 @@ a.row:hover {
     width: auto !important;
     word-wrap: break-word !important;
     text-overflow: ellipsis;
-	  padding: 10px 5px!important;
+    padding: 10px 5px !important;
   }
   main {
     /*		height: 640px;*/

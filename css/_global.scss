@@ -1,0 +1,88 @@
+// Scss Document
+html {
+  font-size: 62.5%;
+}
+body {
+  @include text(var(--font-inter), 1.8rem, 300, none, var(--cc-white));
+  white-space: normal;
+  text-align: left;
+  background: var(--cc-color-ink-darkest);
+}
+h1 {
+  @include text(var(--font-inter), 6.4rem, 800, none, var(--cc-white));
+  white-space: normal;
+}
+h2 {
+  @include text(var(--font-inter), 4.2rem, 600, none, var(--cc-white));
+  white-space: normal;
+}
+h3 {
+  @include text(var(--font-inter), 3.2rem, 600, none, var(--cc-white));
+  white-space: normal;
+}
+h4 {
+  @include text(var(--font-audiowide), 1.4rem, 500, uppercase, var(--cc-white));
+  white-space: normal;
+}
+h5 {
+  @include text(var(--font-abel), 3.2rem, 300, none, var(--cc-color-gray-300));
+  white-space: normal;
+}
+h6 {
+  @include text(var(--font-inter), 1.4rem, 300, none, var(--cc-color-gray-300));
+  white-space: normal;
+}
+a {
+  text-decoration: none;
+  transition: 0.3s;
+  color: inherit;
+}
+.text-linear {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(30deg, rgba(237, 31, 255, 1) 0%, rgba(120, 103, 252, 1) 16%, rgba(70, 181, 212, 1) 29%, rgba(36, 252, 220, 1) 46%, rgba(82, 250, 84, 1) 82%, rgba(245, 146, 60, 1) 100%);
+}
+.text-bolt {
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-image: linear-gradient(185deg, rgba(50, 197, 255, 0.46508703579087884) 0%, rgba(182, 32, 224, 1) 20%, rgba(247, 181, 0, 1) 100%);
+}
+.text-gradient {
+  color: rgba(95, 168, 209, 1);
+}
+.italic {
+  @include text(var(--font-inter), 1.4rem, 500, none, var(--cc-color-gray-500));
+  white-space: normal;
+  text-align: center;
+  font-style: italic;
+}
+.text-green {
+  color: var(--cc-color-primary);
+}
+.text-center{
+	text-align: center;
+}
+.secondary-text{
+	  @include text(var(--font-inter), 1.4rem, 300, none, var(--cc-color-gray-400));
+  white-space: normal;
+}
+.color_text{
+	-webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(185deg, rgba(50, 197, 255, 0.46508703579087884) 0%, rgba(182, 32, 224, 1) 20%, rgba(247, 181, 0, 1) 100%);
+}
+.bottom_10{
+	margin-bottom: 10px;
+}
+.bottom_20{
+	margin-bottom: 20px;
+}
+.red{
+	color: #ff0000;
+}
+.top_10{
+	margin-top: 10px;
+}
